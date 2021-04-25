@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    /* Error */
+    --error-primary: #D90429;
+    --error-secondary: #E56932;
+    --error-tertiary: #E6842D;
+    --error-quaternary: #F39541;
+    --error-quinary: #F49C4D;
+
+    /* Warning */
+    --warning-primary: #FDB832;
+    --warning-secondary: #FDD032;
+    --warning-tertiary: #FCF13B;
+    --warning-quaternary: #DAFC3B;
+    --warning-quinary: #C9FF7B;
+
+    /* Valid */
+    --valid-primary: #00D71A;
+    --valid-secondary: #00E772;
+    --valid-tertiary: #00D784;
+    --valid-quaternary: #45E3A6;
+    --valid-quinary: #94F1CE;
+
+    /* Black */
+    --black-primary: #2B2D42;
+    --black-secondary: #232541;
+    --black-tertiary: #15183A;
+    --black-quaternary: #060930;
+    --black-quinary: #000000;
+
+    /* Grey */
+    --grey-primary: #8D99AE;
+    --grey-secondary: #7F8CA2;
+    --grey-tertiary: #6D788C;
+    --grey-quaternary: #4C5667;
+    --grey-quinary: #343B46;
+
+    /* White */
+    --white-primary: #EDF2F4;
+    --white-secondary: #D9E3E7;
+    --white-tertiary: #B7C2C6;
+    --white-quaternary: #A3A4A5;
+    --white-quinary: #767676;
+
+    /* Main */
+    --main-primary: #015FFF;
+    --main-secondary: #0054E6;
+    --main-tertiary: #0046BF;
+    --main-quaternary: #002F80;
+    --main-quinary: #001740;
+}
+
+nav {
+    width: 70%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.navbar-button {}
+
+.navbar-logo {}
