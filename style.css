@@ -98,12 +98,10 @@
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
   border-radius: 5px;
-  border-image-source: linear-gradient(
-    to top,
-    var(--white-primary),
-    var(--grey-quaternary),
-    var(--white-primary)
-  );
+  border-image-source: linear-gradient(to top,
+      var(--white-primary),
+      var(--grey-quaternary),
+      var(--white-primary));
   border-image-slice: 5;
 }
 
@@ -121,9 +119,10 @@
 */
 
 header {
+  position: relative;
   margin-top: 140px;
   width: 100%;
-  height: 700px;
+  max-height: 700px;
   overflow: hidden;
   text-align: center;
   vertical-align: middle;
@@ -175,7 +174,7 @@ header {
 .text-presentation {
   width: 90%;
   font-size: 22px;
-  margin: 5px 0;
+  margin: 5px auto;
   text-align: center;
   color: var(--black-primary);
 
@@ -239,7 +238,7 @@ li {
 /*
  *
  * ---------
- *  CONTENT
+ *  FOOTER
  * ---------
  *
 */
@@ -266,14 +265,12 @@ footer {
   flex-direction: column;
   padding: 0 40px;
   border-left: 2px solid transparent;
-  border-image-source: linear-gradient(
-    to top,
-    var(--white-primary),
-    var(--grey-quaternary),
-    var(--grey-quaternary),
-    var(--white-primary),
-    var(--white-primary)
-  );
+  border-image-source: linear-gradient(to top,
+      var(--white-primary),
+      var(--grey-quaternary),
+      var(--grey-quaternary),
+      var(--white-primary),
+      var(--white-primary));
   border-image-slice: 5;
 }
 
@@ -338,4 +335,65 @@ footer {
   padding: 50px 0 20px;
   color: var(--black-quinary);
   font-size: 14px;
+}
+
+/*
+ *
+ * ---------
+ *  SMALL SIZE
+ * ---------
+ *
+*/
+
+@media screen and (max-width: 1100px) {
+
+  .page-container,
+  .navbar {
+    width: 90%;
+  }
+
+  #omelia-header {
+    font-size: 125px;
+  }
+
+  #footer-leftblock,
+  #footer-rightblock {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar-link {
+    font-size: 15px;
+    padding: 10px 50px;
+  }
+
+  #omelia-header {
+    font-size: 75px;
+  }
+
+  .section-container {
+    flex-direction: column;
+    margin: 100px 0;
+  }
+
+  .text-section, .text-section p {
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #footer-contact {
+    flex-direction: column;
+  }
+
+  #footer-leftblock,
+  #footer-rightblock {
+    width: 80%;
+    border: none;
+  }
 }
