@@ -55,7 +55,7 @@
   --main-quinary: #001740;
 }
 
-/* 
+/*
  *
  * --------
  *  NAVBAR
@@ -112,7 +112,7 @@
   max-height: 80%;
 }
 
-/* 
+/*
  *
  * --------
  *  HEADER
@@ -147,7 +147,7 @@ header {
   font-size: 175px;
 }
 
-/* 
+/*
  *
  * ---------
  *  CONTENT
@@ -234,4 +234,108 @@ ul {
 li {
   font-size: 17px;
   padding-left: 20px;
+}
+
+/*
+ *
+ * ---------
+ *  CONTENT
+ * ---------
+ *
+*/
+
+footer {
+  background-color: var(--white-primary);
+  padding: 20px 0;
+}
+
+#footer-contact {
+  display: flex;
+}
+
+#footer-leftblock {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px;
+}
+
+#footer-rightblock {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px;
+  border-left: 2px solid transparent;
+  border-image-source: linear-gradient(
+    to top,
+    var(--white-primary),
+    var(--grey-quaternary),
+    var(--grey-quaternary),
+    var(--white-primary),
+    var(--white-primary)
+  );
+  border-image-slice: 5;
+}
+
+.footer-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--main-quinary);
+  padding: 20px 0;
+}
+
+.footer-text {
+  color: var(--grey-quaternary);
+}
+
+#contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#contact-value {
+  background-color: transparent;
+  color: var(--black-quinary);
+  border-radius: 10px;
+  padding: 10px;
+  resize: none;
+  width: 90%;
+  height: 70px;
+  font-size: 14px;
+}
+
+#contact-send {
+  margin-top: 10px;
+  background-color: var(--grey-quaternary);
+  color: var(--white-primary);
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+#footer-rightblock a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin: 10px 0;
+}
+
+#footer-rightblock img {
+  width: 30px;
+  padding-right: 20px;
+}
+
+#footer-rightblock span {
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--black-quinary);
+}
+
+.footer-certification {
+  padding: 50px 0 20px;
+  color: var(--black-quinary);
+  font-size: 14px;
 }
