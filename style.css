@@ -136,14 +136,24 @@ header {
   filter: brightness(50%);
 }
 
-#omelia-header {
+#title-header {
   z-index: 10;
   position: absolute;
-  color: #f1f1f1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+#omelia-header {
+  color: #f1f1f1;
   font-size: 175px;
+}
+
+#omelia-header-phrase {
+  width: 100%;
+  z-index: 10;
+  color: #f1f1f1;
+  font-size: 40px;
 }
 
 /*
@@ -374,6 +384,10 @@ footer {
 
   #omelia-header {
     font-size: 75px;
+  }
+  
+  #omelia-header-phrase {
+    font-size: 20px
   }
 
   .section-container {
