@@ -1,0 +1,140 @@
+
+@media (min-width: 1201px) { 
+  html {
+    font-size: calc(0.2vw + 24px);
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) { 
+  html {
+    font-size: 24px ;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) { 
+  html {
+    font-size: 22px ;
+  }
+}
+
+/* Landscape phone to portrait tablet */
+@media (min-width: 481px) and (max-width: 768px) { 
+  html {
+    font-size: 20px ;
+  }
+ 
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 480px) { 
+  html {
+    font-size: 16px ;
+  }
+}
+
+
+:root {
+  --primary-color : #B6C9FF;
+  --black-color : #191847;
+  --light-color : #FEFEFE;
+  --validation-color : #BCFFB6;
+}
+
+.body {
+  background-color: var(--light-color);
+}
+
+.emphasized-light {
+  color : var(--light-color)
+}
+
+.emphasized-primary {
+  color : var(--primary-color);
+  font-weight : bold;
+}
+
+html {
+  color: var(--black-color);
+  scroll-behavior: smooth;
+}
+
+*, h1, h2 {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+
+h1, h2 {font-size:100%;font-weight:normal;}
+
+
+
+.separator {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  bottom: 0px;
+  z-index: 0;
+}
+
+.button {
+  cursor: pointer;
+}
+
+textarea, input {
+  border: none;
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+
+  outline: none;
+  font-family: comfortaa  ;
+  resize: none; /*remove the resize handle on the bottom right*/
+}
+
+
+/*CSS ONLY CLOSE BUTTON*/
+
+.close {
+  position: absolute;
+  right: 20%;
+  top: 8%;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+}
+
+.close:hover {
+  opacity: 1;
+}
+
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  height: 33px;
+  width: 2px;
+
+  content: ' ';
+  background-color: var(--black-color);
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
+}

@@ -1,0 +1,54 @@
+.container {
+
+    display: flex;
+    position: relative;
+
+    padding: 10vw 0;
+
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-color: var(--light-color);
+
+}
+
+
+.container::after{
+    content: '';
+    width: 25vw;
+    height: 1px;
+    background-color: var(--black-color);
+    position: absolute;
+    bottom: 0;
+    border-radius: 15px;
+}
+
+.head {
+    margin-right: 5vw;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.subhead {
+    width: 70%;
+    margin-top: 5%;
+
+    font-size: 1.25rem;
+}
+
+
+.texts {
+    font-family: comfortaa;
+    width: 40vw;
+}
+
+.illustration
+{
+    width: max(100px, 20vw);
+}
+
+.illustration img {
+    width: 100%;
+    height: auto;
+}

@@ -1,0 +1,156 @@
+.navbar {
+    width: 100%;
+
+    z-index: 10;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    padding: 8vh 8vw;
+    
+    font-family: roboto;
+    font-size: 1rem;
+    color : var(--black-color);
+}
+
+.title {
+    font-size: 1.5rem;
+}
+
+.menu_container {
+    transition: right 400ms ease-out; 
+
+
+    position: absolute;
+    right: -40%;
+    top: 0;
+
+    width: 40%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    padding-top: 25vh;
+
+    border-radius: 15px 0px 0px 15px; 
+
+    background-color: var(--light-color);
+}
+
+.pull_left {
+    right: 0 !important;
+    -webkit-box-shadow: -6px 0px 10px 2px var(--dark-color); 
+    box-shadow: -6px 0px 10px 2px var(--dark-color);
+    transition: right 800ms ease-out; 
+}
+
+
+.title_side_menu {
+    font-size: 1.5rem;
+    margin-bottom: 5vh;
+    font-weight: bold;
+    font-family: comfortaa;
+}
+
+
+.option_container div {
+    position: relative;
+    margin-bottom: 75%  ;
+}
+
+.option_container div::after {
+    content: "";
+    position: absolute;
+    display: block;    
+    bottom: -15px;
+    width: 35vw;
+    height: 2px;
+
+    background-color: var(--black-color);
+}
+
+
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger span{
+    display: block;
+    
+    border-radius: 15px;
+
+    width: 40px;
+    height: 5px;
+    
+    background-color: var(--black-color);
+}
+
+.hamburger span:nth-child(2n) {
+    margin: 7px 0;
+}
+
+@media (min-width: 1024px) {
+  
+    .navbar {
+        width: 100%;
+    
+        z-index: 10;
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        
+        font-family: roboto;
+        font-size: 1rem;
+        color : var(--black-color);
+    }
+    
+    
+
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .option_container {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .menu_container {
+        position: unset;
+    
+        width: 40%;
+        height: unset;
+    
+        padding-top: 0vh;
+    
+        border-radius: 0px; 
+    
+        background-color: transparent;
+    
+    }
+    
+    
+    .title_side_menu {
+        display: none;
+    }
+    
+    .option_container div {
+        margin-bottom: 0;
+    }
+    
+    .option_container div::after {
+        display: none;    
+    }
+    
+    
+    .hamburger {
+        display: none;
+    }
+}
