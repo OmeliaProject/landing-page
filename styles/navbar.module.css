@@ -9,7 +9,7 @@
     
     font-family: roboto;
     font-size: 1rem;
-    color : var(--black-color);
+    color : var(--dark-color);
 }
 
 .close {
@@ -79,7 +79,7 @@
     width: 35vw;
     height: 2px;
 
-    background-color: var(--black-color);
+    background-color: var(--dark-color);
 }
 
 .option {
@@ -103,7 +103,7 @@
     width: 40px;
     height: 5px;
     
-    background-color: var(--black-color);
+    background-color: var(--dark-color);
 }
 
 .hamburger span:nth-child(2n) {
@@ -122,7 +122,7 @@
         
         font-family: roboto;
         font-size: 1rem;
-        color : var(--black-color);
+        color : var(--dark-color);
     }
     
     

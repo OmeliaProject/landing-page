@@ -15,7 +15,7 @@
     content: '';
     width: 35vw;
     height: 1px;
-    background-color: var(--black-color);
+    background-color: var(--dark-color);
     position: absolute;
     bottom: 0;
     border-radius: 15px;

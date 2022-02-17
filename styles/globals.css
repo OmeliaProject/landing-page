@@ -35,7 +35,7 @@
 /* RESET */
 
 html {
-  color: var(--black-color);
+  color: var(--dark-color);
   scroll-behavior: smooth;
 }
 
@@ -76,7 +76,7 @@ textarea, input {
 
 :root {
   --primary-color : #B6C9FF;
-  --black-color : #191847;
+  --dark-color : #191847;
   --light-color : #FEFEFE;
   --validation-color : #BCFFB6;
   --floating : 1;
@@ -86,8 +86,8 @@ textarea, input {
 
 /* OTHER */
 
-.body {
-  background-color: var(--light-color);
+body {
+  background-color: var(--primary-color);
 }
 
 .emphasized-light {

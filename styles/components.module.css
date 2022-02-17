@@ -16,7 +16,7 @@
     height: 33px;
     width: 2px;
     content: ' ';
-    background-color: var(--black-color);
+    background-color: var(--dark-color);
 }
 
 .close:before {

@@ -35,22 +35,36 @@ const Contact: FunctionComponent<ContactProps> = ({ contactRef }) => {
                 <p className={styles.cta_subhead}>envoyez nous un message !</p>
             </div>
 
-            <div className={styles.link_and_message_container}>
 
-                <form className={styles.forms} ref={form} onSubmit={sendEmail}>
-                    <input  placeholder="email: jean@hotmail.com" className={styles.email_input} type="email" name="from_name" /> 
-                    <textarea  placeholder="votre superbe message" className={styles.body_input} name="message"  cols={30} rows={10}></textarea>
-                    <button type="submit" className={styles.button_submit}>envoyer</button>
-                </form>
+            <form className={styles.forms} ref={form} onSubmit={sendEmail}>
+                <input  placeholder="email: jean@hotmail.com" className={styles.email_input} type="email" name="from_name" /> 
+                <textarea  placeholder="votre superbe message" className={styles.body_input} name="message"  cols={30} rows={10}></textarea>
+                <button type="submit" className={styles.button_submit}>envoyer</button>
+            </form>
+        
+            <div className={styles.link_container}>
+                <LinkContact link="mailto:omelia.contact@gmail.com" image="/gmail-logo.svg">
+                    <p>omelia.contact@gmail.com</p>
+                </LinkContact>
+                <LinkContact link="https://www.linkedin.com/company/omelia-studio/" image="/linkedin-logo.svg">
+                    <p>www.linkedin.com/company/omelia-studio</p>
+                </LinkContact>
+                <LinkContact link="https://www.twitter.com/omelia_studio" image="/twitter-logo.svg">
+                    <p>www.twitter.com/omelia_studio</p>
+                </LinkContact>
+
+                <LinkContact link="https://www.discord.gg/rtNHeDtnzq" image="/discord-logo.svg">
+                    <>
+                        <p>www.discord.gg/rtNHeDtnzq</p>
+                        <div className={styles.join_beta}>
+                            <p>Aidez nous en devenant beta-testeur</p>
+                            <img src="/arrow.svg" alt="arow" />
+                        </div>
+                    </>
+                </LinkContact>
             
-                <div className={styles.link_container}>
-                    <LinkContact link="mailto:omelia.contact@gmail.com" image="/gmail-logo.svg" >omelia.contact@gmail.com</LinkContact>
-                    <LinkContact link="https://www.linkedin.com/company/omelia-studio/" image="/linkedin-logo.svg" >www.linkedin.com/company/omelia-studio</LinkContact>
-                    <LinkContact link="https://www.twitter.com/omelia_studio" image="/twitter-logo.svg">www.twitter.com/omelia_studio</LinkContact>
-                    <LinkContact link="https://www.discord.gg/rtNHeDtnzq" image="/discord-logo.svg">www.discord.gg/rtNHeDtnzq</LinkContact>
-                </div>
-
             </div>
+
         </div>
     );
 }
