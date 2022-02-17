@@ -47,10 +47,6 @@ const Price: FunctionComponent<PriceProps> = ({ priceRef, contactRef }) => {
                         name: "100% des vidéos",
                         isIncluded : true
                     },
-                    {
-                        name: "entrainement illimité",
-                        isIncluded : true
-                    }
                 ]
                 }
                 />
@@ -69,17 +65,13 @@ const Price: FunctionComponent<PriceProps> = ({ priceRef, contactRef }) => {
                         isIncluded : true
                     },
                     {
-                        name: "entrainement illimité",
+                        name: "entraînements illimités",
                         isIncluded : false
                     },
                     {
                         name: "100% des vidéos",
                         isIncluded : false
                     },
-                    {
-                        name: "entrainement illimité",
-                        isIncluded : false
-                    }
                 ]
                 }
                 />

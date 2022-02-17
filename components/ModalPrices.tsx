@@ -16,8 +16,8 @@ const ModalPrices: FunctionComponent<ModalPricesProps> = ({close, goContact}) =>
                 <p className={styles.body}>
                 Nous sommes actuellement en <span className="emphasized-primary">phase de développement !</span>
                 <br/><br/>
-                Si vous avez êtes séduis et souhaitez soutenir notre projet, contactez nous via <u className={components.button} onClick={goContact}>e-mail </u>
-                ou rejoignez notre <u className={components.button} onClick={goContact}>discord</u> pour devenir beta-testeur !
+                Si vous avez été séduits et souhaitez soutenir notre projet, contactez nous via <u className={components.button} onClick={goContact}>e-mail </u>
+                ou rejoignez notre <u className={components.button} onClick={goContact}>discord</u> pour devenir bêta-testeur !
                 <br/><br/>
                 L’équipe d’Omelia vous remercie !
 

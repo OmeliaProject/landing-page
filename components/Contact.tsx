@@ -32,7 +32,7 @@ const Contact: FunctionComponent<ContactProps> = ({ contactRef }) => {
                
             <div className={styles.cta}>
                 <h1 className={styles.cta_head}>Envie d’en savoir plus ?</h1>
-                <p className={styles.cta_subhead}>envoyez nous un message !</p>
+                <p className={styles.cta_subhead}>envoyez-nous un message !</p>
             </div>
 
 
@@ -57,7 +57,7 @@ const Contact: FunctionComponent<ContactProps> = ({ contactRef }) => {
                     <>
                         <p>www.discord.gg/rtNHeDtnzq</p>
                         <div className={styles.join_beta}>
-                            <p>Aidez nous en devenant beta-testeur</p>
+                            <p>Aidez-nous en devenant bêta-testeur</p>
                             <img src="/arrow.svg" alt="arow" />
                         </div>
                     </>

@@ -23,21 +23,21 @@ const ApplicationModel: FunctionComponent<ApplicationModelProps> = ({produitRef}
             <TemplateExplanationModel reverse={true} number={2} picture="/score.png">
                 <h1>Analyse d’Omelia</h1>
                 <div>
-                    Après avoir fais votre enregistrement. Une intelligence artificiel  s’occupera d’analyser votre discours à travers :<br/>
+                    Après avoir fait votre enregistrement, une intelligence artificielle  s’occupera d’analyser votre discours à travers :<br/>
                     <ul className={styles.bullet_point}>
                         <li> le sens des mots </li>
                         <li> le rythme / timbre de la voix </li>
-                        <li> les tics de language</li>
+                        <li> les tics de langage</li>
                         <li> les gestes et la position </li>
                     </ul>
                 </div>
             </TemplateExplanationModel>
 
             <TemplateExplanationModel reverse={false} number={3} picture="/vidéo.png">
-                <h1>Ameliorez-vous</h1>
+                <h1>Améliorez-vous</h1>
                 <p>
                     Maintenant que vous connaissez vos erreurs il est temps d’y remédier.<br/><br/>
-                    Omelia met à votre disposition des vidéos de professionnelles de la prise de parole en public
+                    Omelia met à votre disposition des vidéos de professionnels de la prise de parole en public.
                 </p>
             </TemplateExplanationModel>
             <img className="separator" src="wave-separator-2.svg" />

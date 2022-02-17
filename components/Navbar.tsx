@@ -52,7 +52,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({home, produit, price, contact})
                                         className={styles.close} />
                 }
                 <div className={styles.option_container}>
-                    <ScrollToButtonProps styleClass={styles.option} target={home}>home</ScrollToButtonProps>
+                    <ScrollToButtonProps styleClass={styles.option} target={home}>acceuil</ScrollToButtonProps>
                     <ScrollToButtonProps styleClass={styles.option} target={produit}>produit</ScrollToButtonProps>
                     <ScrollToButtonProps styleClass={styles.option} target={price}>prix</ScrollToButtonProps>
                     <ScrollToButtonProps styleClass={styles.option} target={contact}>contact</ScrollToButtonProps>
