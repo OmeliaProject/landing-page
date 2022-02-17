@@ -12,7 +12,7 @@ const ApplicationModel: FunctionComponent<ApplicationModelProps> = ({produitRef}
     
     return (  
         <div ref={produitRef} className={styles.application}>
-            <TemplateExplanationModel reverse={false} number={1} picture="/camera.png">
+            <TemplateExplanationModel reverse={false} picture="/camera.png">
                 <h1>Enregistrez vous</h1>
                 <p>
                     Prenez votre téléphone et enregistrez votre future présentation.
@@ -20,7 +20,7 @@ const ApplicationModel: FunctionComponent<ApplicationModelProps> = ({produitRef}
                 </p>
             </TemplateExplanationModel>
 
-            <TemplateExplanationModel reverse={true} number={2} picture="/score.png">
+            <TemplateExplanationModel reverse={true} picture="/score.png">
                 <h1>Analyse d’Omelia</h1>
                 <div>
                     Après avoir fait votre enregistrement, une intelligence artificielle  s’occupera d’analyser votre discours à travers :<br/>
@@ -33,7 +33,7 @@ const ApplicationModel: FunctionComponent<ApplicationModelProps> = ({produitRef}
                 </div>
             </TemplateExplanationModel>
 
-            <TemplateExplanationModel reverse={false} number={3} picture="/vidéo.png">
+            <TemplateExplanationModel reverse={false} picture="/vidéo.png">
                 <h1>Améliorez-vous</h1>
                 <p>
                     Maintenant que vous connaissez vos erreurs il est temps d’y remédier.<br/><br/>

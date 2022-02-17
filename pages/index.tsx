@@ -34,7 +34,7 @@ const Index: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Omelia - acceuil</title>
+        <title>Omelia - accueil</title>
       </Head>
       <div >
         <Navbar home={homeRef} price={priceRef} contact={contactRef} produit={produitRef}></Navbar>

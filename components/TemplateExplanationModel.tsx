@@ -5,14 +5,13 @@ import styles from "../styles/application.module.css"
 interface TemplateExplanationModelProps {
     picture : string;
     reverse : boolean;
-    number : number;
     children: React.ReactNode;
 }
  
 const TemplateExplanationModel: FunctionComponent<TemplateExplanationModelProps> = 
-({picture, children, reverse, number}) => {    
+({picture, children, reverse}) => {    
 
-    const reverseStyle = reverse ? styles.reverse : "";
+    const reverseStyle = reverse ? `${styles.reverse} slide-left` : "slide-right";
     
     return (
         
@@ -23,9 +22,7 @@ const TemplateExplanationModel: FunctionComponent<TemplateExplanationModelProps>
             </div>
 
             <div className={styles.model} >
-                {/* <div className={`${styles.counter}`}>
-                    <span>{number}</span>
-                </div> */}
+ 
                 <img src={picture}  alt="next" />
             </div>  
 
