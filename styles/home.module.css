@@ -1,13 +1,12 @@
 
 .home {
     position: relative;
-    z-index: var(--background);
+    z-index: var(--foreground);
     
     direction:rtl;
 
-    position: relative;
     font-family: comfortaa;
-    padding-top: 30vh;
+    padding-top: 30vh ;
 
     width: 100%;
     height: 100vh;
@@ -26,11 +25,14 @@
 }
 
 .button_cta {
+
+    z-index: var(--foreground);
+
     composes : button from "./components.module.css"; 
 
     width: fit-content;
     padding: 0.7rem 0.9rem ;
-    margin: calc(1rem + 2%) auto 8% auto ;
+    margin: calc(1rem ) auto 8% auto ;
     
     font-weight: bold;
     font-size: 0.8rem;
@@ -40,6 +42,8 @@
 }
 
 .people {
+    z-index: var(--background);
+
     position: absolute;
     left: 0; 
     right: 0; 

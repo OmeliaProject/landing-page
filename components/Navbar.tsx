@@ -1,4 +1,4 @@
-import { FunctionComponent, RefObject, useState } from "react";
+import { FunctionComponent, RefObject, useEffect, useState } from "react";
 import ScrollToButtonProps from "./ScrollToButton"
 
 import styles from "../styles/navbar.module.css"
@@ -15,16 +15,37 @@ interface NavbarProps {
  
 const Navbar: FunctionComponent<NavbarProps> = ({home, produit, price, contact}) => {
 
-    // pull_left
     let [isSideMenuOpen, setSideMenuStatus] = useState(false);
-    let styles_menu_side = isSideMenuOpen ? styles.pull_left : ""
+    let [scroll, setScroll] = useState(false);
+    let stylesMenuSide = isSideMenuOpen ? styles.pull_left : "";
+    
+    const onScroll = (e : Event) => {
+        const position = window.pageYOffset;
+
+        if (position > 100) {
+            setScroll(true);
+        } else {
+            setScroll(false);            
+        }
+
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', onScroll, { passive: true });
+    
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+        };
+    }, []);
+
+
 
     return (  
-        <div className={styles.navbar}>
+        <div className={`${styles.navbar} ${scroll ? styles.scrolled_navbar : ""}`}>
             <ScrollToButtonProps styleClass={styles.title} target={home}>Omelia</ScrollToButtonProps>
 
             <Hamburger onClick={() => {setSideMenuStatus(true)}} styleClass={styles.hamburger} ></Hamburger>
-            <div className={` ${styles_menu_side} ${styles.menu_container}`}>
+            <div className={` ${stylesMenuSide} ${styles.menu_container}`}>
                 <div className={styles.title_side_menu}>Omelia</div>
                 {
                     isSideMenuOpen && <div onClick={() => {setSideMenuStatus(false)}} 
