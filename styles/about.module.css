@@ -1,2 +1,4 @@
 .about {
+    position: relative;
+    z-index: var(--foreground);
 }

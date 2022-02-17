@@ -10,10 +10,12 @@ interface OptionProps {
 }
  
 const Option: FunctionComponent<OptionProps> = ({param, idx}) => {
-    const isIncluded = param.isIncluded ? styles.included : styles.not_included
+
+
+    const includedStyle = param.isIncluded ? "" : styles.not_included;
     
     return (
-        <div  key={idx} className={`${isIncluded} ${styles.option}`} >
+        <div  key={idx} className={`${includedStyle} ${styles.option}`} >
             {
                 param.isIncluded ? <img className={styles.image} src="/check.svg" alt="check" /> :
                                  <span className={styles.image}/> 

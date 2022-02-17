@@ -12,7 +12,7 @@
     background:rgba(0, 0, 0, 0.45);
 
     top: 0;
-    z-index: 10;
+    z-index: var(--floating);
 }
 
 

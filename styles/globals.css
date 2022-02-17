@@ -1,26 +1,26 @@
 
 @media (min-width: 1201px) { 
   html {
-    font-size: calc(0.2vw + 24px);
+    font-size: calc(24px + 0.2vw);
   }
 }
 
 @media (min-width: 1025px) and (max-width: 1200px) { 
   html {
-    font-size: 24px ;
+    font-size: calc(24px + 0.25vh) ;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) { 
   html {
-    font-size: 22px ;
+    font-size: calc(22px + 0.25vh) ;
   }
 }
 
 /* Landscape phone to portrait tablet */
 @media (min-width: 481px) and (max-width: 768px) { 
   html {
-    font-size: 20px ;
+    font-size: calc(20px + 0.25vh) ;
   }
  
 }
@@ -32,26 +32,7 @@
   }
 }
 
-
-:root {
-  --primary-color : #B6C9FF;
-  --black-color : #191847;
-  --light-color : #FEFEFE;
-  --validation-color : #BCFFB6;
-}
-
-.body {
-  background-color: var(--light-color);
-}
-
-.emphasized-light {
-  color : var(--light-color)
-}
-
-.emphasized-primary {
-  color : var(--primary-color);
-  font-weight : bold;
-}
+/* RESET */
 
 html {
   color: var(--black-color);
@@ -69,27 +50,13 @@ a {
 }
 
 * {
-  
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 h1, h2 {font-size:100%;font-weight:normal;}
 
-
-
-.separator {
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  bottom: 0px;
-  z-index: 0;
-}
-
-.button {
-  cursor: pointer;
-}
 
 textarea, input {
   border: none;
@@ -102,39 +69,40 @@ textarea, input {
 
   outline: none;
   font-family: comfortaa  ;
-  resize: none; /*remove the resize handle on the bottom right*/
+  resize: none;
 }
 
+/* CSS VARIABLES */
 
-/*CSS ONLY CLOSE BUTTON*/
+:root {
+  --primary-color : #B6C9FF;
+  --black-color : #191847;
+  --light-color : #FEFEFE;
+  --validation-color : #BCFFB6;
+  --floating : 1;
+  --foreground : 0;
+  --background : -1;
+}
 
-.close {
+/* OTHER */
+
+.body {
+  background-color: var(--light-color);
+}
+
+.emphasized-light {
+  color : var(--light-color)
+}
+
+.emphasized-primary {
+  color : var(--primary-color);
+  font-weight : bold;
+}
+
+.separator {
   position: absolute;
-  right: 20%;
-  top: 8%;
-  width: 32px;
-  height: 32px;
-  opacity: 0.3;
-}
-
-.close:hover {
-  opacity: 1;
-}
-
-.close:before, .close:after {
-  position: absolute;
-  left: 15px;
-  height: 33px;
-  width: 2px;
-
-  content: ' ';
-  background-color: var(--black-color);
-}
-
-.close:before {
-  transform: rotate(45deg);
-}
-
-.close:after {
-  transform: rotate(-45deg);
+  overflow: hidden;
+  width: 100%;
+  bottom: 0px;
+  z-index: var(--background);
 }

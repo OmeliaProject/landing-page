@@ -12,24 +12,24 @@ interface TemplateExplanationModelProps {
 const TemplateExplanationModel: FunctionComponent<TemplateExplanationModelProps> = 
 ({picture, children, reverse, number}) => {    
 
-    const style = {"--number": number } as React.CSSProperties;
-    const position_counter = reverse ? styles.counter_reverse_position : styles.counter_normal_position;
-
-    const image : JSX.Element = 
-    <div className={styles.model} >
-        <div className={`${styles.counter}  ${position_counter}`}> <span>{number}</span></div>
-        <img src={picture}  alt="next" />
-    </div>  
-    
+    const reverseStyle = reverse ? styles.reverse : "";
     
     return (
         
-        <div className={styles.template} style={style}>
-            {reverse && image}
+        <div className={`${styles.template} ${reverseStyle}`} >
+
             <div className={styles.text_container}>
                 {children}
             </div>
-            {!reverse && image}
+
+            <div className={styles.model} >
+                {/* <div className={`${styles.counter}`}>
+                    <span>{number}</span>
+                </div> */}
+                <img src={picture}  alt="next" />
+            </div>  
+
+            
         </div>
     );
 }

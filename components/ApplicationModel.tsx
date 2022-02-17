@@ -5,32 +5,30 @@ import TemplateExplanationModel from "./TemplateExplanationModel";
 
 interface ApplicationModelProps {
     produitRef : RefObject<HTMLDivElement>
-    
 }
  
 const ApplicationModel: FunctionComponent<ApplicationModelProps> = ({produitRef}) => {
 
     
     return (  
-        <div ref={produitRef} className={styles.models_container}>
+        <div ref={produitRef} className={styles.application}>
             <TemplateExplanationModel reverse={false} number={1} picture="/camera.png">
                 <h1>Enregistrez vous</h1>
                 <p>
-                    Prenez votre téléphone et enregistrez votre future présentation.<br/><br/>
-                    Entrez une durée moyenne<br/> et c’est parti !
+                    Prenez votre téléphone et enregistrez votre future présentation.
+                    Entrez une durée moyenne et c’est parti !
                 </p>
             </TemplateExplanationModel>
 
             <TemplateExplanationModel reverse={true} number={2} picture="/score.png">
                 <h1>Analyse d’Omelia</h1>
                 <div>
-                    Après avoir fais votre enregistrement. Une intelligence artificiel  s’occupera d’analyser votre discours à travers :<br/><br/>
+                    Après avoir fais votre enregistrement. Une intelligence artificiel  s’occupera d’analyser votre discours à travers :<br/>
                     <ul className={styles.bullet_point}>
                         <li> le sens des mots </li>
                         <li> le rythme / timbre de la voix </li>
                         <li> les tics de language</li>
                         <li> les gestes et la position </li>
-
                     </ul>
                 </div>
             </TemplateExplanationModel>

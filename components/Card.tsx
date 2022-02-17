@@ -20,33 +20,24 @@ interface CardProps {
  
 const Card: FunctionComponent<CardProps> = ({title, price, emphasized, options, setModalStatus}) => {
 
-    let buttonIsEmphasized : string = styles.emphasized_button;
-    let cardStyle : string = styles.emphasized_card;
 
-    if (emphasized) {
-        buttonIsEmphasized = styles.not_emphasized_button;
-        cardStyle = styles.not_emphasized_card
-    }
+    const emphasizedStyle : string = emphasized ? styles.emphasized : "";
 
     return (
-        <div className={`${cardStyle} ${styles.card}`}>
+        <div className={`${styles.card} ${emphasizedStyle}`}>
             <h1 className={styles.title}>{title}</h1>
-            <div className={styles.content}>
-                <h2 className={styles.price}>{price}</h2>
-                <div className={styles.options_container}>
-                    {
-                        options.map((optionParam : PrincingOptions, idx : number) => {
-                            return <span key={idx} >
-                                    <Option idx={idx} param={optionParam}></Option>
-                                </span>
-                        })
+            <h2 className={styles.price_text}>{price}</h2>
+            <div className={styles.options_container}>
+                {
+                    options.map((optionParam : PrincingOptions, idx : number) => {
+                        return <span key={idx} >
+                                <Option idx={idx} param={optionParam}></Option>
+                            </span>
+                    })
 
-                    }
-                </div>
-
+                }
             </div>
-            <div className={`${buttonIsEmphasized} ${styles.button}`} onClick={() => setModalStatus(true)}>{"s'abonner"}</div>
-
+            <div className={styles.button} onClick={() => setModalStatus(true)}><p>{"s'abonner"}</p></div>
         </div>
     );
 }

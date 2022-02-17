@@ -1,7 +1,7 @@
 .navbar {
     width: 100%;
 
-    z-index: 10;
+    z-index: var(--floating);
     position: fixed;
     display: flex;
     justify-content: space-between;
@@ -12,7 +12,16 @@
     color : var(--black-color);
 }
 
+.close {
+    composes : close button from "./components.module.css"; 
+
+    right: 20%;
+    top: 8%;
+}
+
 .title {
+    composes : button from "./components.module.css"; 
+
     font-size: 1.5rem;
 }
 
@@ -54,7 +63,10 @@
 }
 
 
+
+
 .option_container div {
+    
     position: relative;
     margin-bottom: 75%  ;
 }
@@ -70,9 +82,13 @@
     background-color: var(--black-color);
 }
 
-
+.option {
+    composes : button from "./components.module.css"; 
+}
 
 .hamburger {
+    composes : button from "./components.module.css"; 
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,7 +115,7 @@
     .navbar {
         width: 100%;
     
-        z-index: 10;
+        z-index: var(--floating);
         position: fixed;
         display: flex;
         justify-content: space-between;

@@ -24,11 +24,11 @@ const Price: FunctionComponent<PriceProps> = ({ priceRef, contactRef }) => {
     }
 
     return (
-        <div className={styles.price_page} ref={priceRef}>
+        <div className={styles.price} ref={priceRef}>
             <Card 
                 title="OMELIA PRO"
                 price="2.99 euros par mois" 
-                emphasized={false} 
+                emphasized={true} 
                 setModalStatus={setModalStatus} 
                 options={[
                     {
@@ -57,7 +57,7 @@ const Price: FunctionComponent<PriceProps> = ({ priceRef, contactRef }) => {
                 <Card 
                 title="OMELIA FREE"
                 price="gratuit" 
-                emphasized={true} 
+                emphasized={false} 
                 setModalStatus={setModalStatus} 
                 options={[
                     {
