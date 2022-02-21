@@ -10,8 +10,9 @@ interface ModalPricesProps {
  
 const ModalPrices: FunctionComponent<ModalPricesProps> = ({close, goContact}) => {
     return (
-        <div className={styles.modal_background}>
+        <div className={styles.modal_background} onClick={close}>
             <div className={styles.modal}>
+                <div className={styles.close} onClick={close}></div>
                 <h1 className={styles.title}>Intéressé par notre application ?</h1>
                 <p className={styles.body}>
                 Nous sommes actuellement en <span className="emphasized-primary">phase de développement !</span>

@@ -42,10 +42,10 @@
 
 
     position: absolute;
-    right: -40%;
+    right: -70%;
     top: 0;
 
-    width: 40%;
+    width: 70%;
     height: 100vh;
 
     display: flex;
@@ -66,16 +66,12 @@
     transition: right 800ms ease-out; 
 }
 
-
 .title_side_menu {
     font-size: 1.5rem;
     margin-bottom: 5vh;
     font-weight: bold;
     font-family: comfortaa;
 }
-
-
-
 
 .option_container div {
     
@@ -88,10 +84,11 @@
     position: absolute;
     display: block;    
     bottom: -15px;
-    width: 35vw;
-    height: 2px;
+    width: 30vw;
 
-    background-color: var(--dark-color);
+
+    border-bottom: 2px solid var(--dark-color);
+
 }
 
 .option {
@@ -164,6 +161,16 @@
     
     }
     
+    .pull_left {
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    
+    }
+    
+    .close {
+        display: none;
+    }
     
     .title_side_menu {
         display: none;

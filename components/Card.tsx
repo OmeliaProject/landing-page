@@ -20,11 +20,8 @@ interface CardProps {
  
 const Card: FunctionComponent<CardProps> = ({title, price, emphasized, options, setModalStatus}) => {
 
-
-    const emphasizedStyle : string = emphasized ? styles.emphasized : "";
-
     return (
-        <div className={`${styles.card} ${emphasizedStyle}`}>
+        <div className={styles.card} data-emphasized={emphasized} >
             <h1 className={styles.title}>{title}</h1>
             <h2 className={styles.price_text}>{price}</h2>
             <div className={styles.options_container}>

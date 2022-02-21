@@ -15,15 +15,23 @@
     z-index: var(--floating);
 }
 
+.close {
+    composes : close button from "./components.module.css"; 
+
+    right: -5%;
+    top: -13%;
+}
+
 
 .modal {
-    
+    position: relative;
+
     padding: 5% 5%;
 
     border-radius: 5px;
     background-color: var(--light-color);
 
-    width: 80vw;
+    width: 65vw;
 
     font-family: comfortaa;
 }
@@ -37,7 +45,7 @@
 }
 
 .body {
-    margin: 0  auto 8vh auto ;
+    margin: 0 auto 8vh auto ;
     font-size: 0.9rem;
 }
 
@@ -51,4 +59,11 @@
 
 .button {
     cursor: pointer;
+}
+
+
+@media screen and (max-width : 1024px) {
+    .modal {
+        width: 85vw;
+    }
 }

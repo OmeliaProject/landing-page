@@ -59,7 +59,6 @@
 
 .option span {
     display: inline;
-    white-space: nowrap;
 }
 
 .image {
@@ -79,6 +78,7 @@
     align-items: center;
 
     height: 12vh;
+    margin: 5% 0;
 
 
     color : var(--primary-color);
@@ -95,15 +95,12 @@
     opacity: 0.5;
 }
 
-.emphasized {
-}
 
-.emphasized .button {
+.card[data-emphasized=true] .button {
     height: 15vh;
-
 }
 
-.emphasized .button p {
+.card[data-emphasized=true] .button p {
     color: var(--light-color);
     background-color: var(--primary-color);
 }
@@ -148,6 +145,8 @@
     .button {
         height: 20vh;
         font-size: 1rem;
+        margin: 0;
+
     }
     
     .button p {
@@ -156,9 +155,8 @@
     }
     
     
-    .emphasized .button {
+    .card[data-emphasized=true] .button {
         height: 25vh;
     }
-
 
 }

@@ -1,4 +1,21 @@
 
+/* CSS VARIABLES */
+
+:root {
+  --primary-color : #B6C9FF;
+  --dark-color : #191847;
+  --light-color : #FEFEFE;
+  --validation-color : #BCFFB6;
+  --error-color : #ffb6b6;
+  --loading-color : #feffb6;
+  --floating : 1;
+  --foreground : 0;
+  --background : -1;
+}
+
+
+/* MEDIA QUERY*/
+
 @media (min-width: 1201px) { 
   html {
     font-size: calc(24px + 0.2vw);
@@ -70,18 +87,6 @@ textarea, input {
   outline: none;
   font-family: comfortaa  ;
   resize: none;
-}
-
-/* CSS VARIABLES */
-
-:root {
-  --primary-color : #B6C9FF;
-  --dark-color : #191847;
-  --light-color : #FEFEFE;
-  --validation-color : #BCFFB6;
-  --floating : 1;
-  --foreground : 0;
-  --background : -1;
 }
 
 /* OTHER */
