@@ -16,7 +16,7 @@ const Team: FunctionComponent<TeamProps> = () => {
                 <Member name="Robin Cadinot" role="Développeur IA" avatar="/members/robin.png" />
                 <Member name="Paul Saerens" role="Développeur IA" avatar="/members/paul.png" />
                 <Member name="Alexis Delebecque" role="Développeur Mobile" avatar="/members/alexis.png" />
-                <Member name="Louis viot" role="Développeur Mobile" avatar="/members/louis.jpg" />
+                <Member name="Louis Viot" role="Développeur Mobile" avatar="/members/louis.jpg" />
             </div>
         </div>
         
