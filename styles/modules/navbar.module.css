@@ -5,7 +5,7 @@
     position: fixed;
     display: flex;
     justify-content: space-between;
-    padding: 8vh 8vw;
+    padding: 6vh 4vw;
     
     font-family: roboto;
     font-size: 1rem;
@@ -19,15 +19,15 @@
     -webkit-box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.3); 
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
     
-    padding: 3vh 4vh;
+    padding: 2vh 4vh;
     background-color: var(--light-color);
 }
 
 .close {
     composes : close button from "./components.module.css"; 
 
-    right: 20%;
-    top: 8%;
+    right: 10%;
+    top: 5%;
 }
 
 
@@ -40,19 +40,18 @@
 .menu_container {
     transition: right 400ms ease-out; 
 
-
     position: absolute;
     right: -70%;
     top: 0;
 
-    width: 70%;
+    width: fit-content;
     height: 100vh;
 
     display: flex;
     align-items: center;
     flex-direction: column;
 
-    padding-top: 25vh;
+    padding: 20vh 5% 0 5%;
 
     border-radius: 15px 0px 0px 15px; 
 
@@ -68,31 +67,16 @@
 
 .title_side_menu {
     font-size: 1.5rem;
-    margin-bottom: 5vh;
+    margin-bottom: 10vh;
     font-weight: bold;
     font-family: comfortaa;
 }
 
-.option_container div {
-    
-    position: relative;
-    margin-bottom: 75%  ;
-}
-
-.option_container div::after {
-    content: "";
-    position: absolute;
-    display: block;    
-    bottom: -15px;
-    width: 30vw;
-
-
-    border-bottom: 2px solid var(--dark-color);
-
-}
 
 .option {
-    composes : button from "./components.module.css"; 
+    composes : button from "./components.module.css";
+    margin-bottom: 5vh;
+    display: block;
 }
 
 .hamburger {
@@ -133,34 +117,35 @@
         font-size: 1rem;
         color : var(--dark-color);
     }
-    
-    
 
     .title {
-        font-size: 1.2rem;
+        font-size: 1rem;
+    }
+
+    .menu_container {
+        position: unset;
+        height: unset;
+    
+        padding: 0;
+        border-radius: 0px; 
+
+        background-color: transparent;
     }
 
     .option_container {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
+        width: fit-content;
+    }
+
+    .option {
+        margin-bottom: 0;
+        font-size: 0.8rem;
+        display: inline;
     }
     
-    .menu_container {
-        position: unset;
-    
-        width: 40%;
-        height: unset;
-    
-        padding-top: 0vh;
-    
-        border-radius: 0px; 
-    
-        background-color: transparent;
-    
+    .option_container > *:not(:last-child) {
+        padding-right: 2vw;
     }
-    
+
     .pull_left {
         -moz-box-shadow: none;
         -webkit-box-shadow: none;
@@ -174,14 +159,6 @@
     
     .title_side_menu {
         display: none;
-    }
-    
-    .option_container div {
-        margin-bottom: 0;
-    }
-    
-    .option_container div::after {
-        display: none;    
     }
     
     

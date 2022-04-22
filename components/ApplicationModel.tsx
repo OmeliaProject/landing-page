@@ -1,17 +1,16 @@
 import { FunctionComponent, RefObject } from "react";
 
-import styles from "../styles/application.module.css"
+import styles from "@styles/modules/application.module.css"
 import TemplateExplanationModel from "./TemplateExplanationModel";
 
 interface ApplicationModelProps {
-    produitRef : RefObject<HTMLDivElement>
 }
  
-const ApplicationModel: FunctionComponent<ApplicationModelProps> = ({produitRef}) => {
+const ApplicationModel: FunctionComponent<ApplicationModelProps> = () => {
 
     
     return (  
-        <div ref={produitRef} className={styles.application}>
+        <div className={styles.application}>
             <TemplateExplanationModel reverse={false} picture="/camera.png">
                 <h1>Enregistrez vous</h1>
                 <p>

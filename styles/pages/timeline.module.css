@@ -1,0 +1,15 @@
+.timeline {
+    background-color: var(--light-color);
+    min-height: 100vh;
+}
+
+.title {
+    padding-left: 10%;
+
+    padding-top: 25vh;
+    font-size: 1.25rem;
+    color: var(--dark-color);
+
+    font-family: comfortaa;
+}
+

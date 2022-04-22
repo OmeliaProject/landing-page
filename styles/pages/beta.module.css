@@ -1,0 +1,12 @@
+.beta {
+    background-color: var(--light-color) !important;
+}
+
+.content {
+    position: relative;
+    z-index: var(--foreground);
+    background-color: var(--light-color) !important;
+
+    -webkit-box-shadow: 0px -5px 15px -5px rgba(57,57,57,0.75); 
+    box-shadow: 0px -5px 15px -5px rgba(57,57,57,0.75);
+}

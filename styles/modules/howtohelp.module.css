@@ -1,0 +1,76 @@
+.howtohelp {
+    padding-top: 8%;
+
+    width : 100%;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: comfortaa;
+
+}
+
+
+.howtohelp h1 {
+    font-weight: bold;
+    margin-bottom : 8%;
+}
+
+.step_container {
+    composes : container from "./carousel.module.css";
+
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}           
+
+.svg {
+    margin-bottom : 8%;
+    width: 2rem;
+    height: 2rem;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.title {
+    font-size: 1rem;
+    margin-bottom : 4%;
+    font-weight: bold;
+}   
+
+.description {
+    font-size: 0.75rem;
+    width : 26ch;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .step_container {
+        display: flex;
+        justify-content: space-evenly;
+
+    }
+
+    .howtohelp h1 {
+        font-weight: bold;
+        margin-bottom : 4%;
+        font-size: 1.15rem;
+
+    }
+
+}

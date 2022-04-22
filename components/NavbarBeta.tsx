@@ -1,18 +1,10 @@
-import { FunctionComponent, RefObject, useEffect, useState } from "react";
-import ScrollToButtonProps from "./ScrollToButton"
+import { FunctionComponent, useEffect, useState } from "react";
 import Link from 'next/link'
  
 import styles from "@styles/modules/navbar.module.css"
 import Hamburger from "./Hamburger";
 
-
-interface NavbarProps {
-    home : RefObject<HTMLDivElement>, 
-    price : RefObject<HTMLDivElement>, 
-    contact : RefObject<HTMLDivElement>, 
-}
- 
-const Navbar: FunctionComponent<NavbarProps> = ({home, price, contact}) => {
+const Navbar: FunctionComponent = () => {
 
     let [isSideMenuOpen, setSideMenuStatus] = useState(false);
     let [scroll, setScroll] = useState(false);
@@ -26,7 +18,6 @@ const Navbar: FunctionComponent<NavbarProps> = ({home, price, contact}) => {
         } else {
             setScroll(false);            
         }
-
     }
 
     useEffect(() => {
@@ -36,13 +27,12 @@ const Navbar: FunctionComponent<NavbarProps> = ({home, price, contact}) => {
             window.removeEventListener('scroll', onScroll);
         };
     }, []);
-
-
-
+    
     return (  
         <div className={`${styles.navbar} ${scroll ? styles.scrolled_navbar : ""}`}>
-            <ScrollToButtonProps styleClass={styles.title} target={home}>Omelia</ScrollToButtonProps>
-
+             <Link href="/">
+                        <a className={styles.title}>Omelia</a>
+            </Link>
             <Hamburger onClick={() => {setSideMenuStatus(true)}} styleClass={styles.hamburger} ></Hamburger>
             <div className={` ${stylesMenuSide} ${styles.menu_container}`}>
                 <div className={styles.title_side_menu}>Omelia</div>
@@ -51,12 +41,18 @@ const Navbar: FunctionComponent<NavbarProps> = ({home, price, contact}) => {
                                         className={styles.close} />
                 }
                 <div className={styles.option_container}>
-                    <ScrollToButtonProps styleClass={styles.option} target={home}>accueil</ScrollToButtonProps>
+                    <Link href="/">
+                        <a className={styles.option}>accueil</a>
+                    </Link>
                     <Link href="/beta">
                         <a className={styles.option}>beta</a>
                     </Link>
-                    <ScrollToButtonProps styleClass={styles.option} target={price}>prix</ScrollToButtonProps>
-                    <ScrollToButtonProps styleClass={styles.option} target={contact}>contact</ScrollToButtonProps>
+                    <Link href="/timeline">
+                        <a className={styles.option}>avancée du projet</a>
+                    </Link>
+                    <Link href="/issues">
+                        <a className={styles.option}>remonter un problème</a>
+                    </Link>
                 </div>
 
             </div>

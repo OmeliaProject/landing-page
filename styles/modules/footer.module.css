@@ -1,0 +1,30 @@
+.footer {
+    margin-top: 4%;
+
+    background-color: var(--primary-color);
+    padding: 1rem 2.5%;
+
+    display: flex;
+    justify-content: flex-start;
+}
+
+.title {
+    color: var(--light-color);
+    font-family: comfortaa;
+    font-weight: bold;
+    font-size: 1rem;
+
+}
+
+.download {
+
+}
+
+.cta {
+
+}
+
+.download_container {
+ 
+    
+}

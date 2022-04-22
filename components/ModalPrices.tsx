@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 
-import styles from "../styles/modal_prices.module.css"
-import components from "../styles/components.module.css"
+import styles from "@styles/modules/modal_prices.module.css"
+import components from "@styles/modules/components.module.css"
 
 interface ModalPricesProps {
     close :  () => void;
@@ -17,7 +17,7 @@ const ModalPrices: FunctionComponent<ModalPricesProps> = ({close, goContact}) =>
                 <p className={styles.body}>
                 Nous sommes actuellement en <span className="emphasized-primary">phase de développement !</span>
                 <br/><br/>
-                Si vous avez été séduits et souhaitez soutenir notre projet, contactez nous via <u className={components.button} onClick={goContact}>e-mail </u>
+                Si vous avez été séduit et souhaitez soutenir notre projet, contactez nous via <u className={components.button} onClick={goContact}>e-mail </u>
                 ou rejoignez notre <u className={components.button} onClick={goContact}>discord</u> pour devenir bêta-testeur !
                 <br/><br/>
                 L’équipe d’Omelia vous remercie !

@@ -1,7 +1,7 @@
 import { RefObject, FunctionComponent, useState } from "react";
 import ModalPrices from "./ModalPrices";
 
-import styles from "../styles/prices.module.css"
+import styles from "@styles/modules/prices.module.css"
 import Card from "./Card";
 
 interface PriceProps {
@@ -40,7 +40,7 @@ const Price: FunctionComponent<PriceProps> = ({ priceRef, contactRef }) => {
                         isIncluded : true
                     },
                     {
-                        name: "entrainement illimité",
+                        name: "entraînements illimités",
                         isIncluded : true
                     },
                     {

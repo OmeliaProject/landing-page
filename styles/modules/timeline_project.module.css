@@ -1,0 +1,84 @@
+.timeline_project {
+    margin-left: 5%;
+
+    margin-top: 5%;
+    max-width : 90%;
+    gap: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    font-family: comfortaa;
+}
+
+.date_container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.date {
+    z-index: 1;
+    height: fit-content;
+    padding: 5px;
+    background-color: var(--light-color);
+    font-size: 0.75rem;
+}
+
+.line {
+    z-index: 0;
+    position: absolute;
+    height: 100%;
+}
+
+.dotted {
+    composes : line;
+    border-left: 4px dashed #000;
+}
+
+.solid {
+    composes : line;
+    border-left: 4px solid #000;
+}
+
+.none {
+
+}
+
+.card {
+    min-height: 20vh;
+    border: solid 3px var(--dark-color);
+    border-radius: 15px;
+
+    padding: 1rem 2rem;
+    margin-bottom: 10%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card[data-dotted="true"] {
+    border: dashed 3px var(--dark-color) !important;
+
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.body {
+    width: 100%;
+    margin-top: 2%;
+    font-size: 0.75rem;
+    font-family: roboto;
+}
+
+.version {
+    margin-top: 4%;
+
+    font-size: 0.75rem;
+
+    font-family: roboto;
+    opacity: 0.5;
+
+}

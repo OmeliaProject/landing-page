@@ -1,0 +1,71 @@
+.team {
+    margin-top: 8%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.team h1 {
+    font-family: comfortaa;
+    font-weight: bold;
+    margin-bottom : 8%;
+
+}
+
+.member_container {
+    padding: 0 10%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.member_card {
+    flex: 0 0 calc(20.5%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4%;
+}
+
+.avatar {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8%;
+}
+
+.description {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: comfortaa;
+}
+
+.name {
+    margin-bottom: 2% !important;
+    font-size: 1rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.role {
+    font-size: 0.75rem;
+    font-family: roboto;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .team h1 {
+        margin-bottom : 4%;
+        font-size: 1.15rem;
+
+    }
+
+}

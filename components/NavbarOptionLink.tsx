@@ -1,7 +1,7 @@
 import Router from 'next/router'
 import React, { ReactChildren, ReactChild, FunctionComponent } from 'react';
 
-import styles from "../styles/navbar.module.css"
+import styles from "@styles/modules/navbar.module.css"
 
 
 interface NavbarOptionLinkProps {

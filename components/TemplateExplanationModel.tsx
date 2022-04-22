@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 
-import styles from "../styles/application.module.css"
+import styles from "@styles/modules/application.module.css"
 
 interface TemplateExplanationModelProps {
     picture : string;

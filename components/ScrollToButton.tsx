@@ -20,7 +20,7 @@ const ScrollToButton: FunctionComponent<ScrollToButtonProps> = ({target, childre
     }
 
     return (
-        <div className={`${styleClass} button`} style={style} onClick={goTo}>
+        <div className={`${styleClass}`} style={style} onClick={goTo}>
             {children}
         </div>    
     );

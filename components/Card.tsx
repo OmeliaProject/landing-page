@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 
 import Option from "./Option"
-import styles from "../styles/prices.module.css"
+import styles from "@styles/modules/prices.module.css"
 
 interface PrincingOptions
 {

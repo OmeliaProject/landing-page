@@ -2,7 +2,7 @@ import { RefObject, FunctionComponent, useRef, CSSProperties, useState} from "re
 
 import LinkContact from "./LinkContact";
 import emailjs from '@emailjs/browser';
-import styles from "../styles/contact.module.css"
+import styles from "@styles/modules/contact.module.css"
 
 interface ContactProps {
     contactRef : RefObject<HTMLDivElement>

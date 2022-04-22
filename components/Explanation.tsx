@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import styles from "../styles/explanation.module.css"
+import styles from "@styles/modules/explanation.module.css"
 
 
 interface ExplanationProps {

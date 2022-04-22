@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { FunctionComponent, ReactChild, ReactChildren } from "react";
 
-import styles from "../styles/contact.module.css"
+import styles from "@styles/modules/contact.module.css"
 
 interface LinkContactProps {
     className ?: string; 

@@ -1,5 +1,5 @@
 import { RefObject, FunctionComponent } from "react";
-import styles from "../styles/home.module.css"
+import styles from "@styles/modules/home.module.css"
 import ScrollToButton from "./ScrollToButton";
 
 interface HomeProps {
@@ -17,7 +17,7 @@ const Home: FunctionComponent<HomeProps> = ({ homeRef, aboutRef }) => {
                 <div className={styles.text_cta}>
                     <p>Ammenez votre<br/><span className="emphasized-light">élocution</span> au niveau<br/>supérieur !</p>
                 </div>
-                <ScrollToButton styleClass={styles.button_cta} target={aboutRef}>En savoir plus</ScrollToButton>
+                <ScrollToButton styleClass={styles.button_cta} target={aboutRef}>en savoir plus</ScrollToButton>
             </div>
 
             <div className={styles.people}>
