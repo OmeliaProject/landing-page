@@ -1,6 +1,6 @@
 import {FunctionComponent} from "react";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
 import styles from "@styles/modules/carousel.module.css";
 
@@ -19,7 +19,7 @@ interface CarouselProps {
 const Carousel : FunctionComponent<CarouselProps> = ({classNameCarousel, children, wrap, width} : CarouselProps) => {
     const [[page, direction], setPage] = useState([0, 0]);
 
-    const variants = {
+    const variants : Variants  = {
         enter: (direction: number) => {
             return {
                 x: direction > 0 ? width : -width,
