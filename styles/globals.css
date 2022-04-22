@@ -8,7 +8,7 @@
   --validation-color : #BCFFB6;
   --error-color : #ffb6b6;
   --loading-color : #feffb6;
-  --floating : 1;
+  --floating : 10;
   --foreground : 0;
   --background : -1;
 }
