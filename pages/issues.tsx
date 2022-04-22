@@ -21,7 +21,7 @@ const Issues: NextPage = () => {
                 <div className={styles.body}>
                     <p>Cette page est encore en construction</p>
                     <Link href="/beta">
-                        <a className={styles.link}>revenir à la page beta</a>
+                        <a className={styles.link}>revenir à la page bêta</a>
                     </Link>
                 </div>
                 

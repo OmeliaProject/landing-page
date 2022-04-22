@@ -31,7 +31,9 @@ const Navbar: FunctionComponent = () => {
     return (  
         <div className={`${styles.navbar} ${scroll ? styles.scrolled_navbar : ""}`}>
              <Link href="/">
-                        <a className={styles.title}>Omelia</a>
+                <div  className={styles.title}>
+                    <img src="/omelia.svg" alt="logo" />
+                </div>
             </Link>
             <Hamburger onClick={() => {setSideMenuStatus(true)}} styleClass={styles.hamburger} ></Hamburger>
             <div className={` ${stylesMenuSide} ${styles.menu_container}`}>
@@ -45,7 +47,7 @@ const Navbar: FunctionComponent = () => {
                         <a className={styles.option}>accueil</a>
                     </Link>
                     <Link href="/beta">
-                        <a className={styles.option}>beta</a>
+                        <a className={styles.option}>bêta</a>
                     </Link>
                     <Link href="/timeline">
                         <a className={styles.option}>avancée du projet</a>

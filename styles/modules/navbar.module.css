@@ -30,12 +30,18 @@
     top: 5%;
 }
 
-
 .title {
     composes : button from "./components.module.css"; 
 
-    font-size: 1.5rem;
+    height: 1.5rem;
+
 }
+
+.title img {
+    color: var(--dark-color);
+    height: 100%;
+}
+
 
 .menu_container {
     transition: right 400ms ease-out; 

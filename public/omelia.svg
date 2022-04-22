@@ -1,0 +1,9 @@
+<svg width="315" height="199" viewBox="0 0 315 199" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<ellipse rx="15.1667" ry="80.5" transform="matrix(-1 0 0 1 64.1666 99.1665)" fill="currentColor"/>
+<ellipse rx="11.6667" ry="61.8333" transform="matrix(-1 0 0 1 32.6666 99.1663)" fill="currentColor"/>
+<ellipse rx="8.16667" ry="40.8333" transform="matrix(-1 0 0 1 8.16658 99.1663)" fill="currentColor"/>
+<ellipse cx="250.834" cy="99.1665" rx="15.1667" ry="80.5" fill="currentColor"/>
+<ellipse cx="282.334" cy="99.1663" rx="11.6667" ry="61.8333" fill="currentColor"/>
+<ellipse cx="306.834" cy="99.1663" rx="8.16667" ry="40.8333" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M157.5 198.333C212.268 198.333 256.667 153.935 256.667 99.1667C256.667 44.3984 212.268 0 157.5 0C102.732 0 58.3333 44.3984 58.3333 99.1667C58.3333 153.935 102.732 198.333 157.5 198.333ZM157.166 187.833C188.553 187.833 213.998 148.136 213.998 99.1665C213.998 50.1973 188.553 10.4998 157.166 10.4998C125.778 10.4998 100.333 50.1973 100.333 99.1665C100.333 148.136 125.778 187.833 157.166 187.833Z" fill="currentColor"/>
+</svg>

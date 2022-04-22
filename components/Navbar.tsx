@@ -18,7 +18,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({home, price, contact}) => {
     let [scroll, setScroll] = useState(false);
     let stylesMenuSide = isSideMenuOpen ? styles.pull_left : "";
     
-    const onScroll = (_ : Event) => {
+    const onScroll = () => {
         const position = window.pageYOffset;
 
         if (position > 100) {
@@ -31,7 +31,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({home, price, contact}) => {
 
     useEffect(() => {
         window.addEventListener('scroll', onScroll, { passive: true });
-    
+        onScroll();
         return () => {
             window.removeEventListener('scroll', onScroll);
         };
@@ -41,7 +41,9 @@ const Navbar: FunctionComponent<NavbarProps> = ({home, price, contact}) => {
 
     return (  
         <div className={`${styles.navbar} ${scroll ? styles.scrolled_navbar : ""}`}>
-            <ScrollToButtonProps styleClass={styles.title} target={home}>Omelia</ScrollToButtonProps>
+            <ScrollToButtonProps styleClass={styles.title} target={home}>
+                <img src="/omelia.svg" alt="logo" />
+            </ScrollToButtonProps>
 
             <Hamburger onClick={() => {setSideMenuStatus(true)}} styleClass={styles.hamburger} ></Hamburger>
             <div className={` ${stylesMenuSide} ${styles.menu_container}`}>
@@ -53,7 +55,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({home, price, contact}) => {
                 <div className={styles.option_container}>
                     <ScrollToButtonProps styleClass={styles.option} target={home}>accueil</ScrollToButtonProps>
                     <Link href="/beta">
-                        <a className={styles.option}>beta</a>
+                        <a className={styles.option}>bêta</a>
                     </Link>
                     <ScrollToButtonProps styleClass={styles.option} target={price}>prix</ScrollToButtonProps>
                     <ScrollToButtonProps styleClass={styles.option} target={contact}>contact</ScrollToButtonProps>

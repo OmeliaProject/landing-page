@@ -16,7 +16,7 @@ const Beta: NextPage<BetaProps> = () => {
     return (
         <>
         <Head>
-            <title>Omelia - beta</title>
+            <title>Omelia - bêta</title>
         </Head>
         <div className={styles.beta}>
             <NavbarBeta/>

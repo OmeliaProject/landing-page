@@ -8,7 +8,7 @@ interface TeamProps {
 const Team: FunctionComponent<TeamProps> = () => {
     return (
         <div className={styles.team}>
-            <h1>Notre equipe</h1>
+            <h1>Notre équipe</h1>
             <div className={styles.member_container}>
                 <Member name="Matthias Vigier" role="Développeur UX/UI" avatar="/members/matthias.jpg" />
                 <Member name="Albert Corson" role="Développeur BACK" avatar="/members/albert.jpg" />

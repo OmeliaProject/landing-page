@@ -13,8 +13,8 @@ const HowToHelp: FunctionComponent<HowToHelpProps> = () => {
     const [widthScreen, setWidthScreen] = useState(0);
 
     const steps : Array<JSX.Element> = [
-        <Step key={0} svgPath="/download.svg" title="Télecharger l’app" description="Allez sur l'appstore / google play et téléchargez Omelia ! Entrainez-vous dès que vous pouvez !" />,
-        <Step key={1}  svgPath="/feedback.svg" title="Remonter les erreurs" description="Vous rencontrez des erreurs sur l'application ? Allez dans 'faire remonter une erreur'   et créez un post !" />,
+        <Step key={0} svgPath="/download.svg" title="Télécharger l'app" description="Allez sur l'appstore / google play et téléchargez Omelia ! Entrainez-vous dès que vous pouvez !" />,
+        <Step key={1}  svgPath="/feedback.svg" title="Remonter les erreurs" description="Vous rencontrez des erreurs sur l'application ? Allez dans 'remonter une erreur' et créez un post"/>,
         <Step key={2} svgPath="/discord.svg" title="Être sur le discord" description="Vous souhaitez encore plus nous aider et en savoir plus sur Omelia, rejoignez nous sur discord !" />
     ];
 
@@ -30,7 +30,7 @@ const HowToHelp: FunctionComponent<HowToHelpProps> = () => {
 
     return (
         <div className={styles.howtohelp}>
-            <h1>Comment aider pour la beta ?</h1>
+            <h1>Comment aider pour la bêta ?</h1>
         {
             isMobile ?
                 <Carousel classNameCarousel={styles.step_container}  width={widthScreen}  wrap>

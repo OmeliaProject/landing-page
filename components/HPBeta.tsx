@@ -19,11 +19,11 @@ const HPBeta: FunctionComponent<HPBetaProps> = () => {
         <motion.div  className={styles.hpbeta} style={{ y: y1 }}>
             <motion.div className={styles.welcome_container} style={{ y: y2 }}>
                 <div className={styles.text}>
-                    <h1>Merci d’avoir rejoins la beta d’omelia</h1>
-                    <p>Toute l’équipe vous remerci !</p>
+                    <h1>Bienvenue dans la bêta d'Omelia</h1>
+                    <p>Toute l’équipe vous remercie !</p>
                 </div>
                 <Link href={"/issues"} >
-                    <a className={styles.button_cta}>Faire remonter un problème</a>
+                    <a className={styles.button_cta}>Remonter un problème</a>
                 </Link>
             </motion.div>
         </motion.div>
