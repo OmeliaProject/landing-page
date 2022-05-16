@@ -30,3 +30,11 @@
 .button {
     cursor: pointer;
 }
+
+.input {
+    border-radius: 15px;
+}
+
+.input:focus {
+    outline: var(--dark-color) 1px solid;
+}

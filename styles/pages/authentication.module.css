@@ -1,0 +1,28 @@
+.authentication {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 10vh;
+
+    height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+.authentication::after {
+    position: absolute;
+    content: "OMELIA";
+    
+    z-index: var(--background);
+
+    font-size: 12rem;
+    font-family: Comfortaa; 
+    color: var(--light-color);
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

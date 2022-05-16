@@ -1,0 +1,38 @@
+.container {
+    font-family: roboto;
+}
+
+.label {
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+
+}
+
+.input_container {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid var(--dark-color);
+}
+
+.input_container:focus-within {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+
+.icon {
+    height: 1rem;
+}
+
+.visibility {
+    height: 1rem;
+    cursor: pointer;
+}
+
+
+.input {
+    font-family: roboto;
+
+    padding: 0.25rem 0.5rem ;
+}

@@ -1,4 +1,4 @@
-import { FunctionComponent, RefObject } from "react";
+import { FunctionComponent } from "react";
 
 import styles from "@styles/modules/application.module.css"
 import TemplateExplanationModel from "./TemplateExplanationModel";
@@ -39,7 +39,7 @@ const ApplicationModel: FunctionComponent<ApplicationModelProps> = () => {
                     Omelia met à votre disposition des vidéos de professionnels de la prise de parole en public.
                 </p>
             </TemplateExplanationModel>
-            <img className="separator" src="wave-separator-2.svg" />
+            <img className="separator" src="/wave-separator-2.svg" />
 
         </div>
     );
