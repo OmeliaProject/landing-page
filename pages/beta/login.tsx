@@ -6,19 +6,25 @@ import FormInput from "@components/FormInput";
 import Link from "next/link";
 import Head from "next/head";
 import NavbarBeta from "@components/NavbarBeta";
+import currentUser from '@components/api/currentUser';
+import useTransportLayer from '@hooks/useTransportLayer';
 
 
 interface LoginProps {
-    
-}
- 
-const Login: FunctionComponent<LoginProps> = () => {
 
-    let [email, setEmail] = useState("");
-    let [password, setPassword] = useState("");
+}
+
+const Login: FunctionComponent<LoginProps> = () => {
+    const api = useTransportLayer();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const createAccount = () => {
-        console.log("create account");
+      api.currentUser.signIn({
+        email: '',
+        password: '',
+      })
+      console.log("create account");
     }
     const redirectToRegisterPage = () => {
         console.log("redirect to register page");
@@ -35,7 +41,7 @@ const Login: FunctionComponent<LoginProps> = () => {
                 <div className={styles.card}>
                     <img className={styles.visual} src="/sitting-girl.svg" alt="Sitting-people" />
                     <div className={styles.card_header}>Connexion</div>
-                
+
                     <FormInput classNameTweak={styles.form_input}
                                 label={"Email"}
                                 placeholder={"example@gmail.com"}
@@ -53,20 +59,20 @@ const Login: FunctionComponent<LoginProps> = () => {
                                 setValue={setPassword}
                                 value={password}
                                 />
-                
+
                     <Link href="/beta/forget-password">
                         <p className={styles.forgot_password}>Mots de passe oublie ?</p>
                     </Link>
-                
+
                     <Button onClick={createAccount} classNameTweak={styles.validation} type={ButtonType.PRIMARY} >Se connecter</Button>
                     <Link href="/beta/register">
-                        <Button type={ButtonType.SECONDARY} classNameTweak={styles.button} >S'enregistrer</Button>
+                        <Button type={ButtonType.SECONDARY} classNameTweak={styles.button} >{"S'enregistrer"}</Button>
                     </Link>
-                    
+
                 </div>
             </div>
         </>
     );
 }
- 
+
 export default Login;

@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import IIssue from "@types/IIssue";
+import { IIssue } from "@types/IIssue";
 import styles from "@styles/modules/issues.module.css";
 
 interface IProps {

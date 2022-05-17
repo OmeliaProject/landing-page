@@ -2,44 +2,25 @@ import styles from "@styles/pages/issues.module.css";
 import Head from "next/head";
 import NavbarBeta from "@components/NavbarBeta";
 import { InferGetServerSidePropsType } from 'next'
-import IIssue from "@types/IIssue";
+import { IIssue } from "@types/IIssue";
 import Issue from "@components/Issue";
 import Button, { ButtonType } from "@components/Button";
 import Link from "next/link";
+import useTransportLayer from '@hooks/useTransportLayer';
+import { useEffect, useState } from 'react';
 
-export const getServerSideProps  = async ()  =>   {
-    // create random array to fill the issues
-    const issues : IIssue[] = [
-        {
-            id: 1,
-            timestamp: Date.now(),
-            email: "mathias@w;dwa",
-            title: "Minuteur de marche pas après 20 min",
-            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur....", 
-            likes: 0,
-            hasLiked: false
-        },
-        {
-            id: 2,
-            timestamp: Date.now(),
-            email: "mathias@w;dwa",
-            title: "Page de connexion ne fonctionne pas avec twitter",
-            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur....", 
-            likes: 0,
-            hasLiked: false
-        },
-    ]
+function Issues() {
+    const api = useTransportLayer();
+    const [issues, setIssues] = useState<Array<IIssue>>([]);
 
-    return {
-      props: {
-        issues
-      },
+    const retrieveIssues = async() => {
+        setIssues(await api.issues.getIssues())
     }
-  }
-   
 
-function Issues({ issues }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-    
+    useEffect(() => {
+        retrieveIssues()
+    }, [])
+
     // take a timestamp and return a string with the date
 
     return (

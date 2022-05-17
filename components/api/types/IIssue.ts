@@ -1,4 +1,4 @@
-export default interface IIssue {
+export interface IIssue {
     id : number;
     timestamp : number;
     email : string;
