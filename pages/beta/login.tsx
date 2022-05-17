@@ -17,10 +17,6 @@ const Login: FunctionComponent<LoginProps> = () => {
     let [email, setEmail] = useState("");
     let [password, setPassword] = useState("");
 
-    const forgotPassword = () => {  
-        console.log("forgot password");
-    }
-
     const createAccount = () => {
         console.log("create account");
     }
@@ -49,7 +45,8 @@ const Login: FunctionComponent<LoginProps> = () => {
                                 value={email}
                                 />
 
-                    <FormInput  label={"Mots de passe"}
+                    <FormInput
+                                label={"Mots de passe"}
                                 placeholder={"votre mots de passe"}
                                 icon={"/mail.svg"}
                                 isConfidential={true}
@@ -57,11 +54,13 @@ const Login: FunctionComponent<LoginProps> = () => {
                                 value={password}
                                 />
                 
-                    <p onClick={forgotPassword}  className={styles.forgot_password}>Mots de passe oublie ?</p>
+                    <Link href="/beta/forget-password">
+                        <p className={styles.forgot_password}>Mots de passe oublie ?</p>
+                    </Link>
                 
                     <Button onClick={createAccount} classNameTweak={styles.validation} type={ButtonType.PRIMARY} >Se connecter</Button>
                     <Link href="/beta/register">
-                        <Button type={ButtonType.SECONDARY} >S'enregistrer</Button>
+                        <Button type={ButtonType.SECONDARY} classNameTweak={styles.button} >S'enregistrer</Button>
                     </Link>
                     
                 </div>

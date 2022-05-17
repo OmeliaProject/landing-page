@@ -52,7 +52,7 @@ const Navbar: FunctionComponent = () => {
                     <Link href="/timeline">
                         <a className={styles.option}>avancée du projet</a>
                     </Link>
-                    <Link href="/issues">
+                    <Link href="/beta/issues">
                         <a className={styles.option}>remonter un problème</a>
                     </Link>
                 </div>

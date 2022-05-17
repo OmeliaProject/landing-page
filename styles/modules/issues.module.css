@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.issue {
+    margin-left: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+    font-family: roboto;
+    height: fit-content;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.border {
+    width: 0.15rem;
+    border-radius: 50px;
+    background-color: var(--primary-color);
+}
+
+.title{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.body{
+    font-size: 1rem;
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.footer{
+    opacity: 0.5;
+    font-size: 0.9rem;
+    width: 100%;
+    display: flex;
+    margin-top: 0.75rem;
+
+}
+
+.date{
+    margin-left: 1rem;
+}
+
+.email{
+    margin-left: 1rem;
+}
+
+.likes{
+
+}

@@ -1,0 +1,62 @@
+.add_issues {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--light-color);
+}
+
+.form_container {
+    width: 80%;
+    font-family: roboto;
+    margin: 20vh 0 1.5rem 0 ;
+}
+
+.title {
+    width: 100%;
+
+    font-size: 1.5rem;
+    font-family: roboto;
+
+    border-bottom: 2px solid var(--dark-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.25rem;
+
+
+}
+
+.input_container {
+    margin-bottom: 1rem;
+}
+
+.label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    
+}
+
+.area {
+    border: 2px solid var(--dark-color);
+    border-radius: 15px;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.small_area {
+    composes : area;
+}
+
+
+.big_area {
+    composes : area;
+
+}
+
+.button_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}

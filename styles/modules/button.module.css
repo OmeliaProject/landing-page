@@ -1,11 +1,12 @@
 .button {
     cursor: pointer;
-    width: 100%;
+    width: fit-content;
+    height: fit-content;
 
-    padding: 0.5rem 1rem;
+    padding: 0.65rem 1rem;
+
     border-radius: 15px;
     font-size: 0.75rem ;
-
 
     font-family: Comfortaa;
     display: flex;
