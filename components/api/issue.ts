@@ -21,8 +21,8 @@ class Issue {
         id: 1,
         timestamp: Date.now(),
         email: "mathias@w;dwa",
-        title: "Minuteur de marche pas après 20 min",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur....",
+        title: "Minuteur ne marche pas après 20 min",
+        body: "J’ai une présentation de 25 minutes à préparer mais je ne peux pas sélectionner un minuteur de plus de 20 minutes.",
         likes: 0,
         hasLiked: false
       },
@@ -30,8 +30,8 @@ class Issue {
         id: 2,
         timestamp: Date.now(),
         email: "mathias@w;dwa",
-        title: "Page de connexion ne fonctionne pas avec twitter",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur....",
+        title: "Page de connexion ne fonctionne pas avec google",
+        body: "Lorsque j’essaie de me connecter avec google, l’application se ferme.",
         likes: 0,
         hasLiked: false
       },
