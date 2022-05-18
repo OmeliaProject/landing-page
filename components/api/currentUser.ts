@@ -1,4 +1,6 @@
-import CurrentUserStore from '@stores/currentUser';
+import CurrentUserStore, { CurrentUserInfos } from '@stores/currentUser';
+import { Axios, AxiosInstance, AxiosRequestHeaders } from 'axios';
+import { UserInfo } from 'os';
 
 export interface SignInBody {
   email: string,
@@ -13,6 +15,7 @@ export interface SignUpBody {
 }
 
 export interface EmailVerificationCodeBody {
+  code: string,
   email: string,
 }
 
@@ -43,25 +46,88 @@ export interface ExternalServicesQueryParams {
 }
 
 class CurrentUser {
-  constructor() {
+
+  private axiosInstance: AxiosInstance;
+  
+  private usersBdd : Array<CurrentUserInfos> = new Array<CurrentUserInfos>();
+
+
+  constructor(AxiosInstance: AxiosInstance) {
+    this.axiosInstance = AxiosInstance;
   }
 
   delay = async(ms : number) => new Promise(resolve => setTimeout(resolve, ms))
 
-  async signIn(body: SignInBody): Promise<void> {
-    await this.delay(1000);
+  isUserSignedIn(): boolean {
+    return CurrentUserStore.tokens !== null;
+  }
 
-    //do some call api
-    CurrentUserStore.setTokens({
-      accessToken: 'leToken',
-      refreshToken: 'leRefreshToken',
-      expiresIn: 10,
+  async signIn(body: SignInBody): Promise<void> {
+    return new Promise(async (resolve, reject) => {
+      await this.delay(500);
+      
+
+
+      // check if user exists
+      const user = this.usersBdd.find(user => user.email === body.email);
+      
+      if (!user)
+        reject('User not found');
+  
+      //do some call api
+      CurrentUserStore.setTokens({
+        accessToken: 'leToken',
+        refreshToken: 'leRefreshToken',
+        expiresIn: 10,
+      })
+  
+      let data = await this.getUserInfos();
+  
+      CurrentUserStore.setUser({
+        firstname: data.firstname,
+        lastname: data.lastname,
+        email: body.email
+      })
+      resolve();
+    
     })
+
+
+  }
+
+  async getUserInfos(): Promise<CurrentUserInfos> {
+    await this.delay(1000);
+    return {
+      firstname: 'Mathias',
+      lastname: 'Vigier',
+      email: 'math.vgr@gmail.com',
+    }
+  }
+
+  async confirmPasswordCreation(body: EmailVerificationCodeBody): Promise<void> {
+    await this.delay(1000);
   }
 
   async signUp(body: SignUpBody): Promise<void> {
-    await this.delay(1000);
+    
+    // fake promise with accept
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        this.usersBdd.push(body);
+        resolve();
+      }, 1000);
+    });
+
   }
+
+  signOut(): void {
+    this.usersBdd = this.usersBdd.filter(user => user.email !== CurrentUserStore?.user?.email);
+    
+    CurrentUserStore.setTokens(null);
+    CurrentUserStore.setUser(null);
+
+
+  } 
 
 
 }

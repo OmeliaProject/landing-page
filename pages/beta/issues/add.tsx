@@ -6,6 +6,7 @@ import Button, { ButtonType } from "@components/Button";
 import Link from "next/link";
 import { useState } from 'react';
 import useTransportLayer from '@hooks/useTransportLayer';
+import { useRouter } from "next/router";
 
 interface AddIssueProps {
 
@@ -13,6 +14,7 @@ interface AddIssueProps {
 
 const AddIssue : NextPage<AddIssueProps> = () => {
     const api = useTransportLayer();
+    const router = useRouter();
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
 
@@ -21,7 +23,7 @@ const AddIssue : NextPage<AddIssueProps> = () => {
             title,
             body,
         })
-        console.log("send issue", title, body);
+        router.push('/beta/issues');
     }
 
     return (
@@ -61,8 +63,8 @@ const AddIssue : NextPage<AddIssueProps> = () => {
                 </div>
 
                 <div className={styles.button_container}>
-                    <Link href={"/beta"} >
-                        <Button type={ButtonType.SECONDARY}>{"revenir à l'accueil"}</Button>
+                    <Link href={"/beta/issues"} >
+                        <Button type={ButtonType.SECONDARY}>{"revenir aux problèmes"}</Button>
                     </Link>
                     <Button onClick={sendIssue} type={ButtonType.PRIMARY}>Envoyer votre problème</Button>
                 </div>
@@ -75,3 +77,4 @@ const AddIssue : NextPage<AddIssueProps> = () => {
 }
 
 export default AddIssue;
+

@@ -4,9 +4,7 @@ import Head from 'next/head'
 import { useEffect } from 'react';
 import { TransportLayerProvider } from '@components/api/context';
 
-
 function MyApp({ Component, pageProps }: AppProps) {
-
 
   const modifyViewportHeight =  () => {
     let vh = window.innerHeight * 0.01;

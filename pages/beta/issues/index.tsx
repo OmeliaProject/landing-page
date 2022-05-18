@@ -1,8 +1,7 @@
 import styles from "@styles/pages/issues.module.css";
 import Head from "next/head";
 import NavbarBeta from "@components/NavbarBeta";
-import { InferGetServerSidePropsType } from 'next'
-import { IIssue } from "@types/IIssue";
+import { IIssue } from "@components/api/types/IIssue";
 import Issue from "@components/Issue";
 import Button, { ButtonType } from "@components/Button";
 import Link from "next/link";
@@ -12,10 +11,19 @@ import { useEffect, useState } from 'react';
 function Issues() {
     const api = useTransportLayer();
     const [issues, setIssues] = useState<Array<IIssue>>([]);
+    const [search, setSearch] = useState("");
+
+
 
     const retrieveIssues = async() => {
         setIssues(await api.issues.getIssues())
     }
+
+    const changeResearch = (event : React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(event.target.value)
+    }
+
+    const filteredIssues = issues.filter(issue => issue.title.toLowerCase().includes(search.toLowerCase()))
 
     useEffect(() => {
         retrieveIssues()
@@ -36,7 +44,7 @@ function Issues() {
                         <h1>Problèmes rencontrés :</h1>
                         <div className={styles.search}>
                             <img className={styles.logo} src="/magnifier.svg" alt="recherche" />
-                            <input className={styles.input} type="text" placeholder="rechercher un problème" />
+                            <input className={styles.input} value={search} onChange={changeResearch} type="text" placeholder="rechercher un problème" />
                         </div>
                     </div>
                     <Link href={"/beta/issues/add"} >
@@ -48,9 +56,9 @@ function Issues() {
                 </div>
                 <div className={styles.issues_container}>
                     {
-                        issues.map((issue : IIssue) =>  {
+                        filteredIssues.map((issue : IIssue, index) =>  {
                             return (
-                                <Issue  data={issue} />
+                                <Issue key={index}  data={issue} />
                             )
                         })
                     }

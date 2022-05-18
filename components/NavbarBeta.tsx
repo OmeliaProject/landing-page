@@ -3,8 +3,12 @@ import Link from 'next/link'
  
 import styles from "@styles/modules/navbar.module.css"
 import Hamburger from "./Hamburger";
+import useTransportLayer from "@hooks/useTransportLayer";
+import { useRouter } from "next/router";
 
 const Navbar: FunctionComponent = () => {
+    const api = useTransportLayer();
+    const router = useRouter();
 
     let [isSideMenuOpen, setSideMenuStatus] = useState(false);
     let [scroll, setScroll] = useState(false);
@@ -19,6 +23,12 @@ const Navbar: FunctionComponent = () => {
             setScroll(false);            
         }
     }
+
+    const disconnect = () => {
+        api.currentUser.signOut();
+        router.push("/beta");
+    }
+
 
     useEffect(() => {
         window.addEventListener('scroll', onScroll, { passive: true });
@@ -43,9 +53,7 @@ const Navbar: FunctionComponent = () => {
                                         className={styles.close} />
                 }
                 <div className={styles.option_container}>
-                    <Link href="/">
-                        <a className={styles.option}>accueil</a>
-                    </Link>
+
                     <Link href="/beta">
                         <a className={styles.option}>bêta</a>
                     </Link>
@@ -55,6 +63,17 @@ const Navbar: FunctionComponent = () => {
                     <Link href="/beta/issues">
                         <a className={styles.option}>remonter un problème</a>
                     </Link>
+                    {
+                        api.currentUser.isUserSignedIn() ?
+                        <p onClick={disconnect} className={styles.option}> 
+                            se déconnecter
+                        </p>
+                         : 
+                        <Link href="/beta/login">
+                            <a className={styles.option}>se connecter</a>
+                        </Link>
+
+                    }
                 </div>
 
             </div>

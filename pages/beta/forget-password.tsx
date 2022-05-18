@@ -5,6 +5,7 @@ import NavbarBeta from "@components/NavbarBeta";
 import { useState } from "react";
 import FormInput from "@components/FormInput";
 import Button, { ButtonType } from "@components/Button";
+import Link from "next/link";
 
 interface ForgetPasswordProps {
     
@@ -38,6 +39,10 @@ const ForgetPassword : NextPage<ForgetPasswordProps> = () => {
                                 />
                 
                     <Button classNameTweak={styles.button} onClick={sendEmailForgetPassword} type={ButtonType.PRIMARY} >envoyer le lien de récupération</Button>
+                    <Link href="/beta/login">
+                        <p className={styles.already_account}>Revenir à la page login</p>
+                    </Link>
+                
                 </div>
             </div>
         </>

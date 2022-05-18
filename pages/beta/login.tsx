@@ -8,6 +8,7 @@ import Head from "next/head";
 import NavbarBeta from "@components/NavbarBeta";
 import currentUser from '@components/api/currentUser';
 import useTransportLayer from '@hooks/useTransportLayer';
+import { useRouter } from "next/router";
 
 
 interface LoginProps {
@@ -16,20 +17,22 @@ interface LoginProps {
 
 const Login: FunctionComponent<LoginProps> = () => {
     const api = useTransportLayer();
+    const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const createAccount = () => {
-      api.currentUser.signIn({
-        email: '',
-        password: '',
-      })
-      console.log("create account");
-    }
-    const redirectToRegisterPage = () => {
-        console.log("redirect to register page");
-    }
 
+    const createAccount = () => {
+        api.currentUser.signIn({
+            email: email,
+            password: password,
+        }).then(() => {
+            router.push("/beta");
+            console.log("login account");
+        }).catch(error => {
+            console.log(error);
+        });
+    }
 
     return (
         <>
@@ -46,23 +49,23 @@ const Login: FunctionComponent<LoginProps> = () => {
                                 label={"Email"}
                                 placeholder={"example@gmail.com"}
                                 icon={"/lock.svg"}
-                                isConfidential={false}
                                 setValue={setEmail}
                                 value={email}
                                 />
+        
 
                     <FormInput
                                 label={"Mots de passe"}
                                 placeholder={"votre mots de passe"}
                                 icon={"/mail.svg"}
-                                isConfidential={true}
+                                isConfidential
                                 setValue={setPassword}
                                 value={password}
                                 />
 
-                    <Link href="/beta/forget-password">
+                    {/* <Link href="/beta/forget-password">
                         <p className={styles.forgot_password}>Mots de passe oublie ?</p>
-                    </Link>
+                    </Link> */}
 
                     <Button onClick={createAccount} classNameTweak={styles.validation} type={ButtonType.PRIMARY} >Se connecter</Button>
                     <Link href="/beta/register">

@@ -15,7 +15,6 @@ export interface CurrentUserTokens {
 export interface CurrentUserInfos {
   firstname: string,
   lastname: string,
-  password: string,
   email: string,
 }
 
@@ -36,7 +35,7 @@ class CurrentUserStore {
   }
 
   @action.bound public setUser(user: CurrentUserInfos | null) {
-    this.user = user
+    this.user = user;
   }
 
   @computed get authenticationTokenHeaders(): AxiosRequestHeaders {
