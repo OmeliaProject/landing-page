@@ -1,6 +1,8 @@
 .timeline {
     background-color: var(--light-color);
     min-height: 100vh;
+    overflow: hidden;
+
 }
 
 .title {

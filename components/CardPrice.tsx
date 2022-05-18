@@ -9,7 +9,7 @@ interface PrincingOptions
     isIncluded : boolean
 }
 
-interface CardProps {
+interface CardPriceProps {
     title : string;
     price : string;
     emphasized : boolean; 
@@ -18,7 +18,7 @@ interface CardProps {
 }
 
  
-const Card: FunctionComponent<CardProps> = ({title, price, emphasized, options, setModalStatus}) => {
+const CardPrice: FunctionComponent<CardPriceProps> = ({title, price, emphasized, options, setModalStatus}) => {
 
     return (
         <div className={styles.card} data-emphasized={emphasized} >
@@ -43,4 +43,4 @@ export  type {
     PrincingOptions
 };
 
-export default Card;
+export default CardPrice;

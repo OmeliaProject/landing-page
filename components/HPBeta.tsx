@@ -22,7 +22,7 @@ const HPBeta: FunctionComponent<HPBetaProps> = () => {
                     <h1>{"Bienvenue dans la bêta d'Omelia"}</h1>
                     <p>{"Toute l'équipe vous remercie !"}</p>
                 </div>
-                <Link href={"/issues"} >
+                <Link href={"/beta/issues"} >
                     <a className={styles.button_cta}>Remonter un problème</a>
                 </Link>
             </motion.div>

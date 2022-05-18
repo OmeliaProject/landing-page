@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { PrincingOptions } from "./Card";
+import { PrincingOptions } from "./CardPrice";
 
 import styles from "@styles/modules/prices.module.css"
 
