@@ -24,7 +24,6 @@ const Register: FunctionComponent<RegisterProps> = () => {
     const [lastname, setLastname] = useState("");
 
     const register = () => {
-        console.log("register");
         api.currentUser.signUp({
             email: email,
             password: password,
@@ -32,7 +31,7 @@ const Register: FunctionComponent<RegisterProps> = () => {
             lastname: lastname,
         })
         .then(() => {
-            router.push("/beta/login");
+            router.push("/beta/register/code-confirmation");
         })
         .catch(error => {
             console.log(error);

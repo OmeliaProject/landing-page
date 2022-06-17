@@ -20,19 +20,18 @@ const CodeConfirmationRegister : NextPage<CodeConfirmationRegisterProps> = () =>
     const [email, setEmail] = useState("");
 
 
-    const sendEmailCodeConfirmationRegister = () => {
-        api.currentUser.confirmPasswordCreation({
-            email: email,
-            code: code,
-        })
-        .then(() => {
-            console.log("success");
+    const sendEmailCodeConfirmationRegister = async () => {
+        try {
+            await api.currentUser.confirmPasswordCreation({
+                email: email,
+                code: code,
+            })
+            
             router.push("/beta/login");
-        })
-        .catch(error => {
+        } catch (error) {
             console.log(error);
         }
-    )}
+    }
 
     return (
         <>
@@ -58,7 +57,7 @@ const CodeConfirmationRegister : NextPage<CodeConfirmationRegisterProps> = () =>
                                 setValue={setCode}
                                 value={code}
                                 />
-                    <Button classNameTweak={styles.button} onClick={sendEmailCodeConfirmationRegister} type={ButtonType.PRIMARY} >envoyer le lien de récupération</Button>
+                    <Button classNameTweak={styles.button} onClick={sendEmailCodeConfirmationRegister} type={ButtonType.PRIMARY} >Activer votre compte</Button>
                 </div>
             </div>
         </>

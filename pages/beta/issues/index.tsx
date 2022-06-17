@@ -22,10 +22,14 @@ function Issues() {
     const changeResearch = (event : React.ChangeEvent<HTMLInputElement>) => {
         setSearch(event.target.value)
     }
-
-    const filteredIssues = issues.filter(issue => issue.title.toLowerCase().includes(search.toLowerCase()))
+    
+    let filteredIssues : Array<IIssue> = [];
+    
+    if (issues.length > 0)
+        filteredIssues = issues.filter(issue => issue.title.toLowerCase().includes(search.toLowerCase()))
 
     useEffect(() => {
+        console.log("useEffect")
         retrieveIssues()
     }, [])
 

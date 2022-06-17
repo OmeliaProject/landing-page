@@ -22,16 +22,17 @@ const Login: FunctionComponent<LoginProps> = () => {
     const [password, setPassword] = useState("");
 
 
-    const createAccount = () => {
-        api.currentUser.signIn({
-            email: email,
-            password: password,
-        }).then(() => {
+    const login = async () => {
+        try {
+            await api.currentUser.signIn({
+                email: email,
+                password: password,
+            })
             router.push("/beta");
-            console.log("login account");
-        }).catch(error => {
+        } catch (error) {
             console.log(error);
-        });
+        }
+        
     }
 
     return (
@@ -67,7 +68,7 @@ const Login: FunctionComponent<LoginProps> = () => {
                         <p className={styles.forgot_password}>Mots de passe oublie ?</p>
                     </Link> */}
 
-                    <Button onClick={createAccount} classNameTweak={styles.validation} type={ButtonType.PRIMARY} >Se connecter</Button>
+                    <Button onClick={login} classNameTweak={styles.validation} type={ButtonType.PRIMARY} >Se connecter</Button>
                     <Link href="/beta/register">
                         <Button type={ButtonType.SECONDARY} classNameTweak={styles.button} >{"S'enregistrer"}</Button>
                     </Link>

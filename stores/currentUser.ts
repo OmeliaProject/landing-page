@@ -24,6 +24,7 @@ class CurrentUserStore {
 
   constructor() {
     makeObservable(this)
+    this.retrieveCurrentUserTokens()
   }
 
   @action public setTokens = (tokens: CurrentUserTokens | null) => {

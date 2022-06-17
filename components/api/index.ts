@@ -15,7 +15,6 @@ class TransportLayer {
       'Content-Type': 'application/json',
       "Accept" : "application/json",
       "x-api-key": API_KEY,
-      "Access-Control-Allow-Origin" : "*"
     },
   };
 

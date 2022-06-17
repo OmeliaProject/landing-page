@@ -9,12 +9,6 @@ const Footer: FunctionComponent<FooterProps> = () => {
     return (
         <div className={styles.footer}>
             <p className={styles.title}>Omelia</p>
-            {/* <div className={styles.download}>
-                <p className={styles.cta}>Télécharger l’application</p>
-                <div className={styles.download_container}>
-                </div>
-            </div> */}
-
         </div>
     );
 }
