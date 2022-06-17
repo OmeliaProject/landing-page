@@ -64,9 +64,9 @@ const Login: FunctionComponent<LoginProps> = () => {
                                 value={password}
                                 />
 
-                    {/* <Link href="/beta/forget-password">
+                    <Link href="/beta/forget-password">
                         <p className={styles.forgot_password}>Mots de passe oublie ?</p>
-                    </Link> */}
+                    </Link>
 
                     <Button onClick={login} classNameTweak={styles.validation} type={ButtonType.PRIMARY} >Se connecter</Button>
                     <Link href="/beta/register">

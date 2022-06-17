@@ -6,17 +6,24 @@ import { useState } from "react";
 import FormInput from "@components/FormInput";
 import Button, { ButtonType } from "@components/Button";
 import Link from "next/link";
+import useTransportLayer from "@hooks/useTransportLayer";
+import { useRouter } from "next/router";
 
 interface ForgetPasswordProps {
-    
 }
  
 const ForgetPassword : NextPage<ForgetPasswordProps> = () => {
-
+    const api = useTransportLayer();
+    const router = useRouter();
     const [email, setEmail] = useState("");
 
-    const sendEmailForgetPassword = () => {
-        console.log("send email");
+    const sendEmailForgetPassword = async () => {
+        try {
+            await api.currentUser.forgetPassword({email})
+            router.push("/beta/change-password");
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (

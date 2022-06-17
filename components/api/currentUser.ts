@@ -72,8 +72,16 @@ class CurrentUser {
     return axiosResponse.data;
   }
 
+  async changePassword(body: ChangePasswordBody): Promise<void> {
+    return this.axiosInstance.put('/auth/password', body);
+  }
+
   async confirmPasswordCreation(body: EmailVerificationCodeBody): Promise<void> {
     await this.axiosInstance.put('/auth/email', body);
+  }
+
+  async forgetPassword(body: requestResetPasswordCodeBody): Promise<void> {
+    await this.axiosInstance.post('/auth/password', body);
   }
 
   async signUp(body: SignUpBody): Promise<void> {
