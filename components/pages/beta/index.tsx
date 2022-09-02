@@ -2,10 +2,10 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 
 import styles from '@styles/pages/beta.module.css'
-import HowToHelp from '@components/HowToHelp'
-import HPBeta from '@components/HPBeta'
+import HowToHelp from '@components/pages/beta/HowToHelp'
+import HPBeta from '@components/pages/beta/HPBeta'
 import NavbarBeta from '@components/commons/NavbarBeta'
-import Team from '@components/Team'
+import Team from '@components/pages/beta/Team'
 import Footer from '@components/commons/Footer'
 
 interface BetaProps {

@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 
 import styles from "@styles/modules/application.module.css"
-import TemplateExplanationModel from "./TemplateExplanationModel";
+import TemplateExplanationModel from "@components/pages/index/TemplateExplanationModel";
 
 interface ApplicationModelProps {
 }

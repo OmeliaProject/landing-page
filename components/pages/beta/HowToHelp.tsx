@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { FunctionComponent } from "react";
 
 import styles from "@styles/modules/howtohelp.module.css";
-import Step from "./Step";
-import Carousel from "./Carousel";
+import Step from "@components/pages/beta/Step";
+import Carousel from "@components/commons/Carousel";
 
 interface HowToHelpProps {
 }

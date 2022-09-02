@@ -1,12 +1,11 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import stylesPage from '@styles/pages/authentication.module.css'
 import styles from "@styles/modules/authentication.module.css"
-import Button, {ButtonType} from "@components/Button";
+import Button, {ButtonType} from "@components/commons/Button";
 import FormInput from "@components/commons/FormInput";
 import Link from "next/link";
 import Head from "next/head";
 import NavbarBeta from "@components/commons/NavbarBeta";
-import currentUser from '@components/api/currentUser';
 import useTransportLayer from '@hooks/useTransportLayer';
 import { useRouter } from "next/router";
 

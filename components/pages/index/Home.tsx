@@ -1,6 +1,6 @@
 import { RefObject, FunctionComponent } from "react";
 import styles from "@styles/modules/home.module.css"
-import ScrollToButton from "./ScrollToButton";
+import ScrollToButton from "@components/commons/ScrollToButton";
 
 interface HomeProps {
     homeRef : RefObject<HTMLDivElement>

@@ -2,7 +2,7 @@ import { RefObject, FunctionComponent, useState } from "react";
 import ModalPrices from "./ModalPrices";
 
 import styles from "@styles/modules/prices.module.css"
-import Card from "./CardPrice";
+import Card from "@components/pages/index/CardPrice";
 
 interface PriceProps {
     priceRef : RefObject<HTMLDivElement>

@@ -7,9 +7,9 @@ import emailjs from '@emailjs/browser';
 import styles from '@styles/pages/index.module.css';
 import About from '@components/pages/index/About';
 import Contact from '@components/pages/index/Contact';
-import Home from '../components/pages/index/Home';
-import Navbar from '../components/commons/Navbar';
-import Price from '../components/pages/index/Price';
+import Home from '@components/pages/index/Home';
+import Navbar from '@components/commons/Navbar';
+import Price from '@components/pages/index/Price';
 
 const Index: NextPage = () => {
 
