@@ -8,25 +8,26 @@ import Button, { ButtonType } from "@components/commons/Button";
 import useTransportLayer from "@hooks/useTransportLayer";
 import { useRouter } from "next/router";
 
-interface CodeConfirmationRegisterProps {
+interface ChangePasswordProps {
     
 }
  
-const CodeConfirmationRegister : NextPage<CodeConfirmationRegisterProps> = () => {
+const ChangePassword : NextPage<ChangePasswordProps> = () => {
 
     const api = useTransportLayer();
     const router = useRouter();
-    const [code, setCode] = useState("");
     const [email, setEmail] = useState("");
+    const [code, setCode] = useState("");
+    const [password, setPassword] = useState("");
 
 
-    const sendEmailCodeConfirmationRegister = async () => {
+    const changePassword = async () => {
         try {
-            await api.currentUser.confirmPasswordCreation({
+            await api.currentUser.changePassword({
                 email: email,
                 code: code,
+                newPassword : password
             })
-            
             router.push("/beta/login");
         } catch (error) {
             console.log(error);
@@ -36,12 +37,12 @@ const CodeConfirmationRegister : NextPage<CodeConfirmationRegisterProps> = () =>
     return (
         <>
             <Head>
-                <title>Omelia - activation de votre compte</title>
+                <title>Omelia - changer de mots de passe</title>
             </Head>
             <NavbarBeta />
             <div className={styles.forget_password}>
                 <div className={styles.card}>
-                    <div className={styles.header}>Activer votre compte utilisateur !!</div>
+                    <div className={styles.header}>Canger de mots de passe</div>
                     <div className={styles.body}>{"Nous venons d'envoyer un code de confirmation sur votre adresse e-mail ."}</div>
                     <FormInput classNameTweak={styles.input}
                                 label={"Votre email"}
@@ -57,11 +58,19 @@ const CodeConfirmationRegister : NextPage<CodeConfirmationRegisterProps> = () =>
                                 setValue={setCode}
                                 value={code}
                                 />
-                    <Button classNameTweak={styles.button} onClick={sendEmailCodeConfirmationRegister} type={ButtonType.PRIMARY} >Activer votre compte</Button>
+                    <FormInput  classNameTweak={styles.input}
+                                label={"Nouveau mots de passe"}
+                                placeholder={"votre mots de passe"}
+                                icon={"/mail.svg"}
+                                isConfidential
+                                setValue={setPassword}
+                                value={password}
+                                />
+                    <Button classNameTweak={styles.button} onClick={changePassword} type={ButtonType.PRIMARY} >Changer de Mots de passe</Button>
                 </div>
             </div>
         </>
     );
 }
  
-export default CodeConfirmationRegister;
+export default ChangePassword;

@@ -1,24 +1,20 @@
-import { FunctionComponent, RefObject, useEffect, useState } from "react";
-import ScrollToButtonProps from "./ScrollToButton"
+import { FunctionComponent, useEffect, useState } from "react";
 import Link from 'next/link'
  
 import styles from "@styles/modules/navbar.module.css"
-import Hamburger from "./Hamburger";
+import Hamburger from "@components/commons/Hamburger";
+import useTransportLayer from "@hooks/useTransportLayer";
+import { useRouter } from "next/router";
 
-
-interface NavbarProps {
-    home : RefObject<HTMLDivElement>, 
-    price : RefObject<HTMLDivElement>, 
-    contact : RefObject<HTMLDivElement>, 
-}
- 
-const Navbar: FunctionComponent<NavbarProps> = ({home, price, contact}) => {
+const Navbar: FunctionComponent = () => {
+    const api = useTransportLayer();
+    const router = useRouter();
 
     let [isSideMenuOpen, setSideMenuStatus] = useState(false);
     let [scroll, setScroll] = useState(false);
     let stylesMenuSide = isSideMenuOpen ? styles.pull_left : "";
     
-    const onScroll = () => {
+    const onScroll = (_ : Event) => {
         const position = window.pageYOffset;
 
         if (position > 100) {
@@ -26,25 +22,29 @@ const Navbar: FunctionComponent<NavbarProps> = ({home, price, contact}) => {
         } else {
             setScroll(false);            
         }
-
     }
+
+    const disconnect = () => {
+        api.currentUser.signOut();
+        router.push("/beta");
+    }
+
 
     useEffect(() => {
         window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
+    
         return () => {
             window.removeEventListener('scroll', onScroll);
         };
     }, []);
-
-
-
+    
     return (  
         <div className={`${styles.navbar} ${scroll ? styles.scrolled_navbar : ""}`}>
-            <ScrollToButtonProps styleClass={styles.title} target={home}>
-                <img src="/omelia.svg" alt="logo" />
-            </ScrollToButtonProps>
-
+             <Link href="/">
+                <div  className={styles.title}>
+                    <img src="/omelia.svg" alt="logo" />
+                </div>
+            </Link>
             <Hamburger onClick={() => {setSideMenuStatus(true)}} styleClass={styles.hamburger} ></Hamburger>
             <div className={` ${stylesMenuSide} ${styles.menu_container}`}>
                 <div className={styles.title_side_menu}>Omelia</div>
@@ -53,12 +53,27 @@ const Navbar: FunctionComponent<NavbarProps> = ({home, price, contact}) => {
                                         className={styles.close} />
                 }
                 <div className={styles.option_container}>
-                    <ScrollToButtonProps styleClass={styles.option} target={home}>accueil</ScrollToButtonProps>
+
                     <Link href="/beta">
                         <a className={styles.option}>bêta</a>
                     </Link>
-                    <ScrollToButtonProps styleClass={styles.option} target={price}>prix</ScrollToButtonProps>
-                    <ScrollToButtonProps styleClass={styles.option} target={contact}>contact</ScrollToButtonProps>
+                    <Link href="/timeline">
+                        <a className={styles.option}>avancée du projet</a>
+                    </Link>
+                    <Link href="/beta/issues">
+                        <a className={styles.option}>remonter un problème</a>
+                    </Link>
+                    {
+                        api.currentUser.isUserSignedIn() ?
+                        <p onClick={disconnect} className={styles.option}> 
+                            se déconnecter
+                        </p>
+                         : 
+                        <Link href="/beta/login">
+                            <a className={styles.option}>se connecter</a>
+                        </Link>
+
+                    }
                 </div>
 
             </div>

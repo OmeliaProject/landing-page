@@ -1,6 +1,6 @@
 import { RefObject, FunctionComponent, useRef, CSSProperties, useState} from "react";
 
-import LinkContact from "./LinkContact";
+import LinkContact from "@components/pages/index/LinkContact";
 import emailjs from '@emailjs/browser';
 import styles from "@styles/modules/contact.module.css"
 

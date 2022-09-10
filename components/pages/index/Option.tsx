@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
-import { PrincingOptions } from "./CardPrice";
 
+import { PrincingOptions } from "@components/pages/index/CardPrice";
 import styles from "@styles/modules/prices.module.css"
 
 

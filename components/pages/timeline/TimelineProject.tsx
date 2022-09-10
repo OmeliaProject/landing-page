@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 
 import styles from "@styles/modules/timeline_project.module.css";
-import CardTimeline, { LineType } from "./CardTimeline";
+import CardTimeline, { LineType } from "@components/pages/timeline/CardTimeline";
 
 interface TimelineProjectProps {
     

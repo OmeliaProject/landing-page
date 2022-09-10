@@ -1,6 +1,6 @@
 import CurrentUserStore, { CurrentUserInfos } from '@stores/currentUser';
-import { Axios, AxiosInstance, AxiosRequestHeaders } from 'axios';
-import { UserInfo } from 'os';
+import { AxiosInstance, AxiosResponse } from 'axios';
+import { CurrentUserTokens } from '@stores/currentUser';
 
 export interface SignInBody {
   email: string,
@@ -48,8 +48,6 @@ export interface ExternalServicesQueryParams {
 class CurrentUser {
 
   private axiosInstance: AxiosInstance;
-  
-  private usersBdd : Array<CurrentUserInfos> = new Array<CurrentUserInfos>();
 
 
   constructor(AxiosInstance: AxiosInstance) {
@@ -62,71 +60,37 @@ class CurrentUser {
     return CurrentUserStore.tokens !== null;
   }
 
-  async signIn(body: SignInBody): Promise<void> {
-    return new Promise(async (resolve, reject) => {
-      await this.delay(500);
-      
-
-
-      // check if user exists
-      const user = this.usersBdd.find(user => user.email === body.email);
-      
-      if (!user)
-        reject('User not found');
-  
-      //do some call api
-      CurrentUserStore.setTokens({
-        accessToken: 'leToken',
-        refreshToken: 'leRefreshToken',
-        expiresIn: 10,
-      })
-  
-      let data = await this.getUserInfos();
-  
-      CurrentUserStore.setUser({
-        firstname: data.firstname,
-        lastname: data.lastname,
-        email: body.email
-      })
-      resolve();
-    
-    })
-
-
+  async signIn(body: SignInBody): Promise<CurrentUserTokens> {
+    let data : CurrentUserTokens = (await this.axiosInstance.post('/auth/token', body)).data.data;
+    CurrentUserStore.setTokens(data);
+    return data;
   }
 
   async getUserInfos(): Promise<CurrentUserInfos> {
-    await this.delay(1000);
-    return {
-      firstname: 'Mathias',
-      lastname: 'Vigier',
-      email: 'math.vgr@gmail.com',
-    }
+    let axiosResponse : AxiosResponse<CurrentUserInfos> = await this.axiosInstance.get('/users/me');
+    CurrentUserStore.setUser(axiosResponse.data);
+    return axiosResponse.data;
+  }
+
+  async changePassword(body: ChangePasswordBody): Promise<void> {
+    return this.axiosInstance.put('/auth/password', body);
   }
 
   async confirmPasswordCreation(body: EmailVerificationCodeBody): Promise<void> {
-    await this.delay(1000);
+    await this.axiosInstance.put('/auth/email', body);
+  }
+
+  async forgetPassword(body: requestResetPasswordCodeBody): Promise<void> {
+    await this.axiosInstance.post('/auth/password', body);
   }
 
   async signUp(body: SignUpBody): Promise<void> {
-    
-    // fake promise with accept
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        this.usersBdd.push(body);
-        resolve();
-      }, 1000);
-    });
-
+    return this.axiosInstance.post('/users', body);
   }
 
   signOut(): void {
-    this.usersBdd = this.usersBdd.filter(user => user.email !== CurrentUserStore?.user?.email);
-    
     CurrentUserStore.setTokens(null);
     CurrentUserStore.setUser(null);
-
-
   } 
 
 
