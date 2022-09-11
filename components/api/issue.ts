@@ -42,4 +42,4 @@ class Issue {
   }
 }
 
-export default Issue
+export { Issue };

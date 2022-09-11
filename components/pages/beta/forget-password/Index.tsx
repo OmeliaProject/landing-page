@@ -1,12 +1,13 @@
 import Head from "next/head";
 import styles from "@styles/pages/forget_password.module.css";
-import { NextPage } from "next";
-import NavbarBeta from "@components/commons/NavbarBeta";
-import { useState } from "react";
-import FormInput from "@components/commons/FormInput";
-import Button, { ButtonType } from "@components/commons/Button";
 import Link from "next/link";
 import useTransportLayer from "@hooks/useTransportLayer";
+
+import { NextPage } from "next";
+import { NavbarBeta } from "@components/commons/NavbarBeta";
+import { useState } from "react";
+import { FormInput } from "@components/commons/FormInput";
+import { Button, ButtonType } from "@components/commons/Button";
 import { useRouter } from "next/router";
 
 interface ForgetPasswordProps {
@@ -56,4 +57,4 @@ const ForgetPassword : NextPage<ForgetPasswordProps> = () => {
     );
 }
  
-export default ForgetPassword;
+export { ForgetPassword };

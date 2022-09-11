@@ -2,11 +2,11 @@ import { FunctionComponent, useEffect, useState } from "react";
 import Link from 'next/link'
  
 import styles from "@styles/modules/navbar.module.css"
-import Hamburger from "@components/commons/Hamburger";
 import useTransportLayer from "@hooks/useTransportLayer";
+import { Hamburger } from "@components/commons/Hamburger";
 import { useRouter } from "next/router";
 
-const Navbar: FunctionComponent = () => {
+const NavbarBeta: FunctionComponent = () => {
     const api = useTransportLayer();
     const router = useRouter();
 
@@ -82,4 +82,4 @@ const Navbar: FunctionComponent = () => {
     );
 }
  
-export default Navbar;
+export { NavbarBeta };

@@ -1,18 +1,18 @@
 import { FunctionComponent, RefObject, useEffect, useState } from "react";
-import ScrollToButtonProps from "./ScrollToButton"
 import Link from 'next/link'
- 
+
 import styles from "@styles/modules/navbar.module.css"
-import Hamburger from "@components/commons/Hamburger";
+import {ScrollToButton} from "@components/commons/ScrollToButton"
+import {Hamburger} from "@components/commons/Hamburger";
 
 
 interface NavbarProps {
-    home : RefObject<HTMLDivElement>, 
-    price : RefObject<HTMLDivElement>, 
-    contact : RefObject<HTMLDivElement>, 
+    hpHomeRef : RefObject<HTMLDivElement>, 
+    priceRef : RefObject<HTMLDivElement>, 
+    contactRef : RefObject<HTMLDivElement>, 
 }
  
-const Navbar: FunctionComponent<NavbarProps> = ({home, price, contact}) => {
+const Navbar: FunctionComponent<NavbarProps> = ({hpHomeRef, priceRef, contactRef}) => {
 
     let [isSideMenuOpen, setSideMenuStatus] = useState(false);
     let [scroll, setScroll] = useState(false);
@@ -41,9 +41,9 @@ const Navbar: FunctionComponent<NavbarProps> = ({home, price, contact}) => {
 
     return (  
         <div className={`${styles.navbar} ${scroll ? styles.scrolled_navbar : ""}`}>
-            <ScrollToButtonProps styleClass={styles.title} target={home}>
+            <ScrollToButton styleClass={styles.title} target={hpHomeRef}>
                 <img src="/omelia.svg" alt="logo" />
-            </ScrollToButtonProps>
+            </ScrollToButton>
 
             <Hamburger onClick={() => {setSideMenuStatus(true)}} styleClass={styles.hamburger} ></Hamburger>
             <div className={` ${stylesMenuSide} ${styles.menu_container}`}>
@@ -53,12 +53,12 @@ const Navbar: FunctionComponent<NavbarProps> = ({home, price, contact}) => {
                                         className={styles.close} />
                 }
                 <div className={styles.option_container}>
-                    <ScrollToButtonProps styleClass={styles.option} target={home}>accueil</ScrollToButtonProps>
+                    <ScrollToButton styleClass={styles.option} target={hpHomeRef}>accueil</ScrollToButton>
                     <Link href="/beta">
                         <a className={styles.option}>bêta</a>
                     </Link>
-                    <ScrollToButtonProps styleClass={styles.option} target={price}>prix</ScrollToButtonProps>
-                    <ScrollToButtonProps styleClass={styles.option} target={contact}>contact</ScrollToButtonProps>
+                    <ScrollToButton styleClass={styles.option} target={priceRef}>prix</ScrollToButton>
+                    <ScrollToButton styleClass={styles.option} target={contactRef}>contact</ScrollToButton>
                 </div>
 
             </div>
@@ -67,4 +67,4 @@ const Navbar: FunctionComponent<NavbarProps> = ({home, price, contact}) => {
     );
 }
  
-export default Navbar;
+export { Navbar };

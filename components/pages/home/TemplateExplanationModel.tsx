@@ -31,4 +31,4 @@ const TemplateExplanationModel: FunctionComponent<TemplateExplanationModelProps>
     );
 }
  
-export default TemplateExplanationModel;
+export { TemplateExplanationModel };

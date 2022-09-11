@@ -26,4 +26,4 @@ export  {
     ButtonType
 };
 
-export default Button;
+export { Button };

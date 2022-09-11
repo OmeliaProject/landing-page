@@ -1,11 +1,11 @@
-import Head from "next/head";
 import styles from "@styles/pages/forget_password.module.css";
-import { NextPage } from "next";
-import NavbarBeta from "@components/commons/NavbarBeta";
-import { useState } from "react";
-import FormInput from "@components/commons/FormInput";
-import Button, { ButtonType } from "@components/commons/Button";
+import Head from "next/head";
 import useTransportLayer from "@hooks/useTransportLayer";
+import { NextPage } from "next";
+import { NavbarBeta } from "@components/commons/NavbarBeta";
+import { useState } from "react";
+import { FormInput } from "@components/commons/FormInput";
+import { Button, ButtonType } from "@components/commons/Button";
 import { useRouter } from "next/router";
 
 interface CodeConfirmationRegisterProps {
@@ -64,4 +64,4 @@ const CodeConfirmationRegister : NextPage<CodeConfirmationRegisterProps> = () =>
     );
 }
  
-export default CodeConfirmationRegister;
+export { CodeConfirmationRegister };

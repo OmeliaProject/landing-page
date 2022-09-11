@@ -26,4 +26,4 @@ const ScrollToButton: FunctionComponent<ScrollToButtonProps> = ({target, childre
     );
 }
  
-export default ScrollToButton;
+export { ScrollToButton };

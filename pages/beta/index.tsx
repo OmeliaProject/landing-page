@@ -1,35 +1,3 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
+import {Beta} from '@components/pages/beta/Index';
 
-import styles from '@styles/pages/beta.module.css'
-import HowToHelp from '@components/HowToHelp'
-import HPBeta from '@components/HPBeta'
-import NavbarBeta from '@components/commons/NavbarBeta'
-import Team from '@components/Team'
-import Footer from '@components/commons/Footer'
-
-interface BetaProps {
-    
-}
- 
-const Beta: NextPage<BetaProps> = () => {
-    return (
-        <>
-        <Head>
-            <title>Omelia - bêta</title>
-        </Head>
-        <div className={styles.beta}>
-            <NavbarBeta/>
-            <HPBeta />
-            <div className={styles.content}>
-                <HowToHelp />
-                <Team />
-                <Footer />  
-            </div>
-        </div>
-        </>
-
-    );
-}
- 
-export default Beta;
+export default Beta ;

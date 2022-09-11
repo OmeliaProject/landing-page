@@ -1,11 +1,12 @@
 import styles from "@styles/pages/issues.module.css";
 import Head from "next/head";
-import NavbarBeta from "@components/commons/NavbarBeta";
-import { IIssue } from "@components/api/types/IIssue";
-import Issue from "@components/Issue";
-import Button, { ButtonType } from "@components/Button";
 import Link from "next/link";
 import useTransportLayer from '@hooks/useTransportLayer';
+
+import { NavbarBeta } from "@components/commons/NavbarBeta";
+import { IIssue } from "@components/api/types/IIssue";
+import { Issue } from "@components/pages/beta/issues/Issue";
+import { Button, ButtonType } from "@components/commons/Button";
 import { useEffect, useState } from 'react';
 
 function Issues() {
@@ -77,4 +78,4 @@ function Issues() {
 
 
 
-export default Issues;
+export { Issues };

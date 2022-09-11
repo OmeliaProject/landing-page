@@ -13,4 +13,4 @@ const Footer: FunctionComponent<FooterProps> = () => {
     );
 }
  
-export default Footer;
+export { Footer };

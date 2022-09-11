@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { FunctionComponent, ReactChild, ReactChildren } from "react";
 
 import styles from "@styles/modules/contact.module.css"
@@ -21,4 +20,4 @@ const LinkContact: FunctionComponent<LinkContactProps> = ({className, link, imag
     );
 }
  
-export default LinkContact;
+export { LinkContact };

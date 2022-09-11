@@ -1,8 +1,8 @@
-import { RefObject, FunctionComponent, useState } from "react";
-import ModalPrices from "./ModalPrices";
-
 import styles from "@styles/modules/prices.module.css"
-import Card from "@components/pages/index/CardPrice";
+
+import { RefObject, FunctionComponent, useState } from "react";
+import { ModalPrices } from "./ModalPrices";
+import { CardPrice } from "@components/pages/home/CardPrice";
 
 interface PriceProps {
     priceRef : RefObject<HTMLDivElement>
@@ -25,7 +25,7 @@ const Price: FunctionComponent<PriceProps> = ({ priceRef, contactRef }) => {
 
     return (
         <div className={styles.price} ref={priceRef}>
-            <Card 
+            <CardPrice 
                 title="OMELIA PRO"
                 price="2.99 euros par mois" 
                 emphasized={true} 
@@ -50,7 +50,7 @@ const Price: FunctionComponent<PriceProps> = ({ priceRef, contactRef }) => {
                 ]
                 }
                 />
-                <Card 
+                <CardPrice 
                 title="OMELIA FREE"
                 price="gratuit" 
                 emphasized={false} 
@@ -83,4 +83,4 @@ const Price: FunctionComponent<PriceProps> = ({ priceRef, contactRef }) => {
     );
 }
  
-export default Price;
+export { Price };

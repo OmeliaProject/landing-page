@@ -1,8 +1,7 @@
-import { FunctionComponent } from "react";
-
-import { PrincingOptions } from "@components/pages/index/CardPrice";
 import styles from "@styles/modules/prices.module.css"
 
+import { FunctionComponent } from "react";
+import { PrincingOptions } from "@components/pages/home/CardPrice";
 
 interface OptionProps {
     param :  PrincingOptions
@@ -25,4 +24,4 @@ const Option: FunctionComponent<OptionProps> = ({param, idx}) => {
     );
 }
  
-export default Option;
+export { Option };

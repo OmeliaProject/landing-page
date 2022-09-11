@@ -1,6 +1,6 @@
-import { FunctionComponent } from "react";
 import styles from "@styles/modules/howtohelp.module.css";
 
+import { FunctionComponent } from "react";
 
 interface StepProps {
     svgPath: string;
@@ -27,4 +27,4 @@ const Step: FunctionComponent<StepProps> = ({svgPath, title, description, link})
     );
 }
  
-export default Step;
+export { Step };

@@ -1,17 +1,17 @@
-import { RefObject, FunctionComponent } from "react";
-import styles from "@styles/modules/home.module.css"
-import ScrollToButton from "@components/commons/ScrollToButton";
+import styles from "@styles/modules/hphome.module.css"
 
-interface HomeProps {
-    homeRef : RefObject<HTMLDivElement>
+import { ScrollToButton } from "@components/commons/ScrollToButton";
+import { RefObject, FunctionComponent } from "react";
+
+interface HpHomeProps {
+    hpHomeRef : RefObject<HTMLDivElement>
     aboutRef : RefObject<HTMLDivElement>
 }
  
-const Home: FunctionComponent<HomeProps> = ({ homeRef, aboutRef }) => {
-
+const HpHome: FunctionComponent<HpHomeProps> = ({ hpHomeRef, aboutRef }) => {
 
     return (
-        <div className={styles.home} ref={homeRef}>
+        <div className={styles.hp_home} ref={hpHomeRef}>
 
             <div className={styles.container_cta}>
                 <div className={styles.text_cta}>
@@ -29,4 +29,4 @@ const Home: FunctionComponent<HomeProps> = ({ homeRef, aboutRef }) => {
     );
 }
  
-export default Home;
+export { HpHome };

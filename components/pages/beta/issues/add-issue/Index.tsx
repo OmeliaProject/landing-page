@@ -1,15 +1,15 @@
 import Head from "next/head";
 import styles from "@styles/pages/add_issues.module.css";
-import { NextPage } from "next";
-import NavbarBeta from "@components/commons/NavbarBeta";
-import Button, { ButtonType } from "@components/Button";
 import Link from "next/link";
-import { useState } from 'react';
 import useTransportLayer from '@hooks/useTransportLayer';
+
+import { NextPage } from "next";
+import { NavbarBeta } from "@components/commons/NavbarBeta";
+import { Button, ButtonType } from "@components/commons/Button";
+import { useState } from 'react';
 import { useRouter } from "next/router";
 
 interface AddIssueProps {
-
 }
 
 const AddIssue : NextPage<AddIssueProps> = () => {
@@ -76,5 +76,5 @@ const AddIssue : NextPage<AddIssueProps> = () => {
     );
 }
 
-export default AddIssue;
+export { AddIssue };
 

@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 
 import styles from "@styles/modules/timeline_project.module.css";
-import { AnimatePresence, motion, MotionConfig } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 enum LineType {
     DOTTED,
@@ -56,6 +56,6 @@ const CardTimeline: FunctionComponent<CardTimelineProps> = ({title, body, versio
     );
 }
  
-export default CardTimeline;
+export { CardTimeline };
 
 export { LineType };

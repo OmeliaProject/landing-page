@@ -1,9 +1,7 @@
 import { FunctionComponent } from "react";
 import styles from "@styles/modules/explanation.module.css"
 
-
 interface ExplanationProps {
-    
 }
  
 const Explanation: FunctionComponent<ExplanationProps> = () => {
@@ -25,4 +23,4 @@ const Explanation: FunctionComponent<ExplanationProps> = () => {
     );
 }
  
-export default Explanation;
+export { Explanation };

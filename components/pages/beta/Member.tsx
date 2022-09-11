@@ -1,7 +1,6 @@
-import { FunctionComponent } from "react";
-
 import styles from "@styles/modules/team.module.css";
 
+import { FunctionComponent } from "react";
 
 interface MemberProps {
     name: string;
@@ -21,4 +20,4 @@ const Member: FunctionComponent<MemberProps> = ({name, role, avatar}) => {
     );
 }
  
-export default Member;
+export { Member };

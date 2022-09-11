@@ -18,4 +18,4 @@ const NavbarOptionLink: FunctionComponent<NavbarOptionLinkProps> = ({target, chi
     );
 }
  
-export default NavbarOptionLink;
+export { NavbarOptionLink };

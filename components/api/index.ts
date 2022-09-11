@@ -1,6 +1,7 @@
-import CurrentUser from '@components/api/currentUser';
-import Issue from '@components/api/issue';
 import axios, { AxiosInstance } from 'axios';
+
+import CurrentUser from '@components/api/currentUser';
+import {Issue} from '@components/api/issue';
 import CurrentUserStore from '@stores/currentUser';
 
 

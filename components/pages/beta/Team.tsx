@@ -1,6 +1,7 @@
-import { FunctionComponent } from "react";
 import styles from "@styles/modules/team.module.css";
-import Member from "@components/pages/beta/Member";
+
+import { FunctionComponent } from "react";
+import { Member } from "@components/pages/beta/Member";
 
 interface TeamProps {
 }
@@ -23,4 +24,4 @@ const Team: FunctionComponent<TeamProps> = () => {
     );
 }
  
-export default Team;
+export { Team };

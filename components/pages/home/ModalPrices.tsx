@@ -32,4 +32,4 @@ const ModalPrices: FunctionComponent<ModalPricesProps> = ({close, goContact}) =>
     );
 }
  
-export default ModalPrices;
+export { ModalPrices };

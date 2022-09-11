@@ -1,8 +1,8 @@
+import styles from "@styles/modules/hpbeta.module.css";
+
+import Link from "next/link";
 import { FunctionComponent } from "react";
 import { useViewportScroll, motion, useTransform } from "framer-motion";
-
-import styles from "@styles/modules/hpbeta.module.css";
-import Link from "next/link";
 
 
 interface HPBetaProps {
@@ -30,4 +30,4 @@ const HPBeta: FunctionComponent<HPBetaProps> = () => {
     );
 }
  
-export default HPBeta;
+export { HPBeta };

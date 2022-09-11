@@ -1,10 +1,9 @@
-import { FunctionComponent } from "react";
-
-import Option from "@components/pages/index/Option"
 import styles from "@styles/modules/prices.module.css"
 
-interface PrincingOptions
-{
+import { FunctionComponent } from "react";
+import { Option } from "@components/pages/home/Option"
+
+interface PrincingOptions{
     name : string;
     isIncluded : boolean
 }
@@ -43,4 +42,4 @@ export  type {
     PrincingOptions
 };
 
-export default CardPrice;
+export { CardPrice };

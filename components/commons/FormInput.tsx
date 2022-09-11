@@ -41,4 +41,4 @@ const FormInput: FunctionComponent<FormInputProps> = ({label, placeholder, icon,
     );
 }
  
-export default FormInput;
+export { FormInput };

@@ -97,4 +97,4 @@ const Carousel : FunctionComponent<CarouselProps> = ({classNameCarousel, childre
     );
 };
 
-export default Carousel;
+export { Carousel };

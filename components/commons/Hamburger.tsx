@@ -18,4 +18,4 @@ const Hamburger: FunctionComponent<HamburgerProps> = ({onClick, styleClass, styl
     );
 }
  
-export default Hamburger;
+export { Hamburger };

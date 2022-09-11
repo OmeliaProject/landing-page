@@ -1,7 +1,7 @@
-import { FunctionComponent } from "react";
-
 import styles from "@styles/modules/application.module.css"
-import TemplateExplanationModel from "@components/pages/index/TemplateExplanationModel";
+
+import { FunctionComponent } from "react";
+import { TemplateExplanationModel } from "@components/pages/home/TemplateExplanationModel";
 
 interface ApplicationModelProps {
 }
@@ -45,4 +45,4 @@ const ApplicationModel: FunctionComponent<ApplicationModelProps> = () => {
     );
 }
  
-export default ApplicationModel;
+export { ApplicationModel };
