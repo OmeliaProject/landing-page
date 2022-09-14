@@ -7,7 +7,7 @@
     gap: 0 5%;
     display: grid;
     grid-template-columns: 1fr 4fr;
-    font-family: comfortaa;
+    font-family: var(--primary-font-family);
 }
 
 .date_container {

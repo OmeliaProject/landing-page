@@ -1,6 +1,6 @@
 .contact {
     padding-top: 5vh;
-    font-family: comfortaa;
+    font-family: var(--primary-font-family);
 }
 
 .cta {

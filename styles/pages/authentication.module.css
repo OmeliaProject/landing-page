@@ -19,7 +19,7 @@
     z-index: var(--background);
 
     font-size: 12rem;
-    font-family: Comfortaa; 
+    font-family: var(--primary-font-family); 
     color: var(--light-color);
 
     top: 50%;

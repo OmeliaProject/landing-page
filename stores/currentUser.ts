@@ -16,6 +16,7 @@ export interface CurrentUserInfos {
   firstname: string,
   lastname: string,
   email: string,
+  isAdmin: boolean,
 }
 
 class CurrentUserStore {

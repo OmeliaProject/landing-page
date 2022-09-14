@@ -91,7 +91,7 @@ class CurrentUser {
   signOut(): void {
     CurrentUserStore.setTokens(null);
     CurrentUserStore.setUser(null);
-  } 
+  }
 
 
 }

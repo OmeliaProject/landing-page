@@ -1,6 +1,7 @@
 import CurrentUserStore from '@stores/currentUser';
 import { IIssue } from '@components/api/types/IIssue';
 import axios, { AxiosInstance } from 'axios';
+import { collectStoredAnnotations } from 'mobx/dist/internal';
 
 
 interface IssueBody
@@ -33,9 +34,14 @@ class Issue {
   }
 
   async getIssues(): Promise<Array<IIssue>> {
-    const issues = (await this.axiosInstance.get('/feedback/threads')).data.data;
+    const issues = (await this.axiosInstance.get('/feedback/threads')).data.data.threads;
     return issues;
   };
+  
+  async getUserIssues(): Promise<void> {
+    const issues = (await this.axiosInstance.get('/feedback/threads/me')).data.data.threads;
+    return issues;
+  }
 
   async sendIssue(body: IssueBody): Promise<void> {
     return await this.axiosInstance.post('/feedback/threads', body);

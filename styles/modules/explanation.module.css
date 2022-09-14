@@ -1,5 +1,5 @@
 .container {
-    font-family: comfortaa;
+    font-family: var(--primary-font-family);
     position: relative;
 
     display: flex;

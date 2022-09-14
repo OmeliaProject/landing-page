@@ -5,7 +5,7 @@
     
     direction:rtl;
 
-    font-family: comfortaa;
+    font-family: var(--primary-font-family);
     padding-top: 30vh ;
 
     width: 100%;

@@ -1,7 +1,9 @@
 import styles from "@styles/modules/prices.module.css"
 
-import { FunctionComponent } from "react";
+import { FunctionComponent, RefObject, useContext } from "react";
 import { Option } from "@components/pages/home/Option"
+import { ModalContext } from "@components/api/modalContext";
+import { ModalPrices } from "./ModalPrices";
 
 interface PrincingOptions{
     name : string;
@@ -12,12 +14,23 @@ interface CardPriceProps {
     title : string;
     price : string;
     emphasized : boolean; 
-    options : Array<PrincingOptions>
-    setModalStatus :  (status : boolean) => void;
+    options : Array<PrincingOptions>;
+    contactRef : RefObject<HTMLDivElement>
 }
 
  
-const CardPrice: FunctionComponent<CardPriceProps> = ({title, price, emphasized, options, setModalStatus}) => {
+const CardPrice: FunctionComponent<CardPriceProps> = ({title, price, emphasized, options, contactRef}) => {
+    const { handleModal } = useContext(ModalContext);
+
+    const scrollToContact = () => {
+        setTimeout(() => {
+            if (!contactRef || !contactRef.current)
+            return; 
+            window.scrollTo(0, contactRef.current.offsetTop)
+        }, 100);
+    }
+
+    const modal = ModalPrices(scrollToContact);
 
     return (
         <div className={styles.card} data-emphasized={emphasized} >
@@ -33,7 +46,7 @@ const CardPrice: FunctionComponent<CardPriceProps> = ({title, price, emphasized,
 
                 }
             </div>
-            <div className={styles.button} onClick={() => setModalStatus(true)}><p>{"s'abonner"}</p></div>
+            <div className={styles.button} onClick={() => handleModal(modal)}><p>{"s'abonner"}</p></div>
         </div>
     );
 }

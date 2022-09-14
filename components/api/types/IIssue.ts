@@ -1,7 +1,7 @@
 export interface IIssue {
     id : number;
     timestamp : number;
-    email : string;
+    isOwner : boolean;
     title : string;
     body : string;
     likes : number;

@@ -55,6 +55,6 @@
 
     border-radius: 0.5rem;
 
-    font-family: comfortaa;
+    font-family: var(--primary-font-family);
     font-size: 0.75rem;
 }

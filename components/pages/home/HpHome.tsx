@@ -1,7 +1,8 @@
 import styles from "@styles/modules/hphome.module.css"
 
 import { ScrollToButton } from "@components/commons/ScrollToButton";
-import { RefObject, FunctionComponent } from "react";
+import { RefObject, FunctionComponent, useContext } from "react";
+import { ModalContext } from "@components/api/modalContext";
 
 interface HpHomeProps {
     hpHomeRef : RefObject<HTMLDivElement>

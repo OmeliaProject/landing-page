@@ -23,7 +23,6 @@ const Button: FunctionComponent<ButtonProps> = ({type, children, classNameTweak,
 }
 
 export  {
-    ButtonType
+    ButtonType,
+    Button
 };
-
-export { Button };

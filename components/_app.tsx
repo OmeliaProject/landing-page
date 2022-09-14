@@ -1,9 +1,9 @@
-import '@styles/globals.css'
 
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useEffect } from 'react';
 import { TransportLayerProvider } from '@components/api/context';
+import { ModalProvider } from './api/modalContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
 
@@ -27,10 +27,14 @@ function MyApp({ Component, pageProps }: AppProps) {
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin=""/>
             <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Comfortaa:wght@300;400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet"></link>
         </Head>
-        <Component {...pageProps} />
+        <ModalProvider>
+          <Component {...pageProps} />
+        </ModalProvider>
       </TransportLayerProvider>
     </>
   )
 }
+
+
 
 export default MyApp

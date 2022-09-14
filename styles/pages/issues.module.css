@@ -16,7 +16,7 @@
 
 .header h1 {
     font-size: 1.25rem;
-    font-family: Comfortaa;
+    font-family: var(--primary-font-family);
     color: var(--dark-color);
 
     margin-bottom: 0.75rem;

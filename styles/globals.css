@@ -2,6 +2,7 @@
 /* CSS VARIABLES */
 
 :root {
+  
   --primary-color : #B6C9FF;
   --dark-color : #03030E;
   --light-color : #FEFEFE;
@@ -11,8 +12,45 @@
   --floating : 10;
   --foreground : 0;
   --background : -1;
+  --primary-font-family : 'Comfortaa';
+  --secondary-font-family : 'Roboto';
+  --danger-color : #f33a3a;
+  
+  /* here convertion of hex to rgb */
+  --primary-color-rgb : 182, 201, 255;
+  --dark-color-rgb : 3, 3, 14;
+  --light-color-rgb : 254, 254, 254;
+  --validation-color-rgb : 188, 255, 182;
+  --error-color-rgb : 255, 182, 182;
+  --loading-color-rgb : 254, 255, 182;
+  --danger-color-rgb : 243, 58, 58;
+  
 }
 
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #8c868d #f0f0f0;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #8c868d;
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+}
 
 /* MEDIA QUERY*/
 
@@ -85,7 +123,7 @@ textarea, input {
   box-shadow: none;
 
   outline: none;
-  font-family: comfortaa  ;
+  font-family: var(--primary-font-family)  ;
   resize: none;
 }
 

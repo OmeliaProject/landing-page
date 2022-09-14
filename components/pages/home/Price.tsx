@@ -1,8 +1,9 @@
 import styles from "@styles/modules/prices.module.css"
 
-import { RefObject, FunctionComponent, useState } from "react";
+import { RefObject, FunctionComponent, useState, useContext } from "react";
 import { ModalPrices } from "./ModalPrices";
 import { CardPrice } from "@components/pages/home/CardPrice";
+import { ModalContext } from "@components/api/modalContext";
 
 interface PriceProps {
     priceRef : RefObject<HTMLDivElement>
@@ -12,73 +13,58 @@ interface PriceProps {
 const Price: FunctionComponent<PriceProps> = ({ priceRef, contactRef }) => {
 
 
-    const [modalStatus, setModalStatus] = useState(false);
-
-    const closeAndGoToContact = (contactRef : RefObject<HTMLDivElement>) => {
-        setModalStatus(false);
-        setTimeout(() => {
-            if (!contactRef || !contactRef.current)
-                return; 
-            window.scrollTo(0, contactRef.current.offsetTop)
-         }, 100);
-    }
-
     return (
         <div className={styles.price} ref={priceRef}>
-            <CardPrice 
-                title="OMELIA PRO"
-                price="2.99 euros par mois" 
-                emphasized={true} 
-                setModalStatus={setModalStatus} 
-                options={[
-                    {
-                        name: "analyse gestuelle",
-                        isIncluded : true
-                    },
-                    {
-                        name: "analyse vocale",
-                        isIncluded : true
-                    },
-                    {
-                        name: "entraînements illimités",
-                        isIncluded : true
-                    },
-                    {
-                        name: "100% des vidéos",
-                        isIncluded : true
-                    },
-                ]
-                }
-                />
-                <CardPrice 
-                title="OMELIA FREE"
-                price="gratuit" 
-                emphasized={false} 
-                setModalStatus={setModalStatus} 
-                options={[
-                    {
-                        name: "analyse gestuelle",
-                        isIncluded : true
-                    },
-                    {
-                        name: "analyse vocale",
-                        isIncluded : true
-                    },
-                    {
-                        name: "entraînements illimités",
-                        isIncluded : false
-                    },
-                    {
-                        name: "100% des vidéos",
-                        isIncluded : false
-                    },
-                ]
-                }
-                />
-            {
-                modalStatus && 
-                <ModalPrices close={() => setModalStatus(false)} goContact={() => closeAndGoToContact(contactRef)}/>
+        <CardPrice 
+            title="OMELIA PRO"
+            price="2.99 euros par mois" 
+            emphasized={true}
+            contactRef={contactRef}
+            options={[
+                {
+                    name: "analyse gestuelle",
+                    isIncluded : true
+                },
+                {
+                    name: "analyse vocale",
+                    isIncluded : true
+                },
+                {
+                    name: "entraînements illimités",
+                    isIncluded : true
+                },
+                {
+                    name: "100% des vidéos",
+                    isIncluded : true
+                },
+            ]
             }
+            />
+            <CardPrice 
+            title="OMELIA FREE"
+            price="gratuit" 
+            emphasized={false}
+            contactRef={contactRef}
+            options={[
+                {
+                    name: "analyse gestuelle",
+                    isIncluded : true
+                },
+                {
+                    name: "analyse vocale",
+                    isIncluded : true
+                },
+                {
+                    name: "entraînements illimités",
+                    isIncluded : false
+                },
+                {
+                    name: "100% des vidéos",
+                    isIncluded : false
+                },
+            ]
+            }
+            />
         </div>
     );
 }

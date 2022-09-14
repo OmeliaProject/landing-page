@@ -10,7 +10,7 @@
 
 .template {
     color: var(--dark-color);
-    font-family: comfortaa;
+    font-family: var(--primary-font-family);
 
     display: flex;
     align-items: center;

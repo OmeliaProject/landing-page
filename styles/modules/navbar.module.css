@@ -75,7 +75,7 @@
     font-size: 1.5rem;
     margin-bottom: 10vh;
     font-weight: bold;
-    font-family: comfortaa;
+    font-family: var(--primary-font-family);
 }
 
 

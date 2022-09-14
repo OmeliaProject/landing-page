@@ -6,7 +6,7 @@ import CurrentUserStore from '@stores/currentUser';
 
 
 const API_URL = "https://as38vz90ld.execute-api.eu-west-3.amazonaws.com/dev"
-const API_KEY = "UetZc52TlO2DK0OyMLXlU9pkWmJ99UfC3SWfprds"
+const API_KEY = "BTWuwcLgmS4xDXYybMWg58lE5w4rnoja8DlISetY"
 
 class TransportLayer {
 

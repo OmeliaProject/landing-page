@@ -1,6 +1,6 @@
 import React, { createContext, useMemo } from 'react'
 import type { FC, PropsWithChildren } from 'react'
-import TransportLayer from '@components/api/index'
+import TransportLayer from '@components/api/userTransportLayer'
 
 const TransportLayerContext = createContext<TransportLayer>(null!)
 

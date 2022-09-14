@@ -13,7 +13,7 @@
 
     margin-bottom: 15%;
 
-    font-family: comfortaa;
+    font-family: var(--primary-font-family);
     background-color: var(--light-color);
 }
 

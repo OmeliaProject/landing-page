@@ -30,7 +30,7 @@
 
 
 .card_header {
-    font-family: comfortaa;
+    font-family: var(--primary-font-family);
 
     font-weight: bold;
     font-size: 1.25rem;
