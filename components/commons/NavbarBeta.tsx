@@ -11,6 +11,8 @@ const NavbarBeta: FunctionComponent = () => {
     const userApi = useTransportLayer().currentUser;
     const router = useRouter();
 
+    console.log("HELLO");
+
     let [isSideMenuOpen, setSideMenuStatus] = useState(false);
     let [scroll, setScroll] = useState(false);
     let [user, setUser] = useState<CurrentUserInfos>(null!);
@@ -34,9 +36,12 @@ const NavbarBeta: FunctionComponent = () => {
 
     const feedbackButton = () => {
         // get the current user, if he is connected show the feedback button, if admin show the admin button else show nothing
+        console.log("NO USER");
         if (!user)
             return;
-            
+
+        console.log(user);
+        console.log("HELLO");
         if (user.isAdmin) {
             return (
                 <Link href="/beta/monitoring">
