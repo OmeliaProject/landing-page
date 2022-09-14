@@ -69,7 +69,9 @@ class CurrentUser {
   async getUserInfos(): Promise<CurrentUserInfos> {
     if (currentUser.user !== null)
       return currentUser.user;
-    let axiosResponse : AxiosResponse<CurrentUserInfos> = await this.axiosInstance.get('/users/me');
+
+      let axiosResponse : AxiosResponse<CurrentUserInfos> = (await this.axiosInstance.get('/users/me')).data;
+
     CurrentUserStore.setUser(axiosResponse.data);
     return axiosResponse.data;
   }
