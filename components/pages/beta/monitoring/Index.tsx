@@ -56,7 +56,7 @@ const Monitoring : NextPage<MonitoringProps> = () => {
                                 <th className={styles.th}>Titre</th>
                                 <th className={styles.th}>Description</th>
                                 <th className={styles.th}>Date</th>
-                                <th className={styles.th}>J'aime</th>
+                                <th className={styles.th}>{"J'aime"}</th>
                                 <th className={styles.th}> </th>
                             </tr>
                         </thead>

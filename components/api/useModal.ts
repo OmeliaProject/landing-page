@@ -7,7 +7,7 @@ export interface IModalContext {
 }
   
 
-export default () : IModalContext =>  {
+const useModal =  () : IModalContext =>  {
     let [modal, setModal] = useState(false);
     let [modalContent, setModalContent] = useState<JSX.Element>();
 
@@ -20,3 +20,5 @@ export default () : IModalContext =>  {
 
     return { modal, handleModal, modalContent };
 };
+
+export default useModal;

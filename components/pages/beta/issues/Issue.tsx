@@ -9,7 +9,7 @@ interface IProps {
 
 const Issue: FunctionComponent<IProps> = ({data}) => {
 
-    let  {id, timestamp, email, title, body, likes, hasLiked} = data;
+    let  {id, timestamp, title, body, likes} = data;
 
     const getDate = (timestamp : number) => {
         const date = new Date(timestamp);
@@ -29,7 +29,6 @@ const Issue: FunctionComponent<IProps> = ({data}) => {
                 </div>
                 <div className={styles.footer}>
                     <p className={styles.likes}> likes: {likes}</p>
-                    <p className={styles.email}>{email}</p>
                     <p className={styles.date}>{getDate(timestamp)}</p>
                 </div>
             </div>
