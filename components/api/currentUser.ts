@@ -1,6 +1,6 @@
 import CurrentUserStore, { CurrentUserInfos } from '@stores/currentUser';
 import { AxiosInstance, AxiosResponse } from 'axios';
-import { CurrentUserTokens } from '@stores/currentUser';
+import currentUser, { CurrentUserTokens } from '@stores/currentUser';
 
 export interface SignInBody {
   email: string,
@@ -67,6 +67,9 @@ class CurrentUser {
   }
 
   async getUserInfos(): Promise<CurrentUserInfos> {
+    if (currentUser.user !== null)
+      return currentUser.user;
+
     let axiosResponse : AxiosResponse<CurrentUserInfos> = await this.axiosInstance.get('/users/me');
     CurrentUserStore.setUser(axiosResponse.data);
     return axiosResponse.data;
