@@ -76,3 +76,40 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+
+/* MODAL */
+
+.modal_title{
+    font-family: var(--primary-font-family);
+    color: var(--dark-color);
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.modal_body{
+    font-family: var(--secondary-font-family);
+    color: var(--dark-color);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+
+}
+
+.modal_info_container{
+    font-family: var(--secondary-font-family);
+    font-size: 0.75rem;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width : 769px) {
+    .modal_title {
+        text-align: center;
+    }
+    .modal_body {
+        text-align: center;
+
+    }
+}
