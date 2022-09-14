@@ -92,10 +92,17 @@ class CurrentUser {
     return this.axiosInstance.post('/users', body);
   }
 
-  signOut(): void {
-    CurrentUserStore.setTokens(null);
-    CurrentUserStore.setUser(null);
+  async deleteAccount()  {
+    // TODO should be /user/me 
+    await this.axiosInstance.delete('/users');
+    CurrentUserStore.clear();
   }
+  
+  signOut(): void {
+    CurrentUserStore.clear();
+  }
+
+  
 
 
 }

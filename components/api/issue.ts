@@ -38,7 +38,7 @@ class Issue {
     return issues;
   };
   
-  async getUserIssues(): Promise<void> {
+  async getUserIssues(): Promise<IIssue[]> {
     const issues = (await this.axiosInstance.get('/feedback/threads/me')).data.data.threads;
     return issues;
   }

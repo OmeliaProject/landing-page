@@ -5,7 +5,7 @@ import useTransportLayer from '@hooks/useTransportLayer';
 
 import { NavbarBeta } from "@components/commons/NavbarBeta";
 import { IIssue } from "@components/api/types/IIssue";
-import { Issue } from "@components/pages/beta/issues/Issue";
+import { Issue } from "@components/commons/Issue";
 import { Button, ButtonType } from "@components/commons/Button";
 import { useEffect, useState } from 'react';
 

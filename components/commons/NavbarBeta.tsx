@@ -4,12 +4,11 @@ import Link from 'next/link'
 import styles from "@styles/modules/navbar.module.css"
 import useTransportLayer from "@hooks/useTransportLayer";
 import { Hamburger } from "@components/commons/Hamburger";
-import { useRouter } from "next/router";
 import { CurrentUserInfos } from "@stores/currentUser";
-1
+
+
 const NavbarBeta: FunctionComponent = () => {
     const userApi = useTransportLayer().currentUser;
-    const router = useRouter();
 
     let [isSideMenuOpen, setSideMenuStatus] = useState(false);
     let [scroll, setScroll] = useState(false);
@@ -26,14 +25,7 @@ const NavbarBeta: FunctionComponent = () => {
         }
     }
 
-    const disconnect = () => {
-        userApi.signOut();
-        setUser(null!);
-        router.push("/beta");
-    }
-
     const feedbackButton = () => {
-        // get the current user, if he is connected show the feedback button, if admin show the admin button else show nothing
         if (!user)
             return;
 
@@ -55,15 +47,15 @@ const NavbarBeta: FunctionComponent = () => {
     const connectionButton = () => {
         if (user)
             return (
-                <p onClick={disconnect} className={styles.option}> 
-                    se déconnecter
-                </p>    
+                <Link href="/beta/profil">
+                    <a className={styles.option}>profil</a>
+                </Link>
             );
 
         return ( 
-        <Link href="/beta/login">
-            <a className={styles.option}>se connecter</a>
-        </Link>
+            <Link href="/beta/login">
+                <a className={styles.option}>se connecter</a>
+            </Link>
         );
     }
 

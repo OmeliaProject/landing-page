@@ -36,6 +36,11 @@ class CurrentUserStore {
       this.clearCurrentUserTokens()
   }
 
+  @action public clear = () => {
+    this.setTokens(null)
+    this.setUser(null)
+  }
+
   @action.bound public setUser(user: CurrentUserInfos | null) {
     this.user = user;
   }
@@ -54,6 +59,7 @@ class CurrentUserStore {
   private clearCurrentUserTokens() {
     localStorage.removeItem('currentUserTokens')
   }
+
 
   @action public retrieveCurrentUserTokens() {
     try {
