@@ -30,7 +30,6 @@ function Feedbacks() {
         filteredFeedbacks = feedbacks.filter(feedback => feedback.title.toLowerCase().includes(search.toLowerCase()))
 
     useEffect(() => {
-        console.log("useEffect")
         retrieveFeedbacks()
     }, [])
 

@@ -1,7 +1,8 @@
 import styles from "@styles/modules/feedbacks.module.css";
 
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import { IFeedback } from "@components/api/types/IFeedback";
+import useTransportLayer from "@hooks/useTransportLayer";
 
 interface IProps {
     data : IFeedback
@@ -9,7 +10,10 @@ interface IProps {
 
 const Feedback: FunctionComponent<IProps> = ({data}) => {
 
-    let  {id, timestamp, title, body, likes} = data;
+    const api = useTransportLayer();
+    let  {id, timestamp, title, body} = data;
+    let [likes, setLikes] = useState(data.likes);
+    let [hasLiked, setHasLike] = useState(data.hasLiked);
 
     const getDate = (timestamp : number) => {
         const date = new Date(timestamp);
@@ -18,6 +22,19 @@ const Feedback: FunctionComponent<IProps> = ({data}) => {
         const year = date.getFullYear();
         return `${day}/${month}/${year}`;
     }
+
+    const likePost = () => {
+        if (hasLiked) {
+            api.feedbacks.unlikeFeedback(id);
+            setLikes(likes - 1);
+        }else {
+            api.feedbacks.likeFeedback(id);
+            setLikes(likes + 1);
+        }
+        
+        setHasLike(!hasLiked);
+    }
+
 
     return (
         <div className={styles.container}>
@@ -31,6 +48,15 @@ const Feedback: FunctionComponent<IProps> = ({data}) => {
                     <p className={styles.likes}> likes: {likes}</p>
                     <p className={styles.date}>{getDate(timestamp)}</p>
                 </div>
+            </div>
+            <div onClick={likePost} className={styles.like_button}>
+                {
+                    hasLiked ?
+                        <img src="/like.svg" alt="like"/>
+                    :
+                        <img src="/unlike.svg" alt="unlike"/>
+                }
+
             </div>
         </div>
     );
