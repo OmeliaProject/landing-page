@@ -10,16 +10,14 @@ import { ModalContext } from "@components/api/modalContext";
 
 
 interface MonitoringProps {
-    
 }
-
 
 const timestampToDate = (timestamp: number) => {
     const date = new Date(timestamp);
     return date.toLocaleDateString();
 };
 
-const ModalIssue = (issue : IIssue) => {
+export const ModalIssue = (issue : IIssue) => {
     return (
         <>
             <h1 className={styles.modal_title}>{issue.title}</h1>

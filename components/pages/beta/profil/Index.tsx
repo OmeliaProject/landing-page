@@ -5,10 +5,12 @@ import styles from "@styles/pages/profil.module.css";
 import { useRouter } from "next/router";
 import useTransportLayer from "@hooks/useTransportLayer";
 import { CurrentUserInfos } from "@stores/currentUser";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavbarBeta } from "@components/commons/NavbarBeta";
 import { IIssue } from "@components/api/types/IIssue";
-import { Issue } from "@components/commons/Issue";
+import { ModalContext } from "@components/api/modalContext";
+import { ModalIssue } from "../monitoring/Index";
+import { Button, ButtonType } from "@components/commons/Button";
 
 interface ProfilProps {
     
@@ -17,9 +19,12 @@ interface ProfilProps {
 const Profil : NextPage<ProfilProps> = () => {
     const api = useTransportLayer();
     const router = useRouter();
+    const { handleModal } = useContext(ModalContext);
+
+    
     const [user, setUser] = useState<null | CurrentUserInfos>(null);
     const [issues, setIssues] = useState<IIssue[]>([]);
-
+        
     const ChangePassword = async() => {
         if (!user)
             return;
@@ -35,6 +40,11 @@ const Profil : NextPage<ProfilProps> = () => {
     const deleteAccount = async () => {
         await api.currentUser.deleteAccount();
         router.push("/beta");
+    }
+
+    const deleteIssue = async (id: number) => {
+        await api.issues.deleteIssue(id);
+        setIssues(issues.filter(issue => issue.id !== id));
     }
 
     const loadInfos = async () => {
@@ -57,30 +67,38 @@ const Profil : NextPage<ProfilProps> = () => {
             <NavbarBeta />
             <div className={styles.profil}>
                 <div className={styles.title}>Votre profil </div>
-                <div className={styles.feedback}>
-
-                     <p className={styles.feedback_title}>Vos retours</p>
+                
+                <div className={styles.feedback_container}>
+                     <p className={styles.section_title}>Vos retours</p>
                      {
                         issues.length > 0 ? 
-                        issues.map(issue => <Issue key={issue.id} data={issue} />) :
-                         <p className={styles.feedback_empty}>Vous n'avez pas fais de retours.</p>
+                        issues.map(issue =>
+                            <div onClick={() => handleModal(ModalIssue(issue))} className={styles.feedback}>
+                                <div className={styles.feedback_body_container}>
+                                    <h1>{issue.title} </h1>
+                                    <p>{issue.body} </p>
+                                </div>
+                                <div className={styles.feedback_delete} onClick={() => deleteIssue(issue.id)}>supprimer</div>
+                            </div>
+                            ) :
+                         <p className={styles.feedback_empty}>Vous n'avez pas fais de retours....</p>
                      }
                 </div>
 
                 <div className={styles.general_info}>
 
-                    <p className={styles.general_info_title }>Information du compte</p>
+                    <p className={styles.section_title }>Information du compte</p>
 
                     <div className={styles.profil_info_container}>
-                        <div className={styles.surname}>
+                        <div className={styles.info}>
                             <label>prénom</label>
                             <div>{user?.firstname}</div>
                         </div>
-                        <div className={styles.name}>
+                        <div className={styles.info}>
                             <label>nom</label>
                             <div>{user?.lastname}</div>
                         </div>
-                        <div className={styles.email}>
+                        <div className={styles.info}>
                             <label>e-mail</label>
                             <div>{user?.email}</div>
                         </div>
@@ -92,8 +110,8 @@ const Profil : NextPage<ProfilProps> = () => {
                 </div>
 
                 <div className={styles.actions}>
-                    <button onClick={disconnect}>Se déconnecter</button>
-                    <button onClick={deleteAccount}>Supprimer le compte</button>
+                    <Button onClick={disconnect} type={ButtonType.PRIMARY}>Se déconnecter</Button>
+                    <Button classNameTweak={styles.delete} onClick={deleteAccount} type={ButtonType.SECONDARY}>supprimer son compte</Button>
                 </div>
 
                         
