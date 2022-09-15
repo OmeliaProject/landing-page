@@ -1,13 +1,13 @@
-import styles from "@styles/modules/issues.module.css";
+import styles from "@styles/modules/feedbacks.module.css";
 
 import { FunctionComponent } from "react";
-import { IIssue } from "@components/api/types/IIssue";
+import { IFeedback } from "@components/api/types/IFeedback";
 
 interface IProps {
-    data : IIssue
+    data : IFeedback
 }
 
-const Issue: FunctionComponent<IProps> = ({data}) => {
+const Feedback: FunctionComponent<IProps> = ({data}) => {
 
     let  {id, timestamp, title, body, likes} = data;
 
@@ -22,7 +22,7 @@ const Issue: FunctionComponent<IProps> = ({data}) => {
     return (
         <div className={styles.container}>
             <div className={styles.border}></div>
-            <div key={id} className={styles.issue}>
+            <div key={id} className={styles.feedback}>
                 <p className={styles.title}>{title}</p>
                 <div className={styles.body}>
                     {body}
@@ -36,4 +36,4 @@ const Issue: FunctionComponent<IProps> = ({data}) => {
     );
 }
  
-export { Issue };
+export { Feedback };

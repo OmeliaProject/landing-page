@@ -7,9 +7,9 @@ import useTransportLayer from "@hooks/useTransportLayer";
 import { CurrentUserInfos } from "@stores/currentUser";
 import { useContext, useEffect, useState } from "react";
 import { NavbarBeta } from "@components/commons/NavbarBeta";
-import { IIssue } from "@components/api/types/IIssue";
+import { IFeedback } from "@components/api/types/IFeedback";
 import { ModalContext } from "@components/api/modalContext";
-import { ModalIssue } from "../monitoring/Index";
+import { ModalFeedback } from "../monitoring/Index";
 import { Button, ButtonType } from "@components/commons/Button";
 
 interface ProfilProps {
@@ -23,7 +23,7 @@ const Profil : NextPage<ProfilProps> = () => {
 
     
     const [user, setUser] = useState<null | CurrentUserInfos>(null);
-    const [issues, setIssues] = useState<IIssue[]>([]);
+    const [feedbacks, setFeedbacks] = useState<IFeedback[]>([]);
         
     const ChangePassword = async() => {
         if (!user)
@@ -42,16 +42,16 @@ const Profil : NextPage<ProfilProps> = () => {
         router.push("/beta");
     }
 
-    const deleteIssue = async (id: number) => {
-        await api.issues.deleteIssue(id);
-        setIssues(issues.filter(issue => issue.id !== id));
+    const deleteFeedback = async (id: number) => {
+        await api.feedbacks.deleteFeedback(id);
+        setFeedbacks(feedbacks.filter(feedback => feedback.id !== id));
     }
 
     const loadInfos = async () => {
         const user = await api.currentUser.getUserInfos();
         setUser(user);
-        const issues = await api.issues.getIssues();
-        setIssues(issues);
+        const feedbacks = await api.feedbacks.getFeedbacks();
+        setFeedbacks(feedbacks);
     }
 
     useEffect(() => {
@@ -71,14 +71,14 @@ const Profil : NextPage<ProfilProps> = () => {
                 <div className={styles.feedback_container}>
                      <p className={styles.section_title}>Vos retours</p>
                      {
-                        issues.length > 0 ? 
-                        issues.map((issue, idx) =>
-                            <div key={idx} onClick={() => handleModal(ModalIssue(issue))} className={styles.feedback}>
-                                <div className={styles.feedback_body_container}>
-                                    <h1>{issue.title} </h1>
-                                    <p>{issue.body} </p>
+                        feedbacks.length > 0 ? 
+                        feedbacks.map((feedback, idx) =>
+                            <div key={idx}  className={styles.feedback}>
+                                <div onClick={() => handleModal(ModalFeedback(feedback))} className={styles.feedback_body_container}>
+                                    <h1>{feedback.title} </h1>
+                                    <p>{feedback.body} </p>
                                 </div>
-                                <div className={styles.feedback_delete} onClick={() => deleteIssue(issue.id)}>supprimer</div>
+                                <div className={styles.feedback_delete} onClick={() => deleteFeedback(feedback.id)}>supprimer</div>
                             </div>
                             ) :
                          <p className={styles.feedback_empty}>{"Vous n'avez pas fais de retours...."}</p>

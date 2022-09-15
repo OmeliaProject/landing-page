@@ -1,4 +1,4 @@
-export interface IIssue {
+export interface IFeedback {
     id : number;
     timestamp : number;
     isOwner : boolean;

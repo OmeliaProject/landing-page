@@ -1,37 +1,37 @@
-import styles from "@styles/pages/issues.module.css";
+import styles from "@styles/pages/feedbacks.module.css";
 import Head from "next/head";
 import Link from "next/link";
 import useTransportLayer from '@hooks/useTransportLayer';
 
 import { NavbarBeta } from "@components/commons/NavbarBeta";
-import { IIssue } from "@components/api/types/IIssue";
-import { Issue } from "@components/commons/Issue";
+import { IFeedback } from "@components/api/types/IFeedback";
+import { Feedback } from "@components/commons/Feedback";
 import { Button, ButtonType } from "@components/commons/Button";
 import { useEffect, useState } from 'react';
 
-function Issues() {
+function Feedbacks() {
     const api = useTransportLayer();
-    const [issues, setIssues] = useState<Array<IIssue>>([]);
+    const [feedbacks, setFeedbacks] = useState<Array<IFeedback>>([]);
     const [search, setSearch] = useState("");
 
 
 
-    const retrieveIssues = async() => {
-        setIssues(await api.issues.getIssues())
+    const retrieveFeedbacks = async() => {
+        setFeedbacks(await api.feedbacks.getFeedbacks())
     }
 
     const changeResearch = (event : React.ChangeEvent<HTMLInputElement>) => {
         setSearch(event.target.value)
     }
     
-    let filteredIssues : Array<IIssue> = [];
+    let filteredFeedbacks : Array<IFeedback> = [];
     
-    if (issues.length > 0)
-        filteredIssues = issues.filter(issue => issue.title.toLowerCase().includes(search.toLowerCase()))
+    if (feedbacks.length > 0)
+        filteredFeedbacks = feedbacks.filter(feedback => feedback.title.toLowerCase().includes(search.toLowerCase()))
 
     useEffect(() => {
         console.log("useEffect")
-        retrieveIssues()
+        retrieveFeedbacks()
     }, [])
 
     // take a timestamp and return a string with the date
@@ -39,31 +39,31 @@ function Issues() {
     return (
         <>
             <Head>
-                <title>Omelia - remonter un problème</title>
+                <title>Omelia - remonter un avis</title>
             </Head>
             <NavbarBeta />
-            <div className={styles.issues}>
+            <div className={styles.feedbacks}>
 
                 <div className={styles.header}>
                     <div className={styles.input_container}>
-                        <h1>Problèmes rencontrés :</h1>
+                        <h1>Avis remontés :</h1>
                         <div className={styles.search}>
                             <img className={styles.logo} src="/magnifier.svg" alt="recherche" />
-                            <input className={styles.input} value={search} onChange={changeResearch} type="text" placeholder="rechercher un problème" />
+                            <input className={styles.input} value={search} onChange={changeResearch} type="text" placeholder="rechercher un avis" />
                         </div>
                     </div>
-                    <Link href={"/beta/issues/add"} >
+                    <Link href={"/beta/feedbacks/add"} >
                         <Button classNameTweak={styles.button} type={ButtonType.PRIMARY}>
-                            Ajouter un problème
+                            Ajouter votre avis !
                         </Button>
                     </Link>
 
                 </div>
-                <div className={styles.issues_container}>
+                <div className={styles.feedbacks_container}>
                     {
-                        filteredIssues.map((issue : IIssue, index) =>  {
+                        filteredFeedbacks.map((feedback : IFeedback, index) =>  {
                             return (
-                                <Issue key={index}  data={issue} />
+                                <Feedback key={index}  data={feedback} />
                             )
                         })
                     }
@@ -78,4 +78,4 @@ function Issues() {
 
 
 
-export { Issues };
+export { Feedbacks };

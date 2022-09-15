@@ -4,7 +4,7 @@ import Head from "next/head";
 import styles from "@styles/pages/monitoring.module.css";
 import { NavbarBeta } from "@components/commons/NavbarBeta";
 import { useContext, useEffect, useState } from "react";
-import { IIssue } from "@components/api/types/IIssue";
+import { IFeedback } from "@components/api/types/IFeedback";
 import useTransportLayer from "@hooks/useTransportLayer";
 import { ModalContext } from "@components/api/modalContext";
 
@@ -17,14 +17,14 @@ const timestampToDate = (timestamp: number) => {
     return date.toLocaleDateString();
 };
 
-export const ModalIssue = (issue : IIssue) => {
+export const ModalFeedback = (feedback : IFeedback) => {
     return (
         <>
-            <h1 className={styles.modal_title}>{issue.title}</h1>
-            <p className={styles.modal_body}>{issue.body}</p>
+            <h1 className={styles.modal_title}>{feedback.title}</h1>
+            <p className={styles.modal_body}>{feedback.body}</p>
             <div className={styles.modal_info_container}>
-                <p>date: {timestampToDate(issue.timestamp)}</p>
-                <div>{"nombre de j'aime: " + issue.likes}</div>
+                <p>date: {timestampToDate(feedback.timestamp)}</p>
+                <div>{"nombre de j'aime: " + feedback.likes}</div>
             </div>
         </>
     );
@@ -33,21 +33,21 @@ export const ModalIssue = (issue : IIssue) => {
  
 const Monitoring : NextPage<MonitoringProps> = () => {
 
-    // all issues from the api
-    const [issues, setIssues] = useState<IIssue[]>([]);
+    // all feedbacks from the api
+    const [feedbacks, setFeedbacks] = useState<IFeedback[]>([]);
     const { handleModal } = useContext(ModalContext);
     const api = useTransportLayer();
 
-    // useEFfect to get all issues
+    // useEFfect to get all feedbacks
     useEffect(() => {
-        api.issues.getIssues().then((issues) => {
-            setIssues(issues);
+        api.feedbacks.getFeedbacks().then((feedbacks) => {
+            setFeedbacks(feedbacks);
         });
     }, []);
 
-    const deleteIssue = (id: number) => {
-        api.issues.deleteIssue(id).then(() => {
-            setIssues(issues.filter((issue) => issue.id !== id));
+    const deleteFeedback = (id: number) => {
+        api.feedbacks.deleteFeedback(id).then(() => {
+            setFeedbacks(feedbacks.filter((feedback) => feedback.id !== id));
         });
     };
 
@@ -72,16 +72,16 @@ const Monitoring : NextPage<MonitoringProps> = () => {
                             </tr>
                         </thead>
                         <tbody className={styles.tbody}>
-                            {issues && issues.map((issue, idx) => {
+                            {feedbacks && feedbacks.map((feedback, idx) => {
                                     return (
-                                        <tr onClick={() => handleModal(ModalIssue(issue))} key={idx} className={styles.tr}>
+                                        <tr onClick={() => handleModal(ModalFeedback(feedback))} key={idx} className={styles.tr}>
                                             <td className={styles.td}>{idx + 1}</td>
-                                            <td className={styles.td}>{issue.title}</td>
-                                            <td className={styles.td}>{issue.body}</td>
-                                            <td className={styles.td}>{timestampToDate(issue.timestamp)}</td>
-                                            <td className={styles.td}>{issue.likes}</td>
+                                            <td className={styles.td}>{feedback.title}</td>
+                                            <td className={styles.td}>{feedback.body}</td>
+                                            <td className={styles.td}>{timestampToDate(feedback.timestamp)}</td>
+                                            <td className={styles.td}>{feedback.likes}</td>
                                             <td className={styles.td}>
-                                                <div className={styles.delete} onClick={() => deleteIssue(issue.id)}>Supprimer</div>
+                                                <div className={styles.delete} onClick={() => deleteFeedback(feedback.id)}>Supprimer</div>
                                             </td>
                                         </tr>
                                     );

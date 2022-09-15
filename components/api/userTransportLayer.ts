@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 
 import CurrentUser from '@components/api/currentUser';
-import {Issue} from '@components/api/issue';
+import {Feedback} from '@components/api/feedback';
 import CurrentUserStore from '@stores/currentUser';
 
 
@@ -20,14 +20,14 @@ class TransportLayer {
   };
 
   public currentUser: CurrentUser;
-  public issues: Issue;
+  public feedbacks: Feedback;
   private axiosInstance: AxiosInstance;
   
   constructor() {
     this.axiosInstance = axios.create(TransportLayer.defaultOptions);
     
     this.currentUser = new CurrentUser(this.axiosInstance)
-    this.issues = new Issue(this.axiosInstance)
+    this.feedbacks = new Feedback(this.axiosInstance)
   
     this.axiosInstance.interceptors.request.use((config) => {
       return ({

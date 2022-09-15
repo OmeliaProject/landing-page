@@ -38,7 +38,7 @@ const NavbarBeta: FunctionComponent = () => {
         }
 
         return (
-            <Link href="/beta/issues">
+            <Link href="/beta/feedbacks">
                 <a className={styles.option}>faire un retour</a>
             </Link>
         );
