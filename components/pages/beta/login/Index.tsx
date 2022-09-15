@@ -10,6 +10,8 @@ import { Button, ButtonType} from "@components/commons/Button";
 import { FormInput } from "@components/commons/FormInput";
 import { NavbarBeta } from "@components/commons/NavbarBeta";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+import { promiseToast } from "@components/commons/promiseToast";
 
 
 interface LoginProps {
@@ -22,16 +24,20 @@ const Login: FunctionComponent<LoginProps> = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-
     const login = async () => {
+        if (!email || !password) {
+            toast.warning("Veuillez remplir tous les champs", {position: toast.POSITION.TOP_CENTER});
+            return;
+        }
+
         try {
-            await api.currentUser.signIn({
-                email: email,
-                password: password,
-            })
+            await promiseToast(
+                api.currentUser.signIn({
+                   email: email,
+                   password: password,
+               }), "vous êtes connecté."); 
             router.push("/beta");
         } catch (error) {
-            console.log(error);
         }
         
     }

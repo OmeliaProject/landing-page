@@ -4,7 +4,6 @@ import Link from "next/link";
 import { FunctionComponent } from "react";
 import { useViewportScroll, motion, useTransform } from "framer-motion";
 
-
 interface HPBetaProps {
     
 }

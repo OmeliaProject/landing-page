@@ -8,6 +8,8 @@ import { NavbarBeta } from "@components/commons/NavbarBeta";
 import { Button, ButtonType } from "@components/commons/Button";
 import { useState } from 'react';
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+import { promiseToast } from "@components/commons/promiseToast";
 
 interface AddFeedbackProps {
 }
@@ -18,12 +20,20 @@ const AddFeedback : NextPage<AddFeedbackProps> = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
 
-    const sendFeedback = () => {
-        api.feedbacks.sendFeedback({
-            title,
-            body,
-        })
-        router.push('/beta/feedbacks');
+    const sendFeedback = async () => {
+        if (!title || !body) {
+            toast.warning("Veuillez remplir tous les champs", {position: toast.POSITION.TOP_CENTER});
+            return;
+        }
+        
+        try {
+            await promiseToast(api.feedbacks.sendFeedback({
+                title: title,
+                body: body,
+            }), "Merci pour votre retour.")
+            router.push('/beta/feedbacks');
+        } catch (error) {
+        }
     }
 
     return (

@@ -10,7 +10,6 @@ import { Team } from '@components/pages/beta/Team'
 import { Footer } from '@components/commons/Footer'
 
 interface BetaProps {
-    
 }
  
 export const Beta: NextPage<BetaProps> = () => {

@@ -14,8 +14,6 @@ function Feedbacks() {
     const [feedbacks, setFeedbacks] = useState<Array<IFeedback>>([]);
     const [search, setSearch] = useState("");
 
-
-
     const retrieveFeedbacks = async() => {
         setFeedbacks(await api.feedbacks.getFeedbacks())
     }

@@ -11,6 +11,7 @@ import { IFeedback } from "@components/api/types/IFeedback";
 import { ModalContext } from "@components/api/modalContext";
 import { ModalFeedback } from "../monitoring/Index";
 import { Button, ButtonType } from "@components/commons/Button";
+import { promiseToast } from "@components/commons/promiseToast";
 
 interface ProfilProps {
     
@@ -43,8 +44,15 @@ const Profil : NextPage<ProfilProps> = () => {
     }
 
     const deleteFeedback = async (id: number) => {
-        await api.feedbacks.deleteFeedback(id);
-        setFeedbacks(feedbacks.filter(feedback => feedback.id !== id));
+        try {
+            await promiseToast(
+                api.feedbacks.deleteFeedback(id),
+                "Le retour a bien été supprimé."
+            )
+            setFeedbacks(feedbacks.filter(feedback => feedback.id !== id));
+        } catch (error) {
+        }
+
     }
 
     const loadInfos = async () => {
