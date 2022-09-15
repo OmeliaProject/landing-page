@@ -72,8 +72,8 @@ const Profil : NextPage<ProfilProps> = () => {
                      <p className={styles.section_title}>Vos retours</p>
                      {
                         issues.length > 0 ? 
-                        issues.map(issue =>
-                            <div onClick={() => handleModal(ModalIssue(issue))} className={styles.feedback}>
+                        issues.map((issue, idx) =>
+                            <div key={idx} onClick={() => handleModal(ModalIssue(issue))} className={styles.feedback}>
                                 <div className={styles.feedback_body_container}>
                                     <h1>{issue.title} </h1>
                                     <p>{issue.body} </p>
@@ -81,7 +81,7 @@ const Profil : NextPage<ProfilProps> = () => {
                                 <div className={styles.feedback_delete} onClick={() => deleteIssue(issue.id)}>supprimer</div>
                             </div>
                             ) :
-                         <p className={styles.feedback_empty}>Vous n'avez pas fais de retours....</p>
+                         <p className={styles.feedback_empty}>{"Vous n'avez pas fais de retours...."}</p>
                      }
                 </div>
 
