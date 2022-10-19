@@ -1,11 +1,10 @@
 .profil {
     width: 75%;
-    min-height: 100vh;
     background-color: var(--light-color);
 
-    padding-top: 3rem;
+    padding: 3rem 1rem;
 
-    margin: 6rem auto 0 auto;
+    margin: 6rem auto 2rem auto;
 
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 
@@ -172,8 +171,8 @@
 
 .actions {
     display: flex;
-    gap: 8rem;
-    margin-bottom: 3rem;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
 .delete {
@@ -209,11 +208,16 @@
 }
 
 @media screen and (max-width : 769px) {
+
+    .profil {
+        width: 90%;
+    }
     .modal_title {
         text-align: center;
     }
     .modal_body {
         text-align: center;
-
     }
+
+
 }

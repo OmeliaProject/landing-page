@@ -22,7 +22,7 @@ class TransportLayer {
   public currentUser: CurrentUser;
   public feedbacks: Feedback;
   private axiosInstance: AxiosInstance;
-  
+
   constructor() {
     this.axiosInstance = axios.create(TransportLayer.defaultOptions);
     

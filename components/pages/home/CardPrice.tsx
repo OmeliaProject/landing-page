@@ -46,7 +46,7 @@ const CardPrice: FunctionComponent<CardPriceProps> = ({title, price, emphasized,
 
                 }
             </div>
-            <div className={styles.button} onClick={() => handleModal(modal)}><p>{"s'abonner"}</p></div>
+            <div className={styles.button} onClick={() => handleModal(modal)}><p>{"S'abonner"}</p></div>
         </div>
     );
 }

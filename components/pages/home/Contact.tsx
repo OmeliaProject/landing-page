@@ -77,7 +77,7 @@ const Contact: FunctionComponent<ContactProps> = ({ contactRef }) => {
                 <textarea  data-decoration required placeholder="votre superbe message" className={styles.body_input} name="message"  cols={30} rows={10}></textarea>
                 <div className={styles.submit_container}>
                     <p className={styles.validation_text}>{formStatus?.text}</p>
-                    <button data-decoration type="submit" className={styles.button_submit}>envoyer</button>
+                    <button data-decoration type="submit" className={styles.button_submit}>Envoyer</button>
                 </div>
             </form>
         
@@ -88,7 +88,7 @@ const Contact: FunctionComponent<ContactProps> = ({ contactRef }) => {
                 <LinkContact link="https://www.linkedin.com/company/omelia-studio/" image="/linkedin-logo.svg">
                     <p>www.linkedin.com/company/omelia-studio</p>
                 </LinkContact>
-                <LinkContact link="https://www.twitter.com/omelia_studio" image="/twitter-logo.svg">
+                <LinkContact link="https://www.twitter.com/omelia_studio" image="/twitter.svg">
                     <p>www.twitter.com/omelia_studio</p>
                 </LinkContact>
 

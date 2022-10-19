@@ -69,8 +69,11 @@ class CurrentUser {
   async getUserInfos(): Promise<CurrentUserInfos> {
     if (currentUser.user !== null)
       return currentUser.user;
+    
+    if (currentUser.tokens === null)
+      return Promise.reject('No token stored');
 
-      let axiosResponse : AxiosResponse<CurrentUserInfos> = (await this.axiosInstance.get('/users/me')).data;
+    let axiosResponse : AxiosResponse<CurrentUserInfos> = (await this.axiosInstance.get('/users/me')).data;
 
     CurrentUserStore.setUser(axiosResponse.data);
     return axiosResponse.data;
@@ -100,6 +103,15 @@ class CurrentUser {
   
   signOut(): void {
     CurrentUserStore.clear();
+  }
+
+  clearAllUserData(): void {
+    if (CurrentUserStore.tokens !== null) {
+      CurrentUserStore.setTokens(null);
+    }
+    if (CurrentUserStore.user !== null) {
+      CurrentUserStore.setUser(null);
+    }
   }
 
   

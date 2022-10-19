@@ -35,9 +35,10 @@ const Login: FunctionComponent<LoginProps> = () => {
                 api.currentUser.signIn({
                    email: email,
                    password: password,
-               }), "vous êtes connecté."); 
+               }), "vous êtes connecté.");
             router.push("/beta");
         } catch (error) {
+            console.log(error);
         }
         
     }

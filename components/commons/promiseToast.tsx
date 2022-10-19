@@ -13,10 +13,11 @@ export const promiseToast = async (promise: Promise<any>, message: string) => {
            },
            error: {
                render: ({data}) => {
-                   console.log(data);
-                   return <>{data.response.data.errors.map((error : string, idx: number) => {
-                       return <p style={{"textAlign" : "center"}} key={idx}>{error}</p>
-                   })}</>
+                    if (!data.response.data )
+                        return <div style={{"textAlign" : "center"}}>Une erreur serveur survenue</div>;
+                    return <>{data.response.data.errors.map((error : string, idx: number) => {
+                        return <p style={{"textAlign" : "center"}} key={idx}>{error}</p>
+                    })}</>
                } ,
            },
         },

@@ -16,9 +16,9 @@ const HpHome: FunctionComponent<HpHomeProps> = ({ hpHomeRef, aboutRef }) => {
 
             <div className={styles.container_cta}>
                 <div className={styles.text_cta}>
-                    <p>Ammenez votre<br/><span className="emphasized-light">élocution</span> au niveau<br/>supérieur !</p>
+                    <p>Ammenez votre<br/><span className="emphasized-primary">élocution</span> au niveau<br/>supérieur !</p>
                 </div>
-                <ScrollToButton styleClass={styles.button_cta} target={aboutRef}>en savoir plus</ScrollToButton>
+                <ScrollToButton styleClass={styles.button_cta} target={aboutRef}>En savoir plus</ScrollToButton>
             </div>
 
             <div className={styles.people}>

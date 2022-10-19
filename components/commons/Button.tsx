@@ -15,10 +15,9 @@ interface ButtonProps {
  
 const Button: FunctionComponent<ButtonProps> = ({type, children, classNameTweak, onClick} : ButtonProps) => {
     return (
-        <div onClick={onClick} className={`${styles.button} ${classNameTweak}`} data-type={type}>
-            <p>{children}</p>
+            <div onClick={onClick} className={` ${classNameTweak} ${styles.button} `} data-type={type}>
+            {children}
         </div>
-
     );
 }
 

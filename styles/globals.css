@@ -3,8 +3,9 @@
 
 :root {
   
-  --primary-color : #B6C9FF;
-  --dark-color : #03030E;
+  --primary-color : #3666F5;
+  --secondary-color : #F7ECE4;
+  --dark-color : #07061F;
   --light-color : #FEFEFE;
   --validation-color : #BCFFB6;
   --error-color : #ffb6b6;
@@ -17,8 +18,8 @@
   --danger-color : #f33a3a;
   
   /* here convertion of hex to rgb */
-  --primary-color-rgb : 182, 201, 255;
-  --dark-color-rgb : 3, 3, 14;
+  --primary-color-rgb : 54, 102, 245;
+  --dark-color-rgb : 7, 6, 31;
   --light-color-rgb : 254, 254, 254;
   --validation-color-rgb : 188, 255, 182;
   --error-color-rgb : 255, 182, 182;
@@ -130,7 +131,8 @@ textarea, input {
 /* OTHER */
 
 body {
-  background-color: var(--primary-color);
+  color: var(--dark-color);
+  background-color: var(--secondary-color);
 }
 
 .emphasized-light {

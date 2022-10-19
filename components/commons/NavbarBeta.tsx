@@ -1,7 +1,7 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import Link from 'next/link'
  
-import styles from "@styles/modules/navbar.module.css"
+import styles from "@styles/modules/navbar_beta.module.css"
 import useTransportLayer from "@hooks/useTransportLayer";
 import { Hamburger } from "@components/commons/Hamburger";
 import { CurrentUserInfos } from "@stores/currentUser";
@@ -32,14 +32,14 @@ const NavbarBeta: FunctionComponent = () => {
         if (user.isAdmin) {
             return (
                 <Link href="/beta/monitoring">
-                    <a className={styles.option}>monitoring</a>
+                    <a className={styles.option}>Monitoring</a>
                 </Link>
             );
         }
 
         return (
             <Link href="/beta/feedbacks">
-                <a className={styles.option}>faire un retour</a>
+                <a className={styles.option}>Faire un retour</a>
             </Link>
         );
     };
@@ -48,13 +48,13 @@ const NavbarBeta: FunctionComponent = () => {
         if (user)
             return (
                 <Link href="/beta/profil">
-                    <a className={styles.option}>profil</a>
+                    <a className={styles.option}>Profil</a>
                 </Link>
             );
 
         return ( 
             <Link href="/beta/login">
-                <a className={styles.option}>se connecter</a>
+                <a className={styles.option}>Se connecter</a>
             </Link>
         );
     }
@@ -62,9 +62,11 @@ const NavbarBeta: FunctionComponent = () => {
     useEffect(() => {
         window.addEventListener('scroll', onScroll, { passive: true });
         
+
         userApi.getUserInfos().then((user) => {
             setUser(user);
         }).catch(() => {
+            userApi.clearAllUserData();
         });
 
         return () => {
@@ -75,7 +77,7 @@ const NavbarBeta: FunctionComponent = () => {
     
     return (  
         <div className={`${styles.navbar} ${scroll ? styles.scrolled_navbar : ""}`}>
-             <Link href="/">
+            <Link href="/">
                 <div  className={styles.title}>
                     <img src="/omelia.svg" alt="logo" />
                 </div>
@@ -84,16 +86,15 @@ const NavbarBeta: FunctionComponent = () => {
             <div className={` ${stylesMenuSide} ${styles.menu_container}`}>
                 <div className={styles.title_side_menu}>Omelia</div>
                 {
-                    isSideMenuOpen && <div onClick={() => {setSideMenuStatus(false)}} 
-                                        className={styles.close} />
+                    isSideMenuOpen && <div onClick={() => {setSideMenuStatus(false)}} className={styles.close}>&times;</div>
                 }
                 <div className={styles.option_container}>
 
                     <Link href="/beta">
-                        <a className={styles.option}>bêta</a>
+                        <a className={styles.option}>Accueil</a>
                     </Link>
                     <Link href="/timeline">
-                        <a className={styles.option}>avancée du projet</a>
+                        <a className={styles.option}>Avancée du projet</a>
                     </Link>
                     {feedbackButton()}
                     {connectionButton()}

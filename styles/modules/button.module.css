@@ -1,17 +1,14 @@
 .button {
+    composes: button from '../modules/components.module.css';    
+
+    text-align: center;
     cursor: pointer;
     width: fit-content;
     height: fit-content;
 
-    padding: 0.65rem 1rem;
-
-    border-radius: 15px;
-    font-size: 0.75rem ;
+    padding: 0.5rem 0.75rem;
 
     font-family: var(--primary-font-family);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 /* Attribute primary and secondary */

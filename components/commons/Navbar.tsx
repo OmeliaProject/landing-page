@@ -4,6 +4,7 @@ import Link from 'next/link'
 import styles from "@styles/modules/navbar.module.css"
 import {ScrollToButton} from "@components/commons/ScrollToButton"
 import {Hamburger} from "@components/commons/Hamburger";
+import { Button, ButtonType } from "./Button";
 
 
 interface NavbarProps {
@@ -49,16 +50,15 @@ const Navbar: FunctionComponent<NavbarProps> = ({hpHomeRef, priceRef, contactRef
             <div className={` ${stylesMenuSide} ${styles.menu_container}`}>
                 <div className={styles.title_side_menu}>Omelia</div>
                 {
-                    isSideMenuOpen && <div onClick={() => {setSideMenuStatus(false)}} 
-                                        className={styles.close} />
+                    isSideMenuOpen && <div onClick={() => {setSideMenuStatus(false)}} className={styles.close}>&times;</div>
                 }
                 <div className={styles.option_container}>
-                    <ScrollToButton styleClass={styles.option} target={hpHomeRef}>accueil</ScrollToButton>
-                    <Link href="/beta">
-                        <a className={styles.option}>bêta</a>
-                    </Link>
-                    <ScrollToButton styleClass={styles.option} target={priceRef}>prix</ScrollToButton>
-                    <ScrollToButton styleClass={styles.option} target={contactRef}>contact</ScrollToButton>
+                    <ScrollToButton styleClass={styles.option} target={hpHomeRef}>Accueil</ScrollToButton>
+                    <ScrollToButton styleClass={styles.option} target={priceRef}>Prix</ScrollToButton>
+                    <ScrollToButton styleClass={styles.option} target={contactRef}>Contact</ScrollToButton>
+                    <Button type={ButtonType.PRIMARY} classNameTweak={styles.option}>
+                        <Link href="/beta">Bêta</Link>
+                    </Button>
                 </div>
 
             </div>

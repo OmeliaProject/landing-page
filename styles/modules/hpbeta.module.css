@@ -48,6 +48,8 @@
 
 
 .button_cta {
+    composes: button from '../modules/components.module.css';    
+
     background-color: var(--primary-color);
     color: var(--light-color);
 

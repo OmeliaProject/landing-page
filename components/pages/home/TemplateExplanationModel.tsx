@@ -22,8 +22,8 @@ const TemplateExplanationModel: FunctionComponent<TemplateExplanationModelProps>
             </div>
 
             <div className={styles.model} >
- 
                 <img src={picture}  alt="next" />
+ 
             </div>  
 
             
