@@ -39,7 +39,7 @@ const ApplicationModel: FunctionComponent<ApplicationModelProps> = () => {
                     Omelia met à votre disposition des vidéos de professionnels de la prise de parole en public.
                 </p>
             </TemplateExplanationModel>
-            <img className="separator" src="/wave-separator-2.svg" />
+            <img className="separator" alt="separator" src="/wave-separator-2.svg" />
 
         </div>
     );

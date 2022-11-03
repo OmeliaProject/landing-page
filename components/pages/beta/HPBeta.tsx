@@ -3,6 +3,7 @@ import styles from "@styles/modules/hpbeta.module.css";
 import Link from "next/link";
 import { FunctionComponent } from "react";
 import { useViewportScroll, motion, useTransform } from "framer-motion";
+import { Button, ButtonType } from "@components/commons/Button";
 
 interface HPBetaProps {
     
@@ -21,8 +22,10 @@ const HPBeta: FunctionComponent<HPBetaProps> = () => {
                     <h1>{"Bienvenue dans la bêta d'Omelia"}</h1>
                     <p>{"Toute l'équipe vous remercie !"}</p>
                 </div>
-                <Link href={"/beta/feedbacks"} >
-                    <a className={styles.button_cta}>Remonter un problème</a>
+                <Link passHref href={"/beta/feedbacks"} >
+                    {/* <a className={styles.button_cta}>Remonter un problème</a> */}
+                    <Button classNameTweak={styles.button_cta} type={ButtonType.PRIMARY}>Remonter un problème</Button>
+
                 </Link>
             </motion.div>
         </motion.div>

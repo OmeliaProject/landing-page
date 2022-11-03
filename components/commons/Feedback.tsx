@@ -16,7 +16,7 @@ const Feedback: FunctionComponent<IProps> = ({data}) => {
     let [hasLiked, setHasLike] = useState(data.hasLiked);
 
     const getDate = (timestamp : number) => {
-        const date = new Date(timestamp);
+        const date = new Date(timestamp * 1000);
         const day = date.getDate();
         const month = date.getMonth() + 1;
         const year = date.getFullYear();

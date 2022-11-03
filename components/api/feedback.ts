@@ -4,11 +4,19 @@ import axios, { AxiosInstance } from 'axios';
 import { collectStoredAnnotations } from 'mobx/dist/internal';
 
 
+
 interface FeedbackBody
 {
   title : string;
   body : string;
 }
+
+interface AllFeedbacksBody
+{
+  lastRead: string,
+  items: IFeedback[]
+}
+
 
 class Feedback {
   private axiosInstance: AxiosInstance;
@@ -34,8 +42,8 @@ class Feedback {
   }
 
   async getFeedbacks(): Promise<Array<IFeedback>> {
-    const feedbacks = (await this.axiosInstance.get('/feedback/threads')).data.data.threads;
-    return feedbacks;
+    const feedbacks : AllFeedbacksBody = (await this.axiosInstance.get('/feedback/threads')).data.data;
+    return feedbacks.items;
   };
   
   async getUserFeedbacks(): Promise<IFeedback[]> {

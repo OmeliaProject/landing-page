@@ -57,26 +57,26 @@
 
 @media (min-width: 1201px) { 
   html {
-    font-size: calc(24px + 0.2vw);
+    font-size: calc(24px + 0.2vmax);
   }
 }
 
 @media (min-width: 1025px) and (max-width: 1200px) { 
   html {
-    font-size: calc(24px + 0.25vh) ;
+    font-size: calc(24px + 0.25vmax) ;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) { 
   html {
-    font-size: calc(22px + 0.25vh) ;
+    font-size: calc(22px + 0.25vmax) ;
   }
 }
 
 /* Landscape phone to portrait tablet */
 @media (min-width: 481px) and (max-width: 768px) { 
   html {
-    font-size: calc(20px + 0.25vh) ;
+    font-size: calc(20px + 0.25vmax) ;
   }
  
 }
@@ -93,6 +93,17 @@
 html {
   color: var(--dark-color);
   scroll-behavior: smooth;
+}
+
+button {
+  background-color: transparent;
+  border-width: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  padding: 0;
 }
 
 *, h1, h2 {
@@ -163,6 +174,23 @@ body {
 .slide-right {
   -webkit-animation: slide-right 800ms both;
           animation: slide-right 800ms both;
+}
+
+.Toastify__toast-container {
+  width: fit-content !important;
+}
+
+.Toastify__toast {
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.Toastify__toast-icon {
+  align-self: flex-start;
+}
+.Toastify__close-button {
+  display: flex;
+  padding-left: 0.25rem !important;
 }
 
 

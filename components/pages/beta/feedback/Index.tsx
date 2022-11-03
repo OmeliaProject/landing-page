@@ -14,10 +14,6 @@ function Feedbacks() {
     const [feedbacks, setFeedbacks] = useState<Array<IFeedback>>([]);
     const [search, setSearch] = useState("");
 
-    const retrieveFeedbacks = async() => {
-        setFeedbacks(await api.feedbacks.getFeedbacks())
-    }
-
     const changeResearch = (event : React.ChangeEvent<HTMLInputElement>) => {
         setSearch(event.target.value)
     }
@@ -28,10 +24,10 @@ function Feedbacks() {
         filteredFeedbacks = feedbacks.filter(feedback => feedback.title.toLowerCase().includes(search.toLowerCase()))
 
     useEffect(() => {
-        retrieveFeedbacks()
+        api.feedbacks.getFeedbacks().then((feedbacks) => {
+            setFeedbacks(feedbacks);
+        });
     }, [])
-
-    // take a timestamp and return a string with the date
 
     return (
         <>
@@ -49,7 +45,7 @@ function Feedbacks() {
                             <input className={styles.input} value={search} onChange={changeResearch} type="text" placeholder="rechercher un avis" />
                         </div>
                     </div>
-                    <Link href={"/beta/feedbacks/add"} >
+                    <Link passHref href={"/beta/feedbacks/add"} >
                         <Button classNameTweak={styles.button} type={ButtonType.PRIMARY}>
                             Ajouter votre avis !
                         </Button>
@@ -58,13 +54,15 @@ function Feedbacks() {
                 </div>
                 <div className={styles.feedbacks_container}>
                     {
+                        filteredFeedbacks.length > 0 ? 
                         filteredFeedbacks.map((feedback : IFeedback, index) =>  {
                             return (
                                 <Feedback key={index}  data={feedback} />
                             )
                         })
+                        : 
+                        <div className={styles.no_feedbacks}>Aucun avis remonté pour le moment :)</div>
                     }
-
                 </div>
 
             </div>

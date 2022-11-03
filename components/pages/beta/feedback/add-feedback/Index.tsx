@@ -73,7 +73,7 @@ const AddFeedback : NextPage<AddFeedbackProps> = () => {
                 </div>
 
                 <div className={styles.button_container}>
-                    <Link href={"/beta/feedbacks"} >
+                    <Link passHref href={"/beta/feedbacks"} >
                         <Button type={ButtonType.SECONDARY}>{"revenir au menu"}</Button>
                     </Link>
                     <Button onClick={sendFeedback} type={ButtonType.PRIMARY}>Envoyer votre problème</Button>

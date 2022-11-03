@@ -9,6 +9,7 @@ import { useState } from "react";
 import { FormInput } from "@components/commons/FormInput";
 import { Button, ButtonType } from "@components/commons/Button";
 import { useRouter } from "next/router";
+import { promiseToast } from "@components/commons/promiseToast";
 
 interface ForgetPasswordProps {
 }
@@ -20,8 +21,8 @@ const ForgetPassword : NextPage<ForgetPasswordProps> = () => {
 
     const sendEmailForgetPassword = async () => {
         try {
-            await api.currentUser.forgetPassword({email})
-            router.push("/beta/change-password");
+            await promiseToast( api.currentUser.forgetPassword({email}), "Regardez vos mails !");
+            router.push('/beta/change-password');
         } catch (error) {
             console.log(error);
         }
@@ -47,7 +48,7 @@ const ForgetPassword : NextPage<ForgetPasswordProps> = () => {
                                 />
                 
                     <Button classNameTweak={styles.button} onClick={sendEmailForgetPassword} type={ButtonType.PRIMARY} >envoyer le lien de récupération</Button>
-                    <Link href="/beta/login">
+                    <Link passHref href="/beta/login">
                         <p className={styles.already_account}>Revenir à la page login</p>
                     </Link>
                 

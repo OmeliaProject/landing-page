@@ -14,6 +14,8 @@ export interface SignUpBody {
   email: string,
 }
 
+
+
 export interface EmailVerificationCodeBody {
   code: string,
   email: string,
@@ -28,6 +30,16 @@ export interface ChangePasswordBody {
   email: string,
   code: string,
   newPassword: string,
+}
+
+export interface ChangePasswordWithOldPasswordBody {
+  currentPassword: string,
+  newPassword: string
+}
+
+export interface ResetPasswordResponse {
+  accessToken: string,
+  refreshToken: string
 }
 
 export interface requestResetPasswordCodeBody {
@@ -80,7 +92,14 @@ class CurrentUser {
   }
 
   async changePassword(body: ChangePasswordBody): Promise<void> {
-    return this.axiosInstance.put('/auth/password', body);
+    let toto = await this.axiosInstance.put('/auth/password', body);
+    return;
+  }
+
+  async changePasswordWithOldPassword(body: ChangePasswordWithOldPasswordBody): Promise<ResetPasswordResponse> {
+    let tokens : AxiosResponse<ResetPasswordResponse> = (await this.axiosInstance.patch('/auth/password', body)).data;
+    CurrentUserStore.setTokens(tokens.data as CurrentUserTokens);
+    return tokens.data;
   }
 
   async confirmPasswordCreation(body: EmailVerificationCodeBody): Promise<void> {

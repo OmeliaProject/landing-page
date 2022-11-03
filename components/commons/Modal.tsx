@@ -11,7 +11,7 @@ const Modal = () => {
     useEffect(() => {
         // get element with data-reactroot
         setRoot(document.querySelector("[data-reactroot]"));
-    }, []);
+    }, [root]);
     
     
     if (!modal || !root)

@@ -31,14 +31,14 @@ const NavbarBeta: FunctionComponent = () => {
 
         if (user.isAdmin) {
             return (
-                <Link href="/beta/monitoring">
+                <Link passHref href="/beta/monitoring">
                     <a className={styles.option}>Monitoring</a>
                 </Link>
             );
         }
 
         return (
-            <Link href="/beta/feedbacks">
+            <Link passHref href="/beta/feedbacks">
                 <a className={styles.option}>Faire un retour</a>
             </Link>
         );
@@ -47,13 +47,13 @@ const NavbarBeta: FunctionComponent = () => {
     const connectionButton = () => {
         if (user)
             return (
-                <Link href="/beta/profil">
+                <Link passHref href="/beta/profil">
                     <a className={styles.option}>Profil</a>
                 </Link>
             );
 
         return ( 
-            <Link href="/beta/login">
+            <Link passHref href="/beta/login">
                 <a className={styles.option}>Se connecter</a>
             </Link>
         );
@@ -62,6 +62,7 @@ const NavbarBeta: FunctionComponent = () => {
     useEffect(() => {
         window.addEventListener('scroll', onScroll, { passive: true });
         
+        onScroll(null!);
 
         userApi.getUserInfos().then((user) => {
             setUser(user);
@@ -72,12 +73,12 @@ const NavbarBeta: FunctionComponent = () => {
         return () => {
             window.removeEventListener('scroll', onScroll);
         };
-    }, []);
+    }, [userApi]);
 
     
     return (  
         <div className={`${styles.navbar} ${scroll ? styles.scrolled_navbar : ""}`}>
-            <Link href="/">
+            <Link passHref href="/">
                 <div  className={styles.title}>
                     <img src="/omelia.svg" alt="logo" />
                 </div>
@@ -90,10 +91,10 @@ const NavbarBeta: FunctionComponent = () => {
                 }
                 <div className={styles.option_container}>
 
-                    <Link href="/beta">
+                    <Link passHref href="/beta">
                         <a className={styles.option}>Accueil</a>
                     </Link>
-                    <Link href="/timeline">
+                    <Link passHref href="/timeline">
                         <a className={styles.option}>Avancée du projet</a>
                     </Link>
                     {feedbackButton()}

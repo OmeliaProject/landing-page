@@ -17,8 +17,18 @@
     color: var(--light-color);
 }
 
+
+
 .button[data-type="secondary"] {
     background-color: var(--light-color);
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
+}
+
+.button:hover {
+    box-shadow: 5px 5px 0px 0 rgba(var(--primary-color-rgb), 0.2);
+}
+
+.button:active {
+    box-shadow: 3px 3px 0px 0 rgba(var(--primary-color-rgb), 0.2);
 }

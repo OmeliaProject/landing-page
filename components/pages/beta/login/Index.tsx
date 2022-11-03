@@ -5,7 +5,7 @@ import stylesPage from '@styles/pages/authentication.module.css'
 import styles from "@styles/modules/authentication.module.css"
 
 import useTransportLayer from '@hooks/useTransportLayer';
-import { FunctionComponent, useState } from "react";
+import { FormEvent, FunctionComponent, useState } from "react";
 import { Button, ButtonType} from "@components/commons/Button";
 import { FormInput } from "@components/commons/FormInput";
 import { NavbarBeta } from "@components/commons/NavbarBeta";
@@ -24,7 +24,9 @@ const Login: FunctionComponent<LoginProps> = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const login = async () => {
+    const login = async (e : FormEvent) => {
+        e.preventDefault();
+
         if (!email || !password) {
             toast.warning("Veuillez remplir tous les champs", {position: toast.POSITION.TOP_CENTER});
             return;
@@ -49,7 +51,7 @@ const Login: FunctionComponent<LoginProps> = () => {
                 <title>Omelia - Login</title>
             </Head>
             <NavbarBeta/>
-            <div className={stylesPage.authentication}>
+            <form className={stylesPage.authentication} onSubmit={login}>
                 <div className={styles.card}>
                     <img className={styles.visual} src="/sitting-girl.svg" alt="Sitting-people" />
                     <div className={styles.card_header}>Connexion</div>
@@ -61,7 +63,6 @@ const Login: FunctionComponent<LoginProps> = () => {
                                 setValue={setEmail}
                                 value={email}
                                 />
-        
 
                     <FormInput
                                 label={"Mots de passe"}
@@ -72,17 +73,17 @@ const Login: FunctionComponent<LoginProps> = () => {
                                 value={password}
                                 />
 
-                    <Link href="/beta/forget-password">
+                    <Link passHref href="/beta/forget-password">
                         <p className={styles.forgot_password}>Mots de passe oublie ?</p>
                     </Link>
 
-                    <Button onClick={login} classNameTweak={styles.validation} type={ButtonType.PRIMARY} >Se connecter</Button>
-                    <Link href="/beta/register">
+                    <Button settings={{type : "submit"}} classNameTweak={styles.validation} type={ButtonType.PRIMARY} >Se connecter</Button>
+                    <Link passHref href="/beta/register">
                         <Button type={ButtonType.SECONDARY} classNameTweak={styles.button} >{"S'enregistrer"}</Button>
                     </Link>
 
                 </div>
-            </div>
+            </form>
         </>
     );
 }

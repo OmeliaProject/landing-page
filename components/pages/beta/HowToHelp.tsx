@@ -18,13 +18,18 @@ const HowToHelp: FunctionComponent<HowToHelpProps> = () => {
         <Step key={2} svgPath="/discord.svg" title="Être sur le discord" description="Vous souhaitez encore plus nous aider et en savoir plus sur Omelia, rejoignez nous sur discord&nbsp;!" />
     ];
 
-    useEffect(
-        () => {
+    useEffect(() => {
+        setWidthScreen(window.innerWidth);
+        window.addEventListener("resize", () => {
             setWidthScreen(window.innerWidth);
-            window.addEventListener("resize", () => {
+        });
+        return () => {
+            window.removeEventListener("resize", () => {
                 setWidthScreen(window.innerWidth);
             });
-    }, []);
+        };
+    },[]);
+
 
     const isMobile = widthScreen < 1024;
 

@@ -11,13 +11,14 @@ interface ButtonProps {
     children : ReactChild | ReactChild[];
     classNameTweak ?: string;
     onClick ?: () => void;
+    settings ?: any;
 }
  
-const Button: FunctionComponent<ButtonProps> = ({type, children, classNameTweak, onClick} : ButtonProps) => {
+const Button: FunctionComponent<ButtonProps> = ({type, children, classNameTweak, onClick, settings} : ButtonProps) => {
     return (
-            <div onClick={onClick} className={` ${classNameTweak} ${styles.button} `} data-type={type}>
+        <button onClick={onClick} {... settings} className={` ${classNameTweak} ${styles.button} `} data-type={type}>
             {children}
-        </div>
+        </button>
     );
 }
 

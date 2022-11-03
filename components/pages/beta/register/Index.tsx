@@ -3,7 +3,7 @@ import styles from "@styles/modules/authentication.module.css"
 
 import Link from "next/link";
 import Head from "next/head";
-import { FunctionComponent, useState } from "react";
+import { FormEvent, FunctionComponent, useState } from "react";
 import useTransportLayer from "@hooks/useTransportLayer";
 import { Button, ButtonType} from "@components/commons/Button";
 import { FormInput } from "@components/commons/FormInput";
@@ -22,7 +22,8 @@ const Register: FunctionComponent<RegisterProps> = () => {
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
 
-    const register = async () => {
+    const register = async (e : FormEvent) => {
+        e.preventDefault();
         try {
             await promiseToast(
                 api.currentUser.signUp({
@@ -46,7 +47,7 @@ const Register: FunctionComponent<RegisterProps> = () => {
             </Head>
             <NavbarBeta/>
             <div className={stylesPage.authentication}>
-                <form className={styles.card}>
+                <form onSubmit={register} className={styles.card}>
                     <img className={styles.visual} src="/sitting-girl.svg" alt="Sitting-people" />
                     <div className={styles.card_header}>{"S'enregistrer"}</div>
                 
@@ -86,8 +87,8 @@ const Register: FunctionComponent<RegisterProps> = () => {
                                 />
 
 
-                    <Button onClick={register} classNameTweak={styles.validation} type={ButtonType.PRIMARY} >{"S'enregistrer"}</Button>
-                    <Link href="/beta/login">
+                    <Button settings={{type:"submit"}} classNameTweak={styles.validation} type={ButtonType.PRIMARY} >{"S'enregistrer"}</Button>
+                    <Link passHref href="/beta/login">
                         <p className={styles.already_account}>{"J'ai déjà un compte"}</p>
                     </Link>
                 </form>

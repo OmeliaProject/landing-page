@@ -3,7 +3,7 @@
     width: 100%;
     min-height: 100vh;
     background-color: var(--light-color);
-    padding: 0 10vw;
+    padding: 0 10vmax;
 
 }
 
@@ -66,5 +66,28 @@
     padding: 2rem 0;
     gap: 1rem;
 
+
+}
+
+.no_feedbacks {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    text-align: center;
+    font-size: 1.5rem;
+    width: 100%;
+    font-family: var(--primary-font-family);
+    color: var(--primary-color);
+    opacity: 0.3;
+
+}
+
+/* if content too small */
+@media only screen and (max-width: 600px) {
+    .feedbacks {
+        padding: 0 8vmin;
+    }
 
 }

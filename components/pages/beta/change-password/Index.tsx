@@ -8,6 +8,7 @@ import { NavbarBeta } from "@components/commons/NavbarBeta";
 import { FormInput } from "@components/commons/FormInput";
 import { Button, ButtonType } from "@components/commons/Button";
 import { useRouter } from "next/router";
+import { promiseToast } from "@components/commons/promiseToast";
 
 interface ChangePasswordProps {
 }
@@ -23,11 +24,12 @@ const ChangePassword : NextPage<ChangePasswordProps> = () => {
 
     const changePassword = async () => {
         try {
-            await api.currentUser.changePassword({
+            await promiseToast( api.currentUser.changePassword({
                 email: email,
                 code: code,
                 newPassword : password
-            })
+            }), "Mots de passe changé avec succès !");
+
             router.push("/beta/login");
         } catch (error) {
             console.log(error);
@@ -42,7 +44,7 @@ const ChangePassword : NextPage<ChangePasswordProps> = () => {
             <NavbarBeta />
             <div className={styles.forget_password}>
                 <div className={styles.card}>
-                    <div className={styles.header}>Canger de mots de passe</div>
+                    <div className={styles.header}>Changer de mots de passe</div>
                     <div className={styles.body}>{"Nous venons d'envoyer un code de confirmation sur votre adresse e-mail ."}</div>
                     <FormInput classNameTweak={styles.input}
                                 label={"Votre email"}
@@ -66,7 +68,7 @@ const ChangePassword : NextPage<ChangePasswordProps> = () => {
                                 setValue={setPassword}
                                 value={password}
                                 />
-                    <Button classNameTweak={styles.button} onClick={changePassword} type={ButtonType.PRIMARY} >Changer de Mots de passe</Button>
+                    <Button classNameTweak={styles.button} onClick={changePassword} type={ButtonType.PRIMARY} >Changer de mots de passe</Button>
                 </div>
             </div>
         </>

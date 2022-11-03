@@ -1,4 +1,5 @@
 .profil {
+    border-radius: 15px;
     width: 75%;
     background-color: var(--light-color);
 
@@ -6,7 +7,8 @@
 
     margin: 6rem auto 2rem auto;
 
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 0px 5px rgba(var(--dark-color-rgb), 0.5);
+    -webkit-box-shadow: 5px 5px 0px 5px rgba(var(--dark-color-rgb), 0.5);
 
     display: flex;
     align-items: center;
@@ -21,6 +23,7 @@
     text-decoration: underline;
     font-family: var(--primary-font-family);
 }
+
 
 .feedback_container{
 
@@ -37,6 +40,7 @@
     font-size: 1.5rem;
     color: var(--dark-color);
     margin-bottom: 1rem;
+    text-align: center;
     font-family: var(--primary-font-family);
 }
 
@@ -52,9 +56,26 @@
 }
 
 .feedback:hover {
-    box-shadow: 0 5px 0px 0 rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 0px 0 rgba(var(--dark-color-rgb), 0.2);
     cursor: pointer;
 }
+
+.feedback:active {
+    box-shadow: 3px 3px 0px 0 rgba(var(--dark-color-rgb), 0.2);
+}
+
+.hover_delete_button {
+    border: 3px solid var(--danger-color) !important;
+}
+
+.hover_delete_button:hover {
+    box-shadow: 5px 5px 0px 0 rgba(var(--danger-color-rgb), 0.2) !important;
+}
+
+.hover_delete_button:active {
+    box-shadow: 3px 3px 0px 0 rgba(var(--danger-color-rgb), 0.2) !important;
+}
+
 
 .feedback_body_container {
     margin-right: 2.5rem;
@@ -107,33 +128,89 @@
 }
 
 
-.general_info{
+
+.data_container
+{
     display: flex;
     align-items: center;
     flex-direction: column;
+}
 
+.general_info {
     margin-bottom: 3rem;
+
 }
 
 
-.profil_info_container{
+/*  ------------MODAL---------------------------- */
+
+
+.info_container{
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr 1fr;
 }
 
-.info {
+
+
+.header {
+    font-family: var(--primary-font-family);
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
 }
 
+.header h2 {
+    font-weight: bold;
+    font-size: 1.25rem;
+
+    margin-bottom: 0.5rem;
+
+}
+
+.header p {
+
+    font-size: 0.75rem;
+}
+
+.header ul {
+    font-family: var(--secondary-font-family);
+    font-size: 0.75rem;
+    font-weight: lighter;
+    padding-left: 5%;
+}
+
+.header ul {
+    list-style: none; 
+}
+
+.header ul li::before {
+    content: "\2022";  
+    color: var(--dark-color);; 
+    font-weight: bold; 
+    display: inline-block; 
+    width: 1em; 
+    margin-left: -1em; 
+}
+
+.form_modal_change_password > div {
+    margin-bottom: 0.75rem;
+}
+
+.password_button{
+    width: 100% !important;
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    align-self: flex-end;
+}
+/*  ---------------------------------------- */
 
 .info label {
 
     font-size: 0.8rem;
     opacity: 0.25;
-    font-weight: bold;
 
     color: var(--dark-color);
-    font-family: var(--primary-font-family);
+    font-family: var(--secondary-font-family);
 }
 
 .info div{
@@ -147,27 +224,6 @@
     font-size: 1rem;
 }
 
-
-.change_password{
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-
-    font-family: var(--secondary-font-family);
-
-    font-size: 1rem;
-    text-decoration: underline;
-    color: var(--dark-color);
-    opacity: 0.5;
-
-}
-
-.change_password:hover{
-    opacity: 1;
-    cursor: pointer;
-}
 
 .actions {
     display: flex;
@@ -207,7 +263,7 @@
     justify-content: space-between;
 }
 
-@media screen and (max-width : 769px) {
+@media screen and (max-width : 850px) {
 
     .profil {
         width: 90%;
@@ -217,6 +273,11 @@
     }
     .modal_body {
         text-align: center;
+    }
+
+    .sub_container {
+        display: flex;
+        flex-direction: column;
     }
 
 

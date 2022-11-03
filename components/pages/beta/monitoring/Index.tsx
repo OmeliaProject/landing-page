@@ -7,29 +7,15 @@ import { useContext, useEffect, useState } from "react";
 import { IFeedback } from "@components/api/types/IFeedback";
 import useTransportLayer from "@hooks/useTransportLayer";
 import { ModalContext } from "@components/api/modalContext";
-
-
-interface MonitoringProps {
-}
+import { ModalFeedback } from "@components/commons/modals/ModalFeeback";
 
 const timestampToDate = (timestamp: number) => {
     const date = new Date(timestamp);
     return date.toLocaleDateString();
 };
 
-export const ModalFeedback = (feedback : IFeedback) => {
-    return (
-        <>
-            <h1 className={styles.modal_title}>{feedback.title}</h1>
-            <p className={styles.modal_body}>{feedback.body}</p>
-            <div className={styles.modal_info_container}>
-                <p>date: {timestampToDate(feedback.timestamp)}</p>
-                <div>{"nombre de j'aime: " + feedback.likes}</div>
-            </div>
-        </>
-    );
+interface MonitoringProps {
 }
-
  
 const Monitoring : NextPage<MonitoringProps> = () => {
 
@@ -43,7 +29,7 @@ const Monitoring : NextPage<MonitoringProps> = () => {
         api.feedbacks.getFeedbacks().then((feedbacks) => {
             setFeedbacks(feedbacks);
         });
-    }, []);
+    }, [api.feedbacks]);
 
     const deleteFeedback = (id: number) => {
         api.feedbacks.deleteFeedback(id).then(() => {
