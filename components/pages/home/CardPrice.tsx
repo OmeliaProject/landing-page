@@ -3,7 +3,8 @@ import styles from "@styles/modules/prices.module.css"
 import { FunctionComponent, RefObject, useContext } from "react";
 import { Option } from "@components/pages/home/Option"
 import { ModalContext } from "@components/api/modalContext";
-import { ModalPrices } from "./ModalPrices";
+import { ModalPrices } from "@components/commons/modals/ModalPrices";
+import { Button, ButtonType } from "@components/commons/Button";
 
 interface PrincingOptions{
     name : string;
@@ -30,8 +31,6 @@ const CardPrice: FunctionComponent<CardPriceProps> = ({title, price, emphasized,
         }, 100);
     }
 
-    const modal = ModalPrices(scrollToContact);
-
     return (
         <div className={styles.card} data-emphasized={emphasized} >
             <h1 className={styles.title}>{title}</h1>
@@ -46,7 +45,9 @@ const CardPrice: FunctionComponent<CardPriceProps> = ({title, price, emphasized,
 
                 }
             </div>
-            <div className={styles.button} onClick={() => handleModal(modal)}><p>{"S'abonner"}</p></div>
+            <Button type={ emphasized ? ButtonType.PRIMARY : ButtonType.SECONDARY} classNameTweak={styles.button} 
+                onClick={() => handleModal(<ModalPrices scrollToContact={scrollToContact}/>)}>{"S'abonner"}
+            </Button>
         </div>
     );
 }

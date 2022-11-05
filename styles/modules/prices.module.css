@@ -10,7 +10,7 @@
     position: relative;
     z-index: var(--foreground);
 
-    width: calc(65vw + 5vh);
+    width: 75vmin;
 
     margin-bottom: 15%;
 
@@ -27,13 +27,18 @@
     justify-content: center;
     align-items: center;
 
-    height: 15vh;
+    margin: 2rem 0 0.5rem 0;
+
     font-size: 1.75rem;
 }
 
 .price_text {
-    margin-left: 15%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1.5rem;
+
     color: var(--primary-color);
     font-weight: bold;
 }
@@ -61,41 +66,21 @@
     margin-right: 2vw;
 }
 
-
-.button {
-    composes : button from "./components.module.css"; 
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 12vh;
-    margin: 5% 0;
-
-
-    color : var(--primary-color);
-    font-size: 1.2rem;
-
-}
-
-.button p {
-    padding: 1rem 2rem;
-    border-radius: 15px;
-}
-
 .not_included {
     opacity: 0.5;
     text-decoration: line-through;
 }
 
+.button {
+    display: flex;
+    font-size: 1.5rem;
+    padding: 1rem 1.5rem;
 
-.card[data-emphasized=true] .button {
-    height: 15vh;
+    margin: 6vmin auto;
 }
 
-.card[data-emphasized=true] .button p {
-    color: var(--light-color);
-    background-color: var(--primary-color);
+.card[data-emphasized=true] .button {
+    margin: 8vmin auto;
 }
 
 
@@ -117,13 +102,13 @@
     .title {
         font-size: 1.25rem;
         height: 15vh;
+        margin: 0;
     }
     
     .price_text {
+        display: block;
         margin-left: 15%;
         font-size: 1rem;
-        margin-bottom: 3vh;
-
     }
     
     .options_container {
@@ -136,20 +121,17 @@
     
     
     .button {
-        height: 20vh;
-        font-size: 1rem;
-        margin: 0;
+        display: flex;
+        font-size: 0.75rem;
 
-    }
+        padding: 0.75rem 1rem;
     
-    .button p {
-        padding: 0.75rem 1.5rem;
-
+        margin: 5vmin auto;
     }
-    
     
     .card[data-emphasized=true] .button {
-        height: 25vh;
+        font-size: 1rem;
+        margin: 6vmin auto;
     }
 
 }

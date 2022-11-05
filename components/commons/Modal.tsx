@@ -17,8 +17,6 @@ const Modal = () => {
     if (!modal || !root)
     return null;
     
-    console.log("RIGHT THERE");
-    
     const ModalJSX = (
         <div className={styles.modal_bg}>
             <div className={styles.modal}>
