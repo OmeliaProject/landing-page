@@ -21,11 +21,11 @@ export const ModalChangePassword : FC<ModalChangePasswordProps> = ({changePasswo
         <>
             <div className={styles.header}>
                 <h2>Changer de mots de passe:</h2>
-                <p>Pour mieux protéger votre mot de passe faite attention à :</p>
+                <p>Pour mieux protéger votre mot de passe faite attention à que:</p>
                 <ul>
-                    <li>Le mot de passe doit contenir des chiffres.</li>
-                    <li>Le mot de passe doit contenir des lettres majuscules.</li>
-                    <li>Le mot de passe doit comporter au moins un symbole.</li>
+                    <li>Votre mot de passe doit contenir des chiffres.</li>
+                    <li>Votre mot de passe doit contenir des lettres majuscules.</li>
+                    <li>Votre mot de passe doit comporter au moins un symbole.</li>
                     <li>La longueur doit être supérieure à 8 caractères</li>
                 </ul>
             </div>

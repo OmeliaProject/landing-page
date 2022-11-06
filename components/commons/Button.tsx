@@ -4,6 +4,7 @@ import styles from "@styles/modules/button.module.css";
 enum ButtonType {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
+    TERTIARY = 'tertiary',
 }
 
 interface ButtonProps {

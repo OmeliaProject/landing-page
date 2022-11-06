@@ -3,6 +3,8 @@ import { RefObject, FunctionComponent, useRef, useState} from "react";
 import { LinkContact } from "@components/pages/home/LinkContact";
 import emailjs from '@emailjs/browser';
 import styles from "@styles/modules/contact.module.css"
+import { Button, ButtonType } from "@components/commons/Button";
+import { promiseToast } from "@components/commons/promiseToast";
 
 interface ContactProps {
     contactRef : RefObject<HTMLDivElement>
@@ -14,55 +16,21 @@ enum FormStatus {
     VALID = "Message bien envoyé!"
 }
 
-interface State {
-    text : string
-    style : string
-}
 
 const Contact: FunctionComponent<ContactProps> = ({ contactRef }) => {
     
     const form = useRef<HTMLFormElement>(null);
-
-    const [formStatus, setFormStatus] = useState<State>({
-        text : "",
-        style : ""
-    })
 
     const sendEmail = (e : React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!form.current)
             return;
 
-        setFormStatus({
-            text : FormStatus.LOADING,
-            style : styles.loading
-        })
-
-        // TO PUT IN API SERVICE ! 
-        emailjs.sendForm('service_ih0x5lo', 'template_c0xfzx9', form.current, 'user_YTYwoUOvEF41yOhBTNY79')
-        .then((_) => {
-            setFormStatus({
-                text : FormStatus.VALID,
-                style : styles.valide
-
-            })
-        }, (_) => {
-            setFormStatus({
-                text : FormStatus.ERROR,
-                style : styles.error
-            })
-        });
+        promiseToast(
+            emailjs.sendForm('service_ih0x5lo', 'template_c0xfzx9', form.current, 'user_YTYwoUOvEF41yOhBTNY79')
+            ,"Message bien envoyé !").catch(() => {console.log("error in email sending")});
         form.current.reset()
-
-        setTimeout(() => {
-            setFormStatus({
-                text : "",
-                style : ""
-            })
-        }, 5000)
-
     }
-
 
     return (
         <div className={styles.contact} ref={contactRef}>
@@ -72,12 +40,13 @@ const Contact: FunctionComponent<ContactProps> = ({ contactRef }) => {
             </div>
 
 
-            <form className={`${styles.forms} ${formStatus.style}` } ref={form} onSubmit={sendEmail}>
+            <form className={styles.forms} ref={form} onSubmit={sendEmail}>
                 <input data-decoration required placeholder="email: jean@hotmail.com" className={styles.email_input} type="email" name="from_name" /> 
                 <textarea  data-decoration required placeholder="votre superbe message" className={styles.body_input} name="message"  cols={30} rows={10}></textarea>
                 <div className={styles.submit_container}>
-                    <p className={styles.validation_text}>{formStatus?.text}</p>
-                    <button data-decoration type="submit" className={styles.button_submit}>Envoyer</button>
+                    <Button type={ButtonType.PRIMARY} data-decoration 
+                    settings={{type:"submit"}} 
+                    classNameTweak={styles.button_submit}>Envoyer</Button>
                 </div>
             </form>
         

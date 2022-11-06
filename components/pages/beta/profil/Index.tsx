@@ -119,7 +119,7 @@ const Profil : NextPage<ProfilProps> = () => {
 
                 <div className={styles.actions}>
                     <Button onClick={disconnect} type={ButtonType.SECONDARY}>Se déconnecter</Button>
-                    <Button classNameTweak={styles.delete} onClick={deleteAccount} type={ButtonType.SECONDARY}>supprimer son compte</Button>
+                    <Button classNameTweak={styles.delete} onClick={deleteAccount} type={ButtonType.TERTIARY}>supprimer son compte</Button>
                 </div>
 
             </div>
@@ -144,7 +144,7 @@ const FeedbackProfile : React.FC<IFeedbackProfile> = ({feedback, deleteFeedback,
 
     return (
         <div key={idx}  className={`${styles.feedback} ${styleDependingOnHover}`}>
-            <div onClick={() => handleModal(ModalFeedback(feedback))} className={styles.feedback_body_container}>
+            <div onClick={() => handleModal(<ModalFeedback feedback={feedback}/>)} className={styles.feedback_body_container}>
                 <h1>{feedback.title} </h1>
                 <p>{feedback.body} </p>
             </div>

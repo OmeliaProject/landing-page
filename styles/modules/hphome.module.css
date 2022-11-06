@@ -25,21 +25,12 @@
 }
 
 .button_cta {
-
     z-index: var(--foreground);
-
-    composes : button from "./components.module.css"; 
-
-    width: fit-content;
-    padding: 0.7rem 0.9rem ;
-    margin: calc(1rem ) auto 8% auto ;
+    margin: 1.2rem auto 8% auto ;
     
+    font-size: 0.75rem;
+    padding: 0.75rem 1.25rem;
     font-weight: bold;
-    font-size: 0.8rem;
-
-    border-radius: 5px; 
-    color: var(--light-color);
-    background-color: var(--primary-color);
 }
 
 .people {

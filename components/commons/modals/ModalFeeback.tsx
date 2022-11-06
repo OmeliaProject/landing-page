@@ -1,5 +1,6 @@
 import styles from "@styles/pages/monitoring.module.css";
 import { IFeedback } from "@components/api/types/IFeedback";
+import { FC } from "react";
 
 
 const timestampToDate = (timestamp: number) => {
@@ -7,7 +8,11 @@ const timestampToDate = (timestamp: number) => {
     return date.toLocaleDateString();
 };
 
-export const ModalFeedback = (feedback : IFeedback) => {
+interface ModalFeebackProps {
+    feedback: IFeedback;
+}
+
+export const ModalFeedback : FC<ModalFeebackProps> = ({feedback}) => {
     return (
         <>
             <h1 className={styles.modal_title}>{feedback.title}</h1>

@@ -3,6 +3,7 @@ import styles from "@styles/modules/hphome.module.css"
 import { ScrollToButton } from "@components/commons/ScrollToButton";
 import { RefObject, FunctionComponent, useContext } from "react";
 import { ModalContext } from "@components/api/modalContext";
+import { Button, ButtonType } from "@components/commons/Button";
 
 interface HpHomeProps {
     hpHomeRef : RefObject<HTMLDivElement>
@@ -18,7 +19,9 @@ const HpHome: FunctionComponent<HpHomeProps> = ({ hpHomeRef, aboutRef }) => {
                 <div className={styles.text_cta}>
                     <p>Ammenez votre<br/><span className="emphasized-primary">élocution</span> au niveau<br/>supérieur !</p>
                 </div>
-                <ScrollToButton styleClass={styles.button_cta} target={aboutRef}>En savoir plus</ScrollToButton>
+                <ScrollToButton target={aboutRef}>
+                    <Button classNameTweak={styles.button_cta} type={ButtonType.PRIMARY}>En savoir plus</Button>
+                </ScrollToButton>
             </div>
 
             <div className={styles.people}>

@@ -60,7 +60,7 @@ const Monitoring : NextPage<MonitoringProps> = () => {
                         <tbody className={styles.tbody}>
                             {feedbacks && feedbacks.map((feedback, idx) => {
                                     return (
-                                        <tr onClick={() => handleModal(ModalFeedback(feedback))} key={idx} className={styles.tr}>
+                                        <tr onClick={() => handleModal(<ModalFeedback feedback={feedback} />)} key={idx} className={styles.tr}>
                                             <td className={styles.td}>{idx + 1}</td>
                                             <td className={styles.td}>{feedback.title}</td>
                                             <td className={styles.td}>{feedback.body}</td>
