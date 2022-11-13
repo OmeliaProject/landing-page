@@ -1,14 +1,14 @@
 import axios, { AxiosInstance } from 'axios';
 
-import CurrentUser from '@components/api/currentUser';
-import {Feedback} from '@components/api/feedback';
+import CurrentUser from '@components/api/User';
+import {Feedback} from '@components/api/Feedback';
 import CurrentUserStore from '@stores/currentUser';
 
 
 const API_URL = "https://as38vz90ld.execute-api.eu-west-3.amazonaws.com/dev"
 const API_KEY = "XpWReSfxNI6ZBgNLBkNPP67S6ib71RIv2NBNCR0L"
 
-class TransportLayer {
+class ApiTransportLayer {
 
   public static defaultOptions = {
     baseURL: API_URL,
@@ -24,7 +24,7 @@ class TransportLayer {
   private axiosInstance: AxiosInstance;
 
   constructor() {
-    this.axiosInstance = axios.create(TransportLayer.defaultOptions);
+    this.axiosInstance = axios.create(ApiTransportLayer.defaultOptions);
     
     this.currentUser = new CurrentUser(this.axiosInstance)
     this.feedbacks = new Feedback(this.axiosInstance)
@@ -43,4 +43,6 @@ class TransportLayer {
 
 }
 
-export default TransportLayer
+export {
+  ApiTransportLayer,
+} 

@@ -6,8 +6,7 @@ export interface IModalContext {
     modalContent: any;
 }
   
-
-const useModal =  () : IModalContext =>  {
+const ModalTransportLayer =  () : IModalContext =>  {
     let [modal, setModal] = useState(false);
     let [modalContent, setModalContent] = useState<JSX.Element>();
 
@@ -21,4 +20,6 @@ const useModal =  () : IModalContext =>  {
     return { modal, handleModal, modalContent };
 };
 
-export default useModal;
+export  {
+  ModalTransportLayer,
+}

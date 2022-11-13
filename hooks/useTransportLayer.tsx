@@ -1,11 +1,11 @@
+import { ApiContext } from '@components/transport_layers/contexts/apiContext'
 import { useContext } from 'react'
-import TransportLayerContext from '@components/api/context'
 
-const useTransportLayer = () => {
-  const context = useContext(TransportLayerContext)
+const useApi = () => {
+  const context = useContext(ApiContext)
   if (!context)
-    throw new Error('useTransportLayer hook should be used in TransportLayerContext scope')
+    throw new Error('useApi hook should be used in TransportLayerContext scope')
   return context
 }
 
-export default useTransportLayer ;
+export default useApi ;

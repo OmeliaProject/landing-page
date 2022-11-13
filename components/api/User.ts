@@ -14,8 +14,6 @@ export interface SignUpBody {
   email: string,
 }
 
-
-
 export interface EmailVerificationCodeBody {
   code: string,
   email: string,
@@ -57,7 +55,7 @@ export interface ExternalServicesQueryParams {
   state: string,
 }
 
-class CurrentUser {
+class User {
 
   private axiosInstance: AxiosInstance;
 
@@ -68,7 +66,7 @@ class CurrentUser {
 
   delay = async(ms : number) => new Promise(resolve => setTimeout(resolve, ms))
 
-  isUserSignedIn(): boolean {
+  isSignedIn(): boolean {
     return CurrentUserStore.tokens !== null;
   }
 
@@ -132,10 +130,6 @@ class CurrentUser {
       CurrentUserStore.setUser(null);
     }
   }
-
-  
-
-
 }
 
-export default CurrentUser
+export default User
