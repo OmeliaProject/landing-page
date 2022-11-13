@@ -4,13 +4,24 @@ import { FC, useState } from "react";
 import { Button, ButtonType } from "@components/commons/Button";
 import { FormInput } from "@components/commons/FormInput";
 import useApi from '@hooks/useTransportLayer';
+import { promiseToast } from '../promiseToast';
 
 
 export const ModalIOS : FC= ({}) => {
     const [email, setEmail] = useState("");
-    
+    const api = useApi();
+
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        promiseToast(
+            api.currentUser.inviteToIosBeta(),
+            {
+                pending: "Sending invite...",
+                success: "Invite sent!",
+                error: "Failed to send invite"
+            }
+        )
     }
 
     return (

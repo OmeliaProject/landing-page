@@ -70,6 +70,11 @@ class User {
     return CurrentUserStore.tokens !== null;
   }
 
+  async inviteToIosBeta(): Promise<void> {
+    // fake api call
+    await this.delay(1000);
+  }
+
   async signIn(body: SignInBody): Promise<CurrentUserTokens> {
     let data : CurrentUserTokens = (await this.axiosInstance.post('/auth/token', body)).data.data;
     CurrentUserStore.setTokens(data);
