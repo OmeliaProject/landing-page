@@ -24,8 +24,8 @@
     border-radius: 15px;
 
     background-color: var(--light-color);
-
 }
+
 
 .close {
     cursor: pointer;
@@ -48,4 +48,32 @@
         text-align: center;
     }
 
+}
+
+.modal_header {
+    margin-bottom: 1.5rem;
+}
+
+.modal_header[data-centered] {
+    text-align: center;
+}
+
+.modal_title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: var(--primary-font-family);
+    margin-bottom: 0.5rem;
+}
+
+.modal_text{
+    font-size: 0.75rem;
+    font-weight: 300;
+    font-family: var(--secondary-font-family);
+    text-align: inherit;
+
+}
+
+.full_width
+{
+    width: 100% !important;
 }

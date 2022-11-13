@@ -4,7 +4,7 @@ import styles from "@styles/modules/authentication.module.css"
 import Link from "next/link";
 import Head from "next/head";
 import { FormEvent, FunctionComponent, useState } from "react";
-import useTransportLayer from "@hooks/useTransportLayer";
+import useApi from "@hooks/useTransportLayer";
 import { Button, ButtonType} from "@components/commons/Button";
 import { FormInput } from "@components/commons/FormInput";
 import { NavbarBeta } from "@components/commons/NavbarBeta";
@@ -14,7 +14,7 @@ import { promiseToast } from '@components/commons/promiseToast';
 interface RegisterProps {}
  
 const Register: FunctionComponent<RegisterProps> = () => {
-    const api = useTransportLayer();
+    const api = useApi();
     const router = useRouter();
 
     let [email, setEmail] = useState("");

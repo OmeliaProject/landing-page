@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { ModalContext } from "@components/api/modalContext";
 import styles from "@styles/modules/modal.module.css";
+import useModal from "@hooks/useModal";
 
 
 const Modal = () => {
-    let { modalContent, handleModal, modal } = React.useContext(ModalContext);
+    let { modalContent, handleModal, modal } = useModal();
     let [root, setRoot] = React.useState<Element | null>(null);
 
     useEffect(() => {

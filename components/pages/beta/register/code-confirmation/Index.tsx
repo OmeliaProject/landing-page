@@ -1,6 +1,6 @@
 import styles from "@styles/pages/forget_password.module.css";
 import Head from "next/head";
-import useTransportLayer from "@hooks/useTransportLayer";
+import useApi from "@hooks/useTransportLayer";
 import { NextPage } from "next";
 import { NavbarBeta } from "@components/commons/NavbarBeta";
 import { useState } from "react";
@@ -14,7 +14,7 @@ interface CodeConfirmationRegisterProps {
  
 const CodeConfirmationRegister : NextPage<CodeConfirmationRegisterProps> = () => {
 
-    const api = useTransportLayer();
+    const api = useApi();
     const router = useRouter();
     const [code, setCode] = useState("");
     const [email, setEmail] = useState("");

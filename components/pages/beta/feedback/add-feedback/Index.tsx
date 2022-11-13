@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "@styles/pages/add_feedbacks.module.css";
 import Link from "next/link";
-import useTransportLayer from '@hooks/useTransportLayer';
+import useApi from '@hooks/useTransportLayer';
 
 import { NextPage } from "next";
 import { NavbarBeta } from "@components/commons/NavbarBeta";
@@ -15,7 +15,7 @@ interface AddFeedbackProps {
 }
 
 const AddFeedback : NextPage<AddFeedbackProps> = () => {
-    const api = useTransportLayer();
+    const api = useApi();
     const router = useRouter();
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');

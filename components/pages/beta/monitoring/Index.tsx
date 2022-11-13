@@ -3,11 +3,11 @@ import Head from "next/head";
 
 import styles from "@styles/pages/monitoring.module.css";
 import { NavbarBeta } from "@components/commons/NavbarBeta";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { IFeedback } from "@components/api/types/IFeedback";
-import useTransportLayer from "@hooks/useTransportLayer";
-import { ModalContext } from "@components/api/modalContext";
+import useApi from "@hooks/useTransportLayer";
 import { ModalFeedback } from "@components/commons/modals/ModalFeeback";
+import useModal from "@hooks/useModal";
 
 const timestampToDate = (timestamp: number) => {
     const date = new Date(timestamp);
@@ -21,8 +21,8 @@ const Monitoring : NextPage<MonitoringProps> = () => {
 
     // all feedbacks from the api
     const [feedbacks, setFeedbacks] = useState<IFeedback[]>([]);
-    const { handleModal } = useContext(ModalContext);
-    const api = useTransportLayer();
+    const { handleModal } = useModal();
+    const api = useApi();
 
     // useEFfect to get all feedbacks
     useEffect(() => {

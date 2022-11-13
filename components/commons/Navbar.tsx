@@ -56,9 +56,11 @@ const Navbar: FunctionComponent<NavbarProps> = ({hpHomeRef, priceRef, contactRef
                     <ScrollToButton styleClass={styles.option} target={hpHomeRef}>Accueil</ScrollToButton>
                     <ScrollToButton styleClass={styles.option} target={priceRef}>Prix</ScrollToButton>
                     <ScrollToButton styleClass={styles.option} target={contactRef}>Contact</ScrollToButton>
-                    <Button type={ButtonType.PRIMARY} classNameTweak={styles.option}>
-                        <Link href="/beta">Bêta</Link>
-                    </Button>
+                    <Link href="/beta">
+                        <Button type={ButtonType.PRIMARY} classNameTweak={styles.option}>
+                                Bêta
+                        </Button>
+                    </Link>
                 </div>
 
             </div>

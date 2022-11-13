@@ -2,13 +2,13 @@ import { FunctionComponent, useEffect, useState } from "react";
 import Link from 'next/link'
  
 import styles from "@styles/modules/navbar_beta.module.css"
-import useTransportLayer from "@hooks/useTransportLayer";
+import useApi from "@hooks/useTransportLayer";
 import { Hamburger } from "@components/commons/Hamburger";
 import { CurrentUserInfos } from "@stores/currentUser";
 
 
 const NavbarBeta: FunctionComponent = () => {
-    const userApi = useTransportLayer().currentUser;
+    const userApi = useApi().currentUser;
 
     let [isSideMenuOpen, setSideMenuStatus] = useState(false);
     let [scroll, setScroll] = useState(false);

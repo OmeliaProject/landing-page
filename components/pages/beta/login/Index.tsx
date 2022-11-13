@@ -4,7 +4,7 @@ import Head from "next/head";
 import stylesPage from '@styles/pages/authentication.module.css'
 import styles from "@styles/modules/authentication.module.css"
 
-import useTransportLayer from '@hooks/useTransportLayer';
+import useApi from '@hooks/useTransportLayer';
 import { FormEvent, FunctionComponent, useState } from "react";
 import { Button, ButtonType} from "@components/commons/Button";
 import { FormInput } from "@components/commons/FormInput";
@@ -19,7 +19,7 @@ interface LoginProps {
 }
 
 const Login: FunctionComponent<LoginProps> = () => {
-    const api = useTransportLayer();
+    const api = useApi();
     const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

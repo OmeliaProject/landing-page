@@ -2,7 +2,7 @@ import styles from "@styles/modules/feedbacks.module.css";
 
 import { FunctionComponent, useState } from "react";
 import { IFeedback } from "@components/api/types/IFeedback";
-import useTransportLayer from "@hooks/useTransportLayer";
+import useApi from "@hooks/useTransportLayer";
 
 interface IProps {
     data : IFeedback
@@ -10,7 +10,7 @@ interface IProps {
 
 const Feedback: FunctionComponent<IProps> = ({data}) => {
 
-    const api = useTransportLayer();
+    const api = useApi();
     let  {id, timestamp, title, body} = data;
     let [likes, setLikes] = useState(data.likes);
     let [hasLiked, setHasLike] = useState(data.hasLiked);

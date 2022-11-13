@@ -1,10 +1,10 @@
 import styles from "@styles/modules/prices.module.css"
 
-import { FunctionComponent, RefObject, useContext } from "react";
+import { FunctionComponent, RefObject } from "react";
 import { Option } from "@components/pages/home/Option"
-import { ModalContext } from "@components/api/modalContext";
 import { ModalPrices } from "@components/commons/modals/ModalPrices";
 import { Button, ButtonType } from "@components/commons/Button";
+import useModal from "@hooks/useModal";
 
 interface PrincingOptions{
     name : string;
@@ -21,7 +21,7 @@ interface CardPriceProps {
 
  
 const CardPrice: FunctionComponent<CardPriceProps> = ({title, price, emphasized, options, contactRef}) => {
-    const { handleModal } = useContext(ModalContext);
+    const { handleModal } = useModal();
 
     const scrollToContact = () => {
         setTimeout(() => {

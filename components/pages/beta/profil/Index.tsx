@@ -3,16 +3,16 @@ import Head from "next/head";
 import styles from "@styles/pages/profil.module.css";
 
 import { useRouter } from "next/router";
-import useTransportLayer from "@hooks/useTransportLayer";
+import useApi from "@hooks/useTransportLayer";
 import { CurrentUserInfos } from "@stores/currentUser";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { NavbarBeta } from "@components/commons/NavbarBeta";
 import { IFeedback } from "@components/api/types/IFeedback";
-import { ModalContext } from "@components/api/modalContext";
 import { ModalFeedback } from "@components/commons/modals/ModalFeeback";
 import { Button, ButtonType } from "@components/commons/Button";
 import { promiseToast } from "@components/commons/promiseToast";
 import { ModalChangePassword } from "@components/commons/modals/ModalChangePassword";
+import useModal from "@hooks/useModal";
 
 
 interface ProfilProps {
@@ -20,9 +20,9 @@ interface ProfilProps {
 }
 
 const Profil : NextPage<ProfilProps> = () => {
-    const api = useTransportLayer();
+    const api = useApi();
     const router = useRouter();
-    const { handleModal } = useContext(ModalContext);
+    const { handleModal } = useModal();
     
     const [user, setUser] = useState<null | CurrentUserInfos>(null);
     const [feedbacks, setFeedbacks] = useState<IFeedback[]>([]);
@@ -136,7 +136,7 @@ interface IFeedbackProfile {
 
 const FeedbackProfile : React.FC<IFeedbackProfile> = ({feedback, deleteFeedback, idx}) => {
 
-    const { handleModal } = useContext(ModalContext);
+    const { handleModal } = useModal();
     // state for if user is hovering the remove button
     const [isHoverDeleteButton, setHoverState] = useState(false);
 

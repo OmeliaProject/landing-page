@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "@styles/pages/forget_password.module.css";
 
-import useTransportLayer from "@hooks/useTransportLayer";
+import useApi from "@hooks/useTransportLayer";
 import { NextPage } from "next";
 import { useState } from "react";
 import { NavbarBeta } from "@components/commons/NavbarBeta";
@@ -15,7 +15,7 @@ interface ChangePasswordProps {
  
 const ChangePassword : NextPage<ChangePasswordProps> = () => {
 
-    const api = useTransportLayer();
+    const api = useApi();
     const router = useRouter();
     const [email, setEmail] = useState("");
     const [code, setCode] = useState("");

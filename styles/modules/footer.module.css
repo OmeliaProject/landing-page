@@ -2,9 +2,11 @@
 
     background-color: var(--primary-color);
     padding: 0.5em 2.5%;
+    gap: 2rem;
 
     display: flex;
     justify-content: flex-start;
+    align-items: center;
 }
 
 .title {
@@ -12,11 +14,11 @@
     font-family: var(--primary-font-family);
     font-weight: bold;
     font-size: 1rem;
-
 }
 
 .download {
-
+    display: flex;
+    gap : 1rem;
 }
 
 .cta {

@@ -1,0 +1,76 @@
+
+.button[data-theme="light"]{
+    --color : var(--light-color);
+    --color-rgb : var(--light-color-rgb);
+}
+
+.button[data-theme="dark"]{
+    --color : var(--dark-color);
+    --color-rgb : var(--dark-color-rgb);
+}
+
+.button{
+    composes: button from './components.module.css';    
+    
+    color: var(--color);
+    border: 2px solid var(--color);
+    
+    width: fit-content;
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.25rem 0.35rem;
+
+}
+
+.button:hover {
+    box-shadow: 5px 5px 0px 0px rgba(var(--color-rgb), 0.5);
+}
+
+.button:active {
+    box-shadow: 3px 3px 0px 0px rgba(var(--color-rgb), 0.5);
+}
+
+.button img {
+    width: 1rem;
+    height: auto;
+}
+
+.body{
+    color: inherit;
+    font-family: var(--primary-font-family);
+}
+
+.body h2 {
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.body p {
+    font-size: 0.5rem;
+}
+
+
+
+/* -----MODAL------- */
+
+.modal_header {
+    margin-bottom: 1.5rem;
+}
+
+.modal_title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: var(--primary-font-family);
+    margin-bottom: 0.5rem;
+}
+
+.modal_body {
+    font-size: 0.75rem;
+    font-weight: light;
+    font-family: var(--secondary-font-family);
+}
+
+.modal_button {
+    margin-top: 1rem;
+    width: 100%;
+}
