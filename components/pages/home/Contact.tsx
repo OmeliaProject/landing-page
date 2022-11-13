@@ -10,12 +10,6 @@ interface ContactProps {
     contactRef : RefObject<HTMLDivElement>
 }
 
-enum FormStatus {
-    LOADING =  "Envoi en cours...",
-    ERROR =  "Une erreur s'est produite.",
-    VALID = "Message bien envoyé!"
-}
-
 
 const Contact: FunctionComponent<ContactProps> = ({ contactRef }) => {
     
@@ -28,7 +22,13 @@ const Contact: FunctionComponent<ContactProps> = ({ contactRef }) => {
 
         promiseToast(
             emailjs.sendForm('service_ih0x5lo', 'template_c0xfzx9', form.current, 'user_YTYwoUOvEF41yOhBTNY79')
-            ,"Message bien envoyé !").catch(() => {console.log("error in email sending")});
+            ,
+            {
+                pending: "Envoi du message...",
+                success: "Message envoyé.",
+                error: "Echec de l'envoi du message"
+            }
+        ).catch();
         form.current.reset()
     }
 

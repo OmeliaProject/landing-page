@@ -24,7 +24,7 @@ const Login: FunctionComponent<LoginProps> = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const login = async (e : FormEvent) => {
+    const login = (e : FormEvent) => {
         e.preventDefault();
 
         if (!email || !password) {
@@ -32,16 +32,16 @@ const Login: FunctionComponent<LoginProps> = () => {
             return;
         }
 
-        try {
-            await promiseToast(
-                api.currentUser.signIn({
-                   email: email,
-                   password: password,
-               }), "vous êtes connecté.");
-            router.push("/beta");
-        } catch (error) {
-            console.log(error);
-        }
+        promiseToast(
+            api.currentUser.signIn({email: email, password: password,}),
+            {
+                pending: "Connexion...",
+                success: "Vous êtes connecté.",
+                error: "Echec de la connexion"
+            }
+            ).then(() => {
+                router.push("/beta");
+            })
         
     }
 

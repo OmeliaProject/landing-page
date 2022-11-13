@@ -28,17 +28,18 @@ const Profil : NextPage<ProfilProps> = () => {
     const [feedbacks, setFeedbacks] = useState<IFeedback[]>([]);
 
         
-    const ChangePassword = async(currentPassword : string, newPassword : string) => {
+    const ChangePassword = (currentPassword : string, newPassword : string) => {
         if (!user)
             return;
 
-        try {
-            await promiseToast(
-                api.currentUser.changePasswordWithOldPassword({currentPassword, newPassword}),
-                "Mots de passe bien modifié !"
-            )
-        } catch (error) {
-        }
+        promiseToast(
+            api.currentUser.changePasswordWithOldPassword({currentPassword, newPassword}),
+            {
+                pending: "Changement de mots de passe...",
+                success: "Mot de passe changé!",
+                error: "Echec du changement de mot de passe"
+            }
+        )
     }
 
     const disconnect = () => {
@@ -50,15 +51,17 @@ const Profil : NextPage<ProfilProps> = () => {
         router.push("/beta");
     }
     
-    const deleteFeedback = async (id: number) => {
-        try {
-            await promiseToast(
+    const deleteFeedback = (id: number) => {
+            promiseToast(
                 api.feedbacks.deleteFeedback(id),
-                "Le retour a bien été supprimé."
-            )
-            setFeedbacks(feedbacks.filter(feedback => feedback.id !== id));
-        } catch (error) {
-        }
+                {
+                    pending: "Suppression du retour...",
+                    success: "Retour supprimé!",
+                    error: "Echec de la suppression du retour"
+                }    
+            ).then(() => {
+                setFeedbacks(feedbacks.filter(feedback => feedback.id !== id));
+            })
 
     }
 

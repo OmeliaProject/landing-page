@@ -19,13 +19,17 @@ const ForgetPassword : NextPage<ForgetPasswordProps> = () => {
     const router = useRouter();
     const [email, setEmail] = useState("");
 
-    const sendEmailForgetPassword = async () => {
-        try {
-            await promiseToast( api.currentUser.forgetPassword({email}), "Regardez vos mails !");
-            router.push('/beta/change-password');
-        } catch (error) {
-            console.log(error);
-        }
+    const sendEmailForgetPassword = () => {
+            promiseToast(
+                api.currentUser.forgetPassword({email}),
+                {
+                    pending: "Envoi du code de réinitialisation...",
+                    success: "Code de réinitialisation envoyé!",
+                    error: "Echec de l'envoi du code de réinitialisation"
+                }
+                ).then(() => {
+                router.push("/beta/forget-password");
+            })
     }
 
     return (

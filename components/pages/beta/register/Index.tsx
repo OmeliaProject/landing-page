@@ -22,22 +22,23 @@ const Register: FunctionComponent<RegisterProps> = () => {
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
 
-    const register = async (e : FormEvent) => {
+    const register = (e : FormEvent) => {
         e.preventDefault();
-        try {
-            await promiseToast(
+            promiseToast(
                 api.currentUser.signUp({
                     email: email,
                     password: password,
                     firstname: firstname,
                     lastname: lastname,
                 }),
-                "Inscription réussie, allez dans vos mails pour confirmer votre compte",
-            )
-            
+            {
+                pending: "Inscription...",
+                success: "Inscription réussie, allez dans vos mails pour confirmer votre compte.",
+                error: "Echec de l'inscription"
+            }
+        ).then(() => {
             router.push("/beta/register/code-confirmation");
-        } catch (error) {
-        }
+        })
     }
 
     return (

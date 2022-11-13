@@ -20,20 +20,25 @@ const AddFeedback : NextPage<AddFeedbackProps> = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
 
-    const sendFeedback = async () => {
+    const sendFeedback = () => {
         if (!title || !body) {
             toast.warning("Veuillez remplir tous les champs", {position: toast.POSITION.TOP_CENTER});
             return;
         }
         
-        try {
-            await promiseToast(api.feedbacks.sendFeedback({
-                title: title,
-                body: body,
-            }), "Merci pour votre retour.")
-            router.push('/beta/feedbacks');
-        } catch (error) {
+        promiseToast(api.feedbacks.sendFeedback({
+            title: title,
+            body: body,
+        }), 
+        {
+            pending: "Envoi du retour...",
+            success: "Retour envoyé!",
+            error: "Echec de l'envoi du retour"
+
         }
+        ).then(() => {
+            router.push("/beta/feedbacks");
+        })
     }
 
     return (

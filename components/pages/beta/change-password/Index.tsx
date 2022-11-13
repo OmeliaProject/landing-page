@@ -22,18 +22,20 @@ const ChangePassword : NextPage<ChangePasswordProps> = () => {
     const [password, setPassword] = useState("");
 
 
-    const changePassword = async () => {
-        try {
-            await promiseToast( api.currentUser.changePassword({
-                email: email,
-                code: code,
-                newPassword : password
-            }), "Mots de passe changé avec succès !");
-
-            router.push("/beta/login");
-        } catch (error) {
-            console.log(error);
+    const changePassword = () => {
+        promiseToast( api.currentUser.changePassword({
+            email: email,
+            code: code,
+            newPassword : password
+        }),
+        {
+            pending: "Changement de mots de passe...",
+            success: "Mot de passe changé!",
+            error: "Echec du changement de mot de passe"
         }
+        ).then(() => {
+            router.push("/beta/login");
+        })
     }
 
     return (
