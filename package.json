@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.4.0",
+    "@geist-ui/core": "^2.3.8",
     "axios": "^0.27.2",
     "framer-motion": "^6.3.0",
     "mobx": "^6.5.0",

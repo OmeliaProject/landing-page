@@ -1,7 +1,9 @@
 import { NextPage } from "next";
 import Head from "next/head";
+import { GeistProvider, CssBaseline, Tabs, Text } from '@geist-ui/core'
 
 import styles from "@styles/pages/monitoring.module.css";
+
 import { NavbarBeta } from "@components/commons/NavbarBeta";
 import { useEffect, useState } from "react";
 import { IFeedback } from "@components/api/types/IFeedback";
@@ -42,41 +44,17 @@ const Monitoring : NextPage<MonitoringProps> = () => {
             <Head>
                 <title>{"Omelia - monitoring"}</title>
             </Head>
-            <NavbarBeta />
-            <div className={styles.monitoring}>
-                <h1 className={styles.title}>Page Monitoring - Retours utilisateur</h1>
-                <div className={styles.container_table}>
-                    <table  className={styles.table}>
-                        <thead className={styles.thead}>
-                            <tr className={styles.tr}>
-                                <th className={styles.th}>#</th>
-                                <th className={styles.th}>Titre</th>
-                                <th className={styles.th}>Description</th>
-                                <th className={styles.th}>Date</th>
-                                <th className={styles.th}>{"J'aime"}</th>
-                                <th className={styles.th}> </th>
-                            </tr>
-                        </thead>
-                        <tbody className={styles.tbody}>
-                            {feedbacks && feedbacks.map((feedback, idx) => {
-                                    return (
-                                        <tr onClick={() => handleModal(<ModalFeedback feedback={feedback} />)} key={idx} className={styles.tr}>
-                                            <td className={styles.td}>{idx + 1}</td>
-                                            <td className={styles.td}>{feedback.title}</td>
-                                            <td className={styles.td}>{feedback.body}</td>
-                                            <td className={styles.td}>{timestampToDate(feedback.timestamp)}</td>
-                                            <td className={styles.td}>{feedback.likes}</td>
-                                            <td className={styles.td}>
-                                                <div className={styles.delete} onClick={() => deleteFeedback(feedback.id)}>Supprimer</div>
-                                            </td>
-                                        </tr>
-                                    );
-                                })
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <GeistProvider>
+                <CssBaseline />
+                <Tabs  initialValue="1" align="center" leftSpace={0}>
+                    <Tabs.Item  label={<> Twitch TV</>} value="1">
+                        <Text mt={0}>Hello, this is our live broadcast on Twitch.</Text>
+                    </Tabs.Item>
+                    <Tabs.Item label={<>Twitter </>} value="2">
+                        <Text mt={0}>The Components of React looks very cool.</Text>
+                    </Tabs.Item>
+                </Tabs>
+            </GeistProvider>
         </>
     );
 
