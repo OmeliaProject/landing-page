@@ -94,9 +94,8 @@ class User {
     return axiosResponse.data;
   }
 
-  async changePassword(body: ChangePasswordBody): Promise<void> {
-    let toto = await this.axiosInstance.put('/auth/password', body);
-    return;
+  async changePassword(body: ChangePasswordBody): Promise<AxiosResponse> {
+    return await this.axiosInstance.put('/auth/password', body);
   }
 
   async changePasswordWithOldPassword(body: ChangePasswordWithOldPasswordBody): Promise<ResetPasswordResponse> {
@@ -105,22 +104,22 @@ class User {
     return tokens.data;
   }
 
-  async confirmPasswordCreation(body: EmailVerificationCodeBody): Promise<void> {
-    await this.axiosInstance.put('/auth/email', body);
+  async confirmPasswordCreation(body: EmailVerificationCodeBody): Promise<AxiosResponse> {
+    return await this.axiosInstance.put('/auth/email', body);
   }
 
-  async forgetPassword(body: requestResetPasswordCodeBody): Promise<void> {
-    await this.axiosInstance.post('/auth/password', body);
+  async forgetPassword(body: requestResetPasswordCodeBody): Promise<AxiosResponse> {
+    return await this.axiosInstance.post('/auth/password', body);
   }
 
-  async signUp(body: SignUpBody): Promise<void> {
+  async signUp(body: SignUpBody): Promise<AxiosResponse> {
     return this.axiosInstance.post('/users', body);
   }
 
-  async deleteAccount()  {
-    // TODO should be /user/me 
-    await this.axiosInstance.delete('/users');
+  async deleteAccount() : Promise<AxiosResponse> {
+    let response : AxiosResponse = await this.axiosInstance.delete('/users');
     CurrentUserStore.clear();
+    return response;
   }
   
   signOut(): void {
