@@ -1,4 +1,4 @@
-import { toast } from "react-toastify";
+import { toast, ToastPosition } from "react-toastify";
 
 export interface ToastOptions {
     pending: string;
@@ -6,7 +6,7 @@ export interface ToastOptions {
     error: string;
 }
 
-export const promiseToast = async (promise: Promise<any>, option: ToastOptions) => {
+export const promiseToast = async (promise: Promise<any>, option: ToastOptions, toastPosition : ToastPosition = toast.POSITION.TOP_CENTER) => {
 
     return toast.promise(
         promise,
@@ -28,7 +28,7 @@ export const promiseToast = async (promise: Promise<any>, option: ToastOptions) 
            },
         },
         {
-            position: toast.POSITION.TOP_CENTER,
+            position: toastPosition,
         }
     )
 

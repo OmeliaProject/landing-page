@@ -31,7 +31,7 @@ const NavbarBeta: FunctionComponent = () => {
 
         if (user.isAdmin) {
             return (
-                <Link passHref href="/beta/monitoring">
+                <Link passHref href="/beta/dashboard">
                     <a className={styles.option}>Monitoring</a>
                 </Link>
             );

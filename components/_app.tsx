@@ -1,11 +1,9 @@
 
 import type { AppProps } from 'next/app'
-import Head from 'next/head'
 import { useEffect } from 'react';
 import { TransportLayerProvider } from '@components/transport_layers/contexts/apiContext';
 import { ModalProvider } from './transport_layers/contexts/modalContext';
 import {ToastContainer} from 'react-toastify'
-
 
 function MyApp({ Component, pageProps }: AppProps) {
 

@@ -1,12 +1,9 @@
-import styles from "@styles/pages/monitoring.module.css";
+import styles from "@styles/pages/dashboard.module.css";
 import { IFeedback } from "@components/api/types/IFeedback";
 import { FC } from "react";
+import { timestampToDate } from "@components/commons/useful";
 
 
-const timestampToDate = (timestamp: number) => {
-    const date = new Date(timestamp);
-    return date.toLocaleDateString();
-};
 
 interface ModalFeebackProps {
     feedback: IFeedback;

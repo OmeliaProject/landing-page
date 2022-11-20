@@ -1,6 +1,7 @@
 import CurrentUserStore, { CurrentUserInfos } from '@stores/currentUser';
 import { AxiosInstance, AxiosResponse } from 'axios';
 import currentUser, { CurrentUserTokens } from '@stores/currentUser';
+import { PremiumState, PremiumStateType, UserWithPendingPremium } from './types/UserWithPendingPremium';
 
 export interface SignInBody {
   email: string,
@@ -55,6 +56,13 @@ export interface ExternalServicesQueryParams {
   state: string,
 }
 
+export interface ChangeUserPremiumBody {
+    email: string,
+    response: PremiumStateType,
+    adminComment: string
+}
+  
+
 class User {
 
   private axiosInstance: AxiosInstance;
@@ -80,6 +88,15 @@ class User {
     CurrentUserStore.setTokens(data);
     return data;
   }
+
+
+  async changeUserPremiumState(body : ChangeUserPremiumBody): Promise<AxiosResponse> {
+    return await this.axiosInstance.put(`/users/premium`, body);
+  }
+
+  async getUsersWithPendingPremium(): Promise<UserWithPendingPremium[]> {
+    return (await this.axiosInstance.get('/users/premium')).data.data;
+  } 
 
   async getUserInfos(): Promise<CurrentUserInfos> {
     if (currentUser.user !== null)

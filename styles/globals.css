@@ -57,26 +57,26 @@
 
 @media (min-width: 1201px) { 
   html {
-    font-size: calc(24px + 0.2vmax);
+    font-size: calc(24px + 0.2vmax) !important;
   }
 }
 
 @media (min-width: 1025px) and (max-width: 1200px) { 
   html {
-    font-size: calc(24px + 0.25vmax) ;
+    font-size: calc(24px + 0.25vmax)  !important;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) { 
   html {
-    font-size: calc(22px + 0.25vmax) ;
+    font-size: calc(22px + 0.25vmax)  !important;
   }
 }
 
 /* Landscape phone to portrait tablet */
 @media (min-width: 481px) and (max-width: 768px) { 
   html {
-    font-size: calc(20px + 0.25vmax) ;
+    font-size: calc(20px + 0.25vmax)  !important;
   }
  
 }
@@ -84,7 +84,7 @@
 /* Landscape phone to portrait tablet */
 @media (max-width: 480px) { 
   html {
-    font-size: 16px ;
+    font-size: 16px  !important;
   }
 }
 
@@ -138,6 +138,11 @@ textarea, input {
   font-family: var(--primary-font-family)  ;
   resize: none;
 }
+
+.tabs .content {
+  display: none !important;
+}
+
 
 /* OTHER */
 
