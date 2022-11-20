@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import { Button, ButtonType } from "@components/commons/Button";
 import { FormInput } from "@components/commons/FormInput";
 import useApi from '@hooks/useTransportLayer';
-import { promiseToast } from '../promiseToast';
+import { promiseToast } from '@components/commons/promiseToast';
 
 
 export const ModalIOS : FC= ({}) => {

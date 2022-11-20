@@ -146,58 +146,10 @@
 }
 
 
-/*  ------------MODAL---------------------------- */
-
-
 .info_container{
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr 1fr;
-}
-
-
-
-.header {
-    font-family: var(--primary-font-family);
-    color: var(--dark-color);
-    margin-bottom: 1.5rem;
-}
-
-.header h2 {
-    font-weight: bold;
-    font-size: 1.25rem;
-
-    margin-bottom: 0.5rem;
-
-}
-
-.header p {
-
-    font-size: 0.75rem;
-}
-
-.header ul {
-    font-family: var(--secondary-font-family);
-    font-size: 0.75rem;
-    font-weight: lighter;
-    padding-left: 5%;
-}
-
-.header ul {
-    list-style: none; 
-}
-
-.header ul li::before {
-    content: "\2022";  
-    color: var(--dark-color);; 
-    font-weight: bold; 
-    display: inline-block; 
-    width: 1em; 
-    margin-left: -1em; 
-}
-
-.form_modal_change_password > div {
-    margin-bottom: 0.75rem;
 }
 
 .password_button{
@@ -206,7 +158,6 @@
     font-size: 0.75rem;
     align-self: flex-end;
 }
-/*  ---------------------------------------- */
 
 .info label {
 
@@ -264,9 +215,6 @@
 
     .profil {
         width: 90%;
-    }
-    .modal_title {
-        text-align: center;
     }
     .modal_body {
         text-align: center;

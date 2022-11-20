@@ -7,11 +7,6 @@ export interface CurrentUserTokens {
   expiresIn: number,
 }
 
-/*
- * TODO:
- *  - stop storing password
- *  - store STRICT interface, no additional values
- */
 export interface CurrentUserInfos {
   firstname: string,
   lastname: string,

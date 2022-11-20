@@ -17,10 +17,12 @@ const Modal = () => {
     if (!modal || !root)
     return null;
     
+    const closeModal = () => handleModal();
+
     const ModalJSX = (
-        <div className={styles.modal_bg}>
-            <div className={styles.modal}>
-                <div className={styles.close} onClick={() => handleModal()}>
+        <div onClick={closeModal} className={styles.modal_bg}>
+            <div onClick={(e) => {e.stopPropagation()}} className={styles.modal}>
+                <div className={styles.close} onClick={closeModal}>
                     &times;
                 </div>
                 {modalContent}

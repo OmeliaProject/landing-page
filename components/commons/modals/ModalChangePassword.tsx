@@ -1,7 +1,7 @@
-import styles from "@styles/pages/profil.module.css";
+import styles from "@styles/modules/modals/change_password.module.css";
 import { FC, useState } from "react";
-import { Button, ButtonType } from "../Button";
-import { FormInput } from "../FormInput";
+import { Button, ButtonType } from "@components/commons/Button";
+import { FormInput } from "@components/commons/FormInput";
 
 
 interface ModalChangePasswordProps {
@@ -21,7 +21,7 @@ export const ModalChangePassword : FC<ModalChangePasswordProps> = ({changePasswo
         <>
             <div className={styles.header}>
                 <h2>Changer de mots de passe:</h2>
-                <p>Pour mieux protéger votre mot de passe faite attention à que:</p>
+                <p>Pour mieux protéger votre mot de passe, suivez ces rêgles:</p>
                 <ul>
                     <li>Votre mot de passe doit contenir des chiffres.</li>
                     <li>Votre mot de passe doit contenir des lettres majuscules.</li>

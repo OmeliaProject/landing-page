@@ -4,7 +4,7 @@ import { Button, Select, Textarea } from "@geist-ui/core";
 import styles from "@styles/pages/dashboard.module.css";
 import useApi from "@hooks/useTransportLayer";
 import useModal from "@hooks/useModal";
-import { promiseToast } from "../promiseToast";
+import { promiseToast } from "@components/commons/promiseToast";
 
 
 interface ModalChangePremiumStatusProps {
@@ -62,6 +62,7 @@ export const ModalChangePremiumStatus : FC<ModalChangePremiumStatusProps> = ({us
                 value={adminComment}
                 onChange={(e : ChangeEvent<HTMLTextAreaElement>) => setAdminComment(e.target.value)}
                 placeholder="Commentaire du changement de status (Obligatoire dans le cas d'un refus)"
+                height={10}
                 width="100%" />
             <Button onClick={changePremiumState} className={styles.modal_button} width="100%"  type="secondary">Changer le status</Button>
         </div>

@@ -9,24 +9,19 @@ import { useState } from "react";
 import Link from "next/link";
 import { UsersTable } from "./UsersTable";
 
-
-interface DashboardProps {
-}
-
-
-
 enum TableType {
     Feedbacks = "Feedbacks",
     Users = "Users"
 }
 
+const INITIAL_VALUE = TableType.Feedbacks;
 
-const Dashboard : NextPage<DashboardProps> = () => {
+const Dashboard : NextPage = () => {
     const tables : Map<TableType, JSX.Element> = new Map([
         [TableType.Feedbacks, <FeedbacksTable key={0} />],
         [TableType.Users, <UsersTable key={1} />]
     ]);
-    const [currentTab, setCurrentTab] = useState<TableType>(TableType.Feedbacks);
+    const [currentTab, setCurrentTab] = useState<TableType>(INITIAL_VALUE);
 
     return (
         <>
@@ -43,7 +38,7 @@ const Dashboard : NextPage<DashboardProps> = () => {
                             <p>Omelia - Dashboard</p>
                         </div>
                     </Link>
-                    <Tabs className={styles.menu} align="center" hideDivider initialValue="0" onChange={(value : any) => setCurrentTab(value)}>
+                    <Tabs className={styles.menu} align="center" hideDivider initialValue={INITIAL_VALUE} onChange={(value : any) => setCurrentTab(value)}>
                         <Tabs.Item label="Feedbacks" value={TableType.Feedbacks} />
                         <Tabs.Item label="Users" value={TableType.Users} />
                     </Tabs>
