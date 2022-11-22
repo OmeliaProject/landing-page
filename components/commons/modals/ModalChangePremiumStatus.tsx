@@ -32,7 +32,7 @@ export const ModalChangePremiumStatus : FC<ModalChangePremiumStatusProps> = ({us
                 error: "Erreur lors du changement de l'état du premium",
                 pending : "Changement de l'état du premium en cours"
             }
-        ).then((_) => {
+        ).then((_ : any) => {
             user.premiumState = premiumState;
             updateUser(user);
             handleModal();

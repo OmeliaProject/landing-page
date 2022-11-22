@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 
 function Feedbacks() {
     const api = useApi();
-    const [feedbacks, setFeedbacks] = useState<Array<IFeedback>>([]);
+    const [feedbacks, setFeedbacks] = useState<IFeedback[]>([]);
     const [search, setSearch] = useState("");
 
     const changeResearch = (event : React.ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +24,7 @@ function Feedbacks() {
         filteredFeedbacks = feedbacks.filter(feedback => feedback.title.toLowerCase().includes(search.toLowerCase()))
 
     useEffect(() => {
-        api.feedbacks.getFeedbacks().then((feedbacks) => {
+        api.feedbacks.getFeedbacks().then((feedbacks : IFeedback[]) => {
             setFeedbacks(feedbacks);
         });
     }, [])

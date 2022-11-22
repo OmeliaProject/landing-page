@@ -13,7 +13,7 @@ const FeedbacksTable: FC= () => {
     const [feedbacks, setFeedbacks] = useState<IFeedback[] | undefined>(undefined);
     
     useEffect(() => {
-        api.feedbacks.getFeedbacks().then((feedbacks) => {
+        api.feedbacks.getFeedbacks().then((feedbacks : IFeedback[]) => {
             setFeedbacks(feedbacks);
         });
     }, [api.feedbacks]);

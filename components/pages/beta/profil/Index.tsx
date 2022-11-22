@@ -67,8 +67,8 @@ const Profil : NextPage<ProfilProps> = () => {
 
 
     useEffect(() => {
-        api.currentUser.getUserInfos().then((user) => { setUser(user); });
-        api.feedbacks.getFeedbacks().then((feedback) => {setFeedbacks(feedback);});
+        api.currentUser.getUserInfos().then((user : CurrentUserInfos) => { setUser(user); });
+        api.feedbacks.getFeedbacks().then((feedback : IFeedback[]) => {setFeedbacks(feedback);});
     }, []);
 
 

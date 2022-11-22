@@ -13,7 +13,7 @@ const UsersTable: FC = () => {
     const { handleModal } = useModal();
 
     useEffect(() => {
-        api.currentUser.getUsersWithPendingPremium().then((users) => {
+        api.currentUser.getUsersWithPendingPremium().then((users : UserWithPendingPremium[]) => {
             setUsers(users);
         });
     }, []);

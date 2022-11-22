@@ -64,7 +64,7 @@ const NavbarBeta: FunctionComponent = () => {
         
         onScroll(null!);
 
-        userApi.getUserInfos().then((user) => {
+        userApi.getUserInfos().then((user : CurrentUserInfos) => {
             setUser(user);
         }).catch(() => {
             userApi.clearAllUserData();
