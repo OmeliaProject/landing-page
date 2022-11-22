@@ -27,9 +27,9 @@ const HpHome: FunctionComponent<HpHomeProps> = ({ hpHomeRef, aboutRef }) => {
                 <img src='/people.svg' alt='next' />
             </div>
 
-            <img className="separator" alt="sep" src="wave-separator-1.svg"/>
+            <img className="separator" alt="sep" src="/wave-separator-1.svg"/>
         </div>
     );
 }
- 
+
 export { HpHome };
