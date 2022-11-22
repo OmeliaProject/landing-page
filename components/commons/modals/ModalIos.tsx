@@ -38,7 +38,6 @@ export const ModalIOS : FC= ({}) => {
                         label={"adresse email"}
                         placeholder={"antoine@gmail.com"}
                         icon={"/mail.svg"}
-                        isConfidential
                         setValue={setEmail}
                         value={email}
                         />
