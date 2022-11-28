@@ -4,9 +4,12 @@ import CurrentUser from '@components/api/User';
 import {Feedback} from '@components/api/Feedback';
 import CurrentUserStore from '@stores/currentUser';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+const API_KEY = process.env.NEXT_PUBLIC_API_KEY || "";
 
-const API_URL = "https://as38vz90ld.execute-api.eu-west-3.amazonaws.com/dev"
-const API_KEY = "XpWReSfxNI6ZBgNLBkNPP67S6ib71RIv2NBNCR0L"
+if (API_URL == "" || API_KEY == "") {
+  throw new Error('API Env is not set');
+}
 
 class ApiTransportLayer {
 
