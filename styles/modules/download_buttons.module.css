@@ -54,7 +54,8 @@
 /* -----MODAL------- */
 
 .modal_header {
-    margin-bottom: 1.5rem;
+    max-width: 45ch;
+    text-align: center;
 }
 
 .modal_title {
@@ -67,6 +68,7 @@
 .modal_body {
     font-size: 0.75rem;
     font-weight: lighter;
+    
     font-family: var(--secondary-font-family);
 }
 

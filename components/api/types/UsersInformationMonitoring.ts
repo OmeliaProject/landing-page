@@ -1,12 +1,11 @@
-enum PremiumState {
+enum RequestState {
     APPROVED = "APPROVED",
     DENIED = "DENIED", 
     NOT_REQUESTED = "NOT_REQUESTED", 
     PENDING = "PENDING"
 }
 
-//  make a type as "APPROVED" | "DENIED" | "NOT_REQUESTED" | "PENDING"
-type PremiumStateType = "APPROVED" | "DENIED" | "NOT_REQUESTED" | "PENDING";
+type RequestStateType = "APPROVED" | "DENIED" | "NOT_REQUESTED" | "PENDING";
 
 
 interface Avatar {
@@ -21,18 +20,20 @@ interface UserConfig {
     avatar: Avatar,
 }
 
-interface UserWithPendingPremium
+interface UsersInformationMonitoring
 {
     email: string,
     firstname: string,
     lastname: string,
     isAdmin: boolean,
-    premiumState: PremiumStateType,
+    premiumState: RequestStateType,
+    testFlightState: RequestStateType,
+
     config: UserConfig
 }
 
 export {
-    PremiumState,
-    type PremiumStateType,
-    type UserWithPendingPremium
+    RequestState,
+    type RequestStateType,
+    type UsersInformationMonitoring
 }

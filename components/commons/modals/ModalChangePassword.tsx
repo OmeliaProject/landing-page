@@ -47,7 +47,7 @@ export const ModalChangePassword : FC<ModalChangePasswordProps> = ({changePasswo
                         setValue={setNewPassword}
                         value={newPassword}
                         />
-                <Button settings={{type:"submit"}} classNameTweak={styles.password_button} type={ButtonType.PRIMARY} >Changer de mot de passe</Button>
+                <Button settings={{type:"submit"}} classNameTweak={styles.password_button} type={ButtonType.PRIMARY} >Changer de mots de passe</Button>
             
             </form>
         </>

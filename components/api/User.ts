@@ -1,7 +1,7 @@
 import CurrentUserStore, { CurrentUserInfos } from '@stores/currentUser';
 import { AxiosInstance, AxiosResponse } from 'axios';
 import currentUser, { CurrentUserTokens } from '@stores/currentUser';
-import { PremiumState, PremiumStateType, UserWithPendingPremium } from './types/UserWithPendingPremium';
+import { RequestState, RequestStateType, UsersInformationMonitoring } from './types/UsersInformationMonitoring';
 
 export interface SignInBody {
   email: string,
@@ -58,7 +58,7 @@ export interface ExternalServicesQueryParams {
 
 export interface ChangeUserPremiumBody {
     email: string,
-    response: PremiumStateType,
+    response: RequestStateType,
     adminComment: string
 }
   
@@ -78,9 +78,8 @@ class User {
     return CurrentUserStore.tokens !== null;
   }
 
-  async inviteToIosBeta(): Promise<void> {
-    // fake api call
-    await this.delay(1000);
+  async inviteToIosBeta(): Promise<AxiosResponse> {
+    return await this.axiosInstance.post('/beta/testflight');
   }
 
   async signIn(body: SignInBody): Promise<CurrentUserTokens> {
@@ -90,12 +89,12 @@ class User {
   }
 
 
-  async changeUserPremiumState(body : ChangeUserPremiumBody): Promise<AxiosResponse> {
+  async changeUserRequestState(body : ChangeUserPremiumBody): Promise<AxiosResponse> {
     return await this.axiosInstance.put(`/users/premium`, body);
   }
 
-  async getUsersWithPendingPremium(): Promise<UserWithPendingPremium[]> {
-    return (await this.axiosInstance.get('/users/premium')).data.data;
+  async getAllUsers(): Promise<UsersInformationMonitoring[]> {
+    return (await this.axiosInstance.get('/users')).data.data.items;
   } 
 
   async getUserInfos(): Promise<CurrentUserInfos> {
@@ -134,7 +133,7 @@ class User {
   }
 
   async deleteAccount() : Promise<AxiosResponse> {
-    let response : AxiosResponse = await this.axiosInstance.delete('/users');
+    let response : AxiosResponse = await this.axiosInstance.delete('/users/me');
     CurrentUserStore.clear();
     return response;
   }

@@ -22,19 +22,19 @@ class Feedback {
   }
 
   async likeFeedback(id: number): Promise<AxiosResponse> {
-    return await this.axiosInstance.put(`/feedback/threads?id=${id}`, {liked: true});
+    return await this.axiosInstance.put(`/feedback/threads/${id}`, {liked: true});
   }
 
   async unlikeFeedback(id: number): Promise<AxiosResponse> {
-    return await this.axiosInstance.put(`/feedback/threads?id=${id}`, {liked: false});
+    return await this.axiosInstance.put(`/feedback/threads/${id}`, {liked: false});
   }
 
   async deleteFeedback(id: number): Promise<AxiosResponse> {
-    return await this.axiosInstance.delete(`/feedback/threads?id=${id}`);
+    return await this.axiosInstance.delete(`/feedback/threads/${id}`);
   }
 
   async modifyFeedback(id: number, body: FeedbackBody): Promise<AxiosResponse> {
-    return await this.axiosInstance.patch(`/feedback/threads?id=${id}`, body);
+    return await this.axiosInstance.patch(`/feedback/threads/${id}`, body);
   }
 
   async getFeedbacks(): Promise<Array<IFeedback>> {
@@ -43,7 +43,7 @@ class Feedback {
   };
   
   async getUserFeedbacks(): Promise<IFeedback[]> {
-    const feedbacks = (await this.axiosInstance.get('/feedback/threads/me')).data.data.threads;
+    const feedbacks = (await this.axiosInstance.get('/feedback/threads/my')).data.data.threads;
     return feedbacks;
   }
 

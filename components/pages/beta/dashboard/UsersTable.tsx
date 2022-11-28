@@ -2,23 +2,24 @@ import { Table, Loading, Button, Text } from '@geist-ui/core';
 import useApi from '@hooks/useTransportLayer';
 import {FC, useEffect, useState} from 'react';
 import styles from '@styles/pages/dashboard.module.css';
-import { PremiumState, PremiumStateType, UserWithPendingPremium } from '@components/api/types/UserWithPendingPremium';
+import { RequestState, RequestStateType, UsersInformationMonitoring } from '@components/api/types/UsersInformationMonitoring';
 import { transformTypeToString } from '@components/commons/useful';
 import useModal from '@hooks/useModal';
 import { ModalChangePremiumStatus } from '@components/commons/modals/ModalChangePremiumStatus';
+import { ModalSendEmailTestFlight } from '@components/commons/modals/ModalSendEmailTestFlight';
 
 const UsersTable: FC = () => {
     const api = useApi();
-    const [users, setUsers] = useState<UserWithPendingPremium[] | undefined>(undefined);
+    const [users, setUsers] = useState<UsersInformationMonitoring[] | undefined>(undefined);
     const { handleModal } = useModal();
 
     useEffect(() => {
-        api.currentUser.getUsersWithPendingPremium().then((users : UserWithPendingPremium[]) => {
+        api.currentUser.getAllUsers().then((users : UsersInformationMonitoring[]) => {
             setUsers(users);
         });
     }, []);
 
-    const updateUser = (user : UserWithPendingPremium) => {
+    const updateUser = (user : UsersInformationMonitoring) => {
         setUsers(users?.map((u) => {
             if(u.email == user.email) {
                 return user;
@@ -27,45 +28,62 @@ const UsersTable: FC = () => {
         }));
     }
 
-    const renderModifyState = (_ : any, rowData: UserWithPendingPremium, __: number) => {
-        return (
-            <Button 
-                onClick={() => handleModal(<ModalChangePremiumStatus updateUser={updateUser} user={rowData} />)}
-                type="secondary" 
-                auto 
-                scale={1/3}
-                font="12px"
-            >
-                Modifier
-            </Button>
-        )
-    }
+    const tansformStateIntoJSXElement = (value : RequestStateType) => {
+        let element : JSX.Element = <>Inconnue</>;
 
-    const renderPremiumState = (value : any, rowData: UserWithPendingPremium, __: number) => {
-        switch(value as PremiumStateType) {
-            case PremiumState.PENDING:
-                return <Text type="warning">En attente</Text>
-            case PremiumState.APPROVED:
-                return <Text type="success">Approuvé</Text>
-            case PremiumState.DENIED:
-                return <Text type="error">Refusé</Text>
-            case PremiumState.NOT_REQUESTED:
-                return <Text type="secondary">Non demandé</Text>
+        switch(value) {
+            case RequestState.PENDING:
+                element = <Text type="warning">En attente</Text>
+                break;
+            case RequestState.APPROVED:
+                element = <Text type="success">Approuvé</Text>
+                break;
+            case RequestState.DENIED:
+                element = <Text type="error">Refusé</Text>
+                break;
+            case RequestState.NOT_REQUESTED:
+                element = <Text type="secondary">Non demandé</Text>
+                break;
         }
 
+        return element;
     } 
+
+    const renderPremium = (value : any, rowData : UsersInformationMonitoring) => {
+        const stateJsxELement = tansformStateIntoJSXElement(value as RequestStateType);
+        return (
+            <div
+                className={"clickable"}
+                onClick={() => handleModal(<ModalChangePremiumStatus user={rowData} updateUser={updateUser} />)}
+            >
+                {stateJsxELement}
+            </div>
+        );
+    }
+
+    const renderTestFlight = (value : any, rowData : UsersInformationMonitoring) => {
+        const stateJsxELement = tansformStateIntoJSXElement(value as RequestStateType);
+        return (
+            <div
+                className={"clickable"}
+                onClick={() => handleModal(<ModalSendEmailTestFlight user={rowData} updateUser={updateUser} />)}
+            >
+                {stateJsxELement}
+            </div>
+        );
+    }
     
     return (
-        <div className={styles.table_container}>
+        <div className={`${styles.table_container} unselectable`}>
             {
                 users ? 
-                <Table<UserWithPendingPremium> emptyText="None" data={users}>
-                    <Table.Column<UserWithPendingPremium> prop="email" label="Email" />
-                    <Table.Column<UserWithPendingPremium> prop="firstname" label="Prenom" />
-                    <Table.Column<UserWithPendingPremium> prop="lastname" label="Nom" />
-                    <Table.Column<UserWithPendingPremium> prop="isAdmin" label="Admin"  render={transformTypeToString}/>
-                    <Table.Column<UserWithPendingPremium> prop="premiumState" label="Etat" render={renderPremiumState} />
-                    <Table.Column<any> prop="operation" label="action" width={150} render={renderModifyState} />
+                <Table<UsersInformationMonitoring> className="selectable" emptyText="None" data={users}>
+                    <Table.Column<UsersInformationMonitoring> prop="email" label="Email" />
+                    <Table.Column<UsersInformationMonitoring> prop="firstname" label="Prenom" />
+                    <Table.Column<UsersInformationMonitoring> prop="lastname" label="Nom" />
+                    <Table.Column<UsersInformationMonitoring> prop="isAdmin" label="Admin"  render={transformTypeToString}/>
+                    <Table.Column<UsersInformationMonitoring> prop="premiumState" label="Etat" render={renderPremium} />
+                    <Table.Column<UsersInformationMonitoring> prop="testFlightState" label="testFlight" render={renderTestFlight} />
                 </Table>
                 :
                 <Loading>loading</Loading>

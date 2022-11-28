@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import { NextPage, NextPageContext } from "next";
 import Head from "next/head";
 import { GeistProvider, CssBaseline, Tabs, } from '@geist-ui/core'
 
@@ -14,14 +14,23 @@ enum TableType {
     Users = "Users"
 }
 
-const INITIAL_VALUE = TableType.Feedbacks;
+interface DashboardProps {
+    initialTable : TableType
+} 
 
-const Dashboard : NextPage = () => {
+const Dashboard : NextPage<DashboardProps> = ({initialTable}) => {
+
+
     const tables : Map<TableType, JSX.Element> = new Map([
         [TableType.Feedbacks, <FeedbacksTable key={0} />],
         [TableType.Users, <UsersTable key={1} />]
     ]);
-    const [currentTab, setCurrentTab] = useState<TableType>(INITIAL_VALUE);
+    const [currentTable, setCurrentTable] = useState<TableType>(initialTable);
+
+    const handleChange = (table : string) => {
+        setCurrentTable(table as TableType);
+        window.history.pushState({}, "", `?table=${table}`);
+    }
 
     return (
         <>
@@ -38,17 +47,32 @@ const Dashboard : NextPage = () => {
                             <p>Omelia - Dashboard</p>
                         </div>
                     </Link>
-                    <Tabs className={styles.menu} align="center" hideDivider initialValue={INITIAL_VALUE} onChange={(value : any) => setCurrentTab(value)}>
+                    <Tabs className={styles.menu} align="center" hideDivider initialValue={initialTable} onChange={handleChange}>
                         <Tabs.Item label="Feedbacks" value={TableType.Feedbacks} />
                         <Tabs.Item label="Users" value={TableType.Users} />
                     </Tabs>
                 </div>
-                { tables.get(currentTab) }
+                { tables.get(currentTable) }
             </GeistProvider>
         </>
     );
 
+
+
 }
+
+Dashboard.getInitialProps = async (ctx : NextPageContext) => {
+    
+    const isTableType = (query: string): query is TableType => {
+        return Object.values(TableType).includes(query as TableType);
+    }
+
+    const table = ctx.query.table as string ;
+    const initialTable = isTableType(table) ? table : TableType.Feedbacks;
+    
+    return {initialTable};
+}
+
 
 export {
     Dashboard

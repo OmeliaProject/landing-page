@@ -7,16 +7,16 @@ import useModal from "@hooks/useModal";
 import { promiseToast } from "@components/commons/promiseToast";
 
 
-interface ModalChangePremiumStatusProps {
+interface ModalSendEmailTestFlightProps {
     user : UsersInformationMonitoring,
     updateUser : (user : UsersInformationMonitoring) => void
 }
 
-export const ModalChangePremiumStatus : FC<ModalChangePremiumStatusProps> = ({user,updateUser}) =>
+export const ModalSendEmailTestFlight : FC<ModalSendEmailTestFlightProps> = ({user,updateUser}) =>
 {
     const api = useApi();
     const {handleModal} = useModal();
-    const [currentState, setCurrentState] = useState<RequestStateType>(user.premiumState);
+    const [currentState, setCurrentState] = useState<RequestStateType>(user.testFlightState);
     const [adminComment, setAdminComment] = useState("");
 
     const changeRequestState = () => {
@@ -28,12 +28,12 @@ export const ModalChangePremiumStatus : FC<ModalChangePremiumStatusProps> = ({us
                 adminComment: adminComment
             }),
             {
-                success: "État du premium changé",
-                error: "Erreur lors du changement de l'état du premium",
-                pending : "Changement de l'état du premium en cours"
+                success: "Le mail de confirmation a été envoyé",
+                error: "Erreur lors du changement de l'état test flight",
+                pending : "Changement de l'état test flight en cours"
             }
         ).then((_ : any) => {
-            user.premiumState = currentState;
+            user.testFlightState = currentState;
             updateUser(user);
             handleModal();
             }
@@ -52,7 +52,7 @@ export const ModalChangePremiumStatus : FC<ModalChangePremiumStatusProps> = ({us
                     <Select onChange={(value) => setCurrentState(value as RequestStateType)} placeholder="Status">
                         {
                             Object.values(RequestState).map((state, index) => {
-                                return <Select.Option key={index} disabled={state == user.premiumState ? true : false} value={state}>{state}</Select.Option>
+                                return <Select.Option key={index} disabled={state == user.testFlightState ? true : false} value={state}>{state}</Select.Option>
                             })
                         }
                     </Select>

@@ -41,10 +41,10 @@ const FeedbacksTable: FC= () => {
     const renderTimestamp = (value: any, _: any, __:any)=> <>{timestampToDate(value as number)}</>
 
     return (
-        <div className={styles.table_container}>
+        <div className={`${styles.table_container} unselectable`}>
             {
                 feedbacks ? 
-                <Table<IFeedback> data={feedbacks}>
+                <Table<IFeedback> className="selectable" data={feedbacks}>
                     <Table.Column<IFeedback> prop="id" label="id" />
                     <Table.Column<IFeedback> prop="timestamp" label="date" render={renderTimestamp} />
                     <Table.Column<IFeedback> prop="title" label="title" />
