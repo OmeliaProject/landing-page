@@ -12,7 +12,7 @@ interface HPBetaProps {
  
 const HPBeta: FunctionComponent<HPBetaProps> = () => {
 
-    const isUserSignedIn : boolean = useApi().currentUser.isSignedIn();
+    const isUserSignedIn : boolean = useApi().user.isSignedIn();
 
     const { scrollY } = useViewportScroll();
     let y1 = useTransform(scrollY, [0, 700], [0, 350]);

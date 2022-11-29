@@ -219,7 +219,7 @@ body {
 }
 
 .Toastify__toast-icon {
-  align-self: flex-start;
+  align-self: center;
 }
 .Toastify__close-button {
   display: flex;

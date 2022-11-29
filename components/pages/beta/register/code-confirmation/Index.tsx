@@ -22,7 +22,7 @@ const CodeConfirmationRegister : NextPage<CodeConfirmationRegisterProps> = () =>
 
     const sendEmailCodeConfirmationRegister = async () => {
         try {
-            await api.currentUser.confirmPasswordCreation({
+            await api.user.confirmPasswordCreation({
                 email: email,
                 code: code,
             })

@@ -1,4 +1,4 @@
-import { RefObject, FunctionComponent, useRef, useState} from "react";
+import { RefObject, FunctionComponent, useRef} from "react";
 
 import { LinkContact } from "@components/pages/home/LinkContact";
 import emailjs from '@emailjs/browser';

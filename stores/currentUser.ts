@@ -1,5 +1,6 @@
 import { action, computed, observable, makeObservable } from 'mobx'
 import { AxiosRequestHeaders } from 'axios'
+import { RequestStateType } from '@components/api/types/UsersInformationMonitoring'
 
 export interface CurrentUserTokens {
   accessToken: string,
@@ -12,6 +13,8 @@ export interface CurrentUserInfos {
   lastname: string,
   email: string,
   isAdmin: boolean,
+  premiumState: RequestStateType,
+  testFlightState: RequestStateType
 }
 
 class CurrentUserStore {

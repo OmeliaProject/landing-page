@@ -5,10 +5,12 @@ import styles from "@styles/modules/navbar_beta.module.css"
 import useApi from "@hooks/useTransportLayer";
 import { Hamburger } from "@components/commons/Hamburger";
 import { CurrentUserInfos } from "@stores/currentUser";
+import { RequestState } from "@components/api/types/UsersInformationMonitoring";
+import { Button, ButtonType } from "./Button";
 
 
 const NavbarBeta: FunctionComponent = () => {
-    const userApi = useApi().currentUser;
+    const userApi = useApi().user;
 
     let [isSideMenuOpen, setSideMenuStatus] = useState(false);
     let [scroll, setScroll] = useState(false);
@@ -59,6 +61,20 @@ const NavbarBeta: FunctionComponent = () => {
         );
     }
 
+    const premiumButton = () => {
+        if (!user || user.premiumState == RequestState.DENIED || user.premiumState == RequestState.APPROVED) {
+            return; 
+        }
+
+        return (
+            <Link href="/beta/premium">
+                <Button type={ButtonType.PRIMARY} classNameTweak={styles.option}>
+                    Premium
+                </Button>
+            </Link>
+        )
+    }
+
     useEffect(() => {
         window.addEventListener('scroll', onScroll, { passive: true });
         
@@ -99,6 +115,8 @@ const NavbarBeta: FunctionComponent = () => {
                     </Link>
                     {feedbackButton()}
                     {connectionButton()}
+                    {premiumButton()}
+                    
                 </div>
 
             </div>

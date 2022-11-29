@@ -21,7 +21,7 @@ const ForgetPassword : NextPage<ForgetPasswordProps> = () => {
 
     const sendEmailForgetPassword = () => {
             promiseToast(
-                api.currentUser.forgetPassword({email}),
+                api.user.forgetPassword({email}),
                 {
                     pending: "Envoi du code de réinitialisation...",
                     success: "Code de réinitialisation envoyé!",

@@ -18,11 +18,12 @@ interface ButtonProps {
  
 const Button: FunctionComponent<ButtonProps> = ({type, children, classNameTweak = "", fullwidth, onClick, settings} : ButtonProps) => {
 
+    const fullwidthStyles = fullwidth ? styles.fullwidth : "";
+
     return (
         <button 
-            style={{ "width": fullwidth ? "100% !important" : ""}}
             onClick={onClick} 
-            className={` ${classNameTweak} ${styles.button} `}
+            className={` ${classNameTweak} ${styles.button} ${fullwidthStyles}`}
             data-type={type}
             {... settings}
         >

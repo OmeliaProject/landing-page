@@ -33,7 +33,7 @@ const Login: FunctionComponent<LoginProps> = () => {
         }
 
         promiseToast(
-            api.currentUser.signIn({email: email, password: password,}),
+            api.user.signIn({email: email, password: password,}),
             {
                 pending: "Connexion...",
                 success: "Vous êtes connecté.",

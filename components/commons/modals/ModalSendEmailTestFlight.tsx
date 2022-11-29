@@ -22,7 +22,7 @@ export const ModalSendEmailTestFlight : FC<ModalSendEmailTestFlightProps> = ({us
     const changeRequestState = () => {
 
         promiseToast(
-            api.currentUser.changeUserRequestState({
+            api.user.changeUserRequestState({
                 email: user.email,
                 response: currentState,
                 adminComment: adminComment

@@ -4,6 +4,17 @@
     border-radius: 10px !important;
 }
 
+.button[data-type="interactive"]{
+    opacity: 1;
+    background-color: var(--interactive-color);
+    transition: opacity 0.2s ease-in-out;
+}
+
+.button[data-type="interactive"]:hover {
+    opacity: 0.5;
+}
+
+
 .input {
     border-radius: 10px;
 }

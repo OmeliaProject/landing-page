@@ -13,6 +13,7 @@ import { Button, ButtonType } from "@components/commons/Button";
 import { promiseToast } from "@components/commons/promiseToast";
 import { ModalChangePassword } from "@components/commons/modals/ModalChangePassword";
 import useModal from "@hooks/useModal";
+import { RequestState } from "@components/api/types/UsersInformationMonitoring";
 
 
 interface ProfilProps {
@@ -33,7 +34,7 @@ const Profil : NextPage<ProfilProps> = () => {
             return;
 
         promiseToast(
-            api.currentUser.changePasswordWithOldPassword({currentPassword, newPassword}),
+            api.user.changePasswordWithOldPassword({currentPassword, newPassword}),
             {
                 pending: "Changement de mots de passe...",
                 success: "Mot de passe changé!",
@@ -43,11 +44,11 @@ const Profil : NextPage<ProfilProps> = () => {
     }
 
     const disconnect = () => {
-        api.currentUser.signOut();
+        api.user.signOut();
         router.push("/beta");
     }
     const deleteAccount = async () => {
-        await api.currentUser.deleteAccount();
+        await api.user.deleteAccount();
         router.push("/beta");
     }
     
@@ -67,7 +68,7 @@ const Profil : NextPage<ProfilProps> = () => {
 
 
     useEffect(() => {
-        api.currentUser.getUserInfos().then((user : CurrentUserInfos) => { setUser(user); });
+        api.user.getUserInfos().then((user : CurrentUserInfos) => { setUser(user); });
         api.feedbacks.getFeedbacks().then((feedback : IFeedback[]) => {setFeedbacks(feedback);});
     }, []);
 
@@ -79,7 +80,15 @@ const Profil : NextPage<ProfilProps> = () => {
             </Head>
             <NavbarBeta />
             <div className={styles.profil}>
-                <div className={styles.title}>Votre profil </div>
+                <div className={styles.title}>
+                    Votre profil
+                    {
+                        user?.premiumState == RequestState.APPROVED &&
+                        <div className={styles.premium}>
+                            <img src="/crown.svg" alt="logo" />
+                        </div>
+                    }    
+                </div>
                 
                 <div className={styles.feedback_container}>
                      <p className={styles.section_title}>Vos retours</p>

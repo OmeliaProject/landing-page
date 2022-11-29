@@ -13,15 +13,33 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+
 }
 
 .title{
+    position: relative;
+
     font-size: 2rem;
     font-weight: 600;
     color: var(--dark-color);
-    margin-bottom: 3rem;
+    padding-bottom: 3rem;
     text-decoration: underline;
     font-family: var(--primary-font-family);
+
+}
+
+.premium {
+    width: 1rem;
+    rotate: 45deg;
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    translate: 100% -75%;
+}
+
+.premium img {
+    width: 100%;
+    height: auto;
 }
 
 

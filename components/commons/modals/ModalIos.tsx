@@ -12,7 +12,7 @@ export const ModalIOS : FC= ({}) => {
         e.preventDefault();
 
         promiseToast(
-            api.currentUser.inviteToIosBeta(),
+            api.user.inviteToIosBeta(),
             {
                 pending: "Sending invite...",
                 success: "Invite sent!",

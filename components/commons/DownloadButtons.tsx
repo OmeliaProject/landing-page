@@ -16,7 +16,7 @@ const AppleStoreButton : FC<DownloadButtonsProps> = ({theme}) => {
     return (
         <div data-theme={theme} 
         className={styles.button}
-        onClick={() => handleModal(api.currentUser.isSignedIn() ? <ModalIOS/> : <ModalIosNotConnected/>)}>
+        onClick={() => handleModal(api.user.isSignedIn() ? <ModalIOS/> : <ModalIosNotConnected/>)}>
             <img alt='apple-logo' src={`/apple-logo-${theme}.svg`} />
             <div className={styles.body}>
                 <p>Télècharger dans</p>

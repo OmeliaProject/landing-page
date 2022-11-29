@@ -1,0 +1,168 @@
+.premium_page {
+    background: var(--light-color);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.hero {
+    position: relative;
+    background-image: url(../../public/bg.svg);
+    
+    /* make  the image fit and not repeat but keep ration 2/3*/
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid var(--dark-color);
+    
+}
+
+.hero::after {
+    position: absolute;
+    font-family: var(--secondary-font-family);
+    font-size: 0.75rem;
+    content: "Omelia - améliorez vos prises de paroles en public";
+    bottom: 1rem;
+    left: 1rem;
+    opacity: 0.75;
+
+    text-decoration: underline;
+}
+
+.previous_page {
+    composes : button from '../modules/components.module.css';
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+
+    width: 1.5rem;
+    height: auto;
+}
+
+.previous_page img {
+    width: 100%;
+    height: auto;
+}
+
+.hero_title_container {
+    font-size: 3rem;
+    color: var(--primary-color);
+    font-family: var(--primary-font-family);
+
+    font-weight: bolder;
+    
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero_title_container span:first-child {
+    font-weight: bolder;
+    font-family: var(--secondary-font-family);
+    color: var(--dark-color);
+    
+}
+
+
+.form_container {
+    border: 5px solid var(--dark-color);
+    border-left: 0px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.form {
+    width: 80%;
+}
+
+.title {
+    font-family: var(--primary-font-family);
+    font-size: 1.5rem;
+    font-weight: bold ;
+    margin-bottom: 0.5rem ;
+}
+.explanation {
+    font-family: var(--secondary-font-family);
+    font-size: 0.65rem;
+    font-weight: lighter;
+    margin-bottom: 1rem;
+}
+
+.check_box_container {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    align-items: center;
+
+}
+
+.label_check_box {
+    font-family: var(--secondary-font-family);
+    font-size: 0.75rem;
+    font-weight: lighter;
+}
+
+/* change check box color to match primary */
+.check_box {
+    cursor: pointer;
+    
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid var(--primary-color);
+    border-radius: 3px;
+    min-width: 0.75rem;
+    height: 0.75rem;
+    background-clip: padding-box;
+    background-color: var(--light-color);
+    transition: background 0.4s;
+
+}
+
+.check_box:checked {
+    background-color: var(--primary-color);
+    /* add svg with path */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 75%;
+}
+
+
+/* if too small */
+@media screen and (max-width: 800px) {
+    .premium_page {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1.5fr 2fr;
+    }
+
+    .form_container {
+        border: 0px;
+    }
+
+    .explanation {
+        font-family: var(--secondary-font-family);
+        font-size: 0.75rem;
+        font-weight: lighter;
+        margin-bottom: 1rem;
+    }
+
+    .hero::after {
+        display: none;
+        
+    }
+}

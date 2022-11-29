@@ -12,6 +12,11 @@
     font-family: var(--primary-font-family);
 }
 
+.fullwidth
+{
+    width: 100% !important;
+}
+
 /* Attribute primary and secondary */
 .button[data-type="primary"] {
     background-color: var(--primary-color);

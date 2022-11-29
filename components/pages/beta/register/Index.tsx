@@ -25,7 +25,7 @@ const Register: FunctionComponent<RegisterProps> = () => {
     const register = (e : FormEvent) => {
         e.preventDefault();
             promiseToast(
-                api.currentUser.signUp({
+                api.user.signUp({
                     email: email,
                     password: password,
                     firstname: firstname,

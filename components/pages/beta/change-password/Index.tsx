@@ -23,7 +23,7 @@ const ChangePassword : NextPage<ChangePasswordProps> = () => {
 
 
     const changePassword = () => {
-        promiseToast( api.currentUser.changePassword({
+        promiseToast( api.user.changePassword({
             email: email,
             code: code,
             newPassword : password

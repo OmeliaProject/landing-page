@@ -14,7 +14,7 @@ const UsersTable: FC = () => {
     const { handleModal } = useModal();
 
     useEffect(() => {
-        api.currentUser.getAllUsers().then((users : UsersInformationMonitoring[]) => {
+        api.user.getAllUsers().then((users : UsersInformationMonitoring[]) => {
             setUsers(users);
         });
     }, []);
