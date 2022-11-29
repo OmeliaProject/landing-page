@@ -151,10 +151,6 @@ class User {
         CurrentUserStore.setUser(null);
       }
     }
-  //  work as namespace
-  
-  
-  
 }
 
 export default User
