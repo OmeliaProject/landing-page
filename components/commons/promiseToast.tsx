@@ -6,8 +6,8 @@ export interface ToastOptions {
     error: string;
 }
 
-export const promiseToast = async (promise: Promise<any>, option: ToastOptions, toastPosition : ToastPosition = toast.POSITION.TOP_CENTER) => {
-
+export const promiseToast = async (promise: Promise<any>, option: ToastOptions, toastPosition : ToastPosition = toast.POSITION.TOP_CENTER) => 
+{
     return toast.promise(
         promise,
         {

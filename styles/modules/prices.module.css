@@ -9,17 +9,13 @@
     border-radius: 10px;
     position: relative;
     z-index: var(--foreground);
-
     width: 75vmin;
-
     margin-bottom: 15%;
 
     font-family: var(--primary-font-family);
     background-color: var(--light-color);
-    /* cartoon box shadoa */
     box-shadow: 0.75rem 0.75rem 0 0 rgba( var(--primary-color-rgb), 0.25);
 }
-
 
 .title {
 
@@ -82,7 +78,6 @@
 .card[data-emphasized=true] .button {
     margin: 8vmin auto;
 }
-
 
 @media screen and (min-width: 1024px) {
     .price {

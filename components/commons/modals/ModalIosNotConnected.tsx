@@ -1,11 +1,11 @@
 import useModal from '@hooks/useModal';
 import styles from '@styles/modules/modal.module.css';
 import { useRouter } from 'next/router';
-
 import { FC } from "react";
 import { Button, ButtonType } from '@components/commons/Button';
 
-export const ModalIosNotConnected : FC= ({}) => {
+export const ModalIosNotConnected : FC= ({}) => 
+{
     const { handleModal} = useModal();
     const router = useRouter();
 

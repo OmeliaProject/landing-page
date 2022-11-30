@@ -1,6 +1,5 @@
 import Head from "next/head";
 import styles from "@styles/pages/forget_password.module.css";
-
 import useApi from "@hooks/useTransportLayer";
 import { NextPage } from "next";
 import { useState } from "react";
@@ -13,14 +12,13 @@ import { promiseToast } from "@components/commons/promiseToast";
 interface ChangePasswordProps {
 }
  
-const ChangePassword : NextPage<ChangePasswordProps> = () => {
-
+const ChangePassword : NextPage<ChangePasswordProps> = () => 
+{
     const api = useApi();
     const router = useRouter();
     const [email, setEmail] = useState("");
     const [code, setCode] = useState("");
     const [password, setPassword] = useState("");
-
 
     const changePassword = () => {
         promiseToast( api.user.changePassword({

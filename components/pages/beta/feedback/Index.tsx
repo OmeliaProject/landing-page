@@ -2,7 +2,6 @@ import styles from "@styles/pages/feedbacks.module.css";
 import Head from "next/head";
 import Link from "next/link";
 import useApi from '@hooks/useTransportLayer';
-
 import { NavbarBeta } from "@components/commons/NavbarBeta";
 import { IFeedback } from "@components/api/types/IFeedback";
 import { Feedback } from "@components/commons/Feedback";
@@ -70,7 +69,5 @@ function Feedbacks() {
         </>
     );
 }
-
-
 
 export { Feedbacks };

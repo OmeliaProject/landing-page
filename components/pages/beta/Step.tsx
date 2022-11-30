@@ -1,5 +1,4 @@
 import styles from "@styles/modules/howtohelp.module.css";
-
 import { FunctionComponent } from "react";
 
 interface StepProps {
@@ -8,7 +7,8 @@ interface StepProps {
     description: string;
 }
  
-const Step: FunctionComponent<StepProps> = ({svgPath, title, description}) => {
+const Step: FunctionComponent<StepProps> = ({svgPath, title, description}) => 
+{
     return ( 
         <div className={styles.step}>
             <img alt="svg" className={styles.svg} src={svgPath} />

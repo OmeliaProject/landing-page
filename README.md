@@ -35,7 +35,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 import { YourModal } from "@components/YourModal"; 
 import { useModal } from "@hooks/useModal";
 
-export const YourComponent = () => {
+export const YourComponent = () => 
+{
   const { handleModal } = useModal();
 
   return (

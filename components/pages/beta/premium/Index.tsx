@@ -5,16 +5,14 @@ import { Button, ButtonType } from '@components/commons/Button';
 import React, { useState } from 'react';
 import useApi from '@hooks/useTransportLayer';
 import { toast } from 'react-toastify';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { promiseToast } from '@components/commons/promiseToast';
-
 
 interface PremiumProps {
 }
  
-export const Premium: NextPage<PremiumProps> = () => {
-
+export const Premium: NextPage<PremiumProps> = () => 
+{
     const api = useApi().user;
     const [hasAccepted, setHasAccepted] = useState(false);
     const router = useRouter();

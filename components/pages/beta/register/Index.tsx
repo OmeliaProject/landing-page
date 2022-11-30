@@ -13,7 +13,8 @@ import { promiseToast } from '@components/commons/promiseToast';
 
 interface RegisterProps {}
  
-const Register: FunctionComponent<RegisterProps> = () => {
+const Register: FunctionComponent<RegisterProps> = () => 
+{
     const api = useApi();
     const router = useRouter();
 
@@ -86,7 +87,6 @@ const Register: FunctionComponent<RegisterProps> = () => {
                                 setValue={setPassword}
                                 value={password}
                                 />
-
 
                     <Button settings={{type:"submit"}} classNameTweak={styles.validation} type={ButtonType.PRIMARY} >{"S'enregistrer"}</Button>
                     <Link passHref href="/beta/login">

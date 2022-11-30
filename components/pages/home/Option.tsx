@@ -1,5 +1,4 @@
 import styles from "@styles/modules/prices.module.css"
-
 import { FunctionComponent } from "react";
 import { PrincingOptions } from "@components/pages/home/CardPrice";
 
@@ -8,9 +7,8 @@ interface OptionProps {
     idx : number 
 }
  
-const Option: FunctionComponent<OptionProps> = ({param, idx}) => {
-
-
+const Option: FunctionComponent<OptionProps> = ({param, idx}) => 
+{
     const includedStyle = param.isIncluded ? "" : styles.not_included;
     
     return (

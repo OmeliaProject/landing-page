@@ -1,11 +1,9 @@
 import { FunctionComponent, RefObject, useEffect, useState } from "react";
 import Link from 'next/link'
-
 import styles from "@styles/modules/navbar.module.css"
 import {ScrollToButton} from "@components/commons/ScrollToButton"
 import {Hamburger} from "@components/commons/Hamburger";
 import { Button, ButtonType } from "./Button";
-
 
 interface NavbarProps {
     hpHomeRef : RefObject<HTMLDivElement>, 
@@ -13,7 +11,8 @@ interface NavbarProps {
     contactRef : RefObject<HTMLDivElement>, 
 }
  
-const Navbar: FunctionComponent<NavbarProps> = ({hpHomeRef, priceRef, contactRef}) => {
+const Navbar: FunctionComponent<NavbarProps> = ({hpHomeRef, priceRef, contactRef}) => 
+{
 
     let [isSideMenuOpen, setSideMenuStatus] = useState(false);
     let [scroll, setScroll] = useState(false);
@@ -37,8 +36,6 @@ const Navbar: FunctionComponent<NavbarProps> = ({hpHomeRef, priceRef, contactRef
             window.removeEventListener('scroll', onScroll);
         };
     }, []);
-
-
 
     return (  
         <div className={`${styles.navbar} ${scroll ? styles.scrolled_navbar : ""}`}>

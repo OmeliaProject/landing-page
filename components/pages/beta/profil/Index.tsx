@@ -13,14 +13,13 @@ import { Button, ButtonType } from "@components/commons/Button";
 import { promiseToast } from "@components/commons/promiseToast";
 import { ModalChangePassword } from "@components/commons/modals/ModalChangePassword";
 import useModal from "@hooks/useModal";
-import { RequestState } from "@components/api/types/UsersInformationMonitoring";
-
+import { CrownPremium } from "@components/commons/CrownPremium";
 
 interface ProfilProps {
-    
 }
 
-const Profil : NextPage<ProfilProps> = () => {
+const Profil : NextPage<ProfilProps> = () => 
+{
     const api = useApi();
     const router = useRouter();
     const { handleModal } = useModal();
@@ -66,12 +65,10 @@ const Profil : NextPage<ProfilProps> = () => {
 
     }
 
-
     useEffect(() => {
         api.user.getUserInfos().then((user : CurrentUserInfos) => { setUser(user); });
         api.feedbacks.getFeedbacks().then((feedback : IFeedback[]) => {setFeedbacks(feedback);});
     }, []);
-
 
     return (
         <>
@@ -82,12 +79,7 @@ const Profil : NextPage<ProfilProps> = () => {
             <div className={styles.profil}>
                 <div className={styles.title}>
                     Votre profil
-                    {
-                        user?.premiumState == RequestState.APPROVED &&
-                        <div className={styles.premium}>
-                            <img src="/crown.svg" alt="logo" />
-                        </div>
-                    }    
+                    {CrownPremium(user)}    
                 </div>
                 
                 <div className={styles.feedback_container}>
@@ -146,12 +138,10 @@ interface IFeedbackProfile {
     idx ?: number;
 }
 
-const FeedbackProfile : React.FC<IFeedbackProfile> = ({feedback, deleteFeedback, idx}) => {
-
+const FeedbackProfile : React.FC<IFeedbackProfile> = ({feedback, deleteFeedback, idx}) => 
+{
     const { handleModal } = useModal();
-    // state for if user is hovering the remove button
     const [isHoverDeleteButton, setHoverState] = useState(false);
-
     const styleDependingOnHover = isHoverDeleteButton ? styles.hover_delete_button : "";
 
     return (

@@ -1,15 +1,16 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import Link from 'next/link'
- 
+
 import styles from "@styles/modules/navbar_beta.module.css"
 import useApi from "@hooks/useTransportLayer";
 import { Hamburger } from "@components/commons/Hamburger";
 import { CurrentUserInfos } from "@stores/currentUser";
 import { RequestState } from "@components/api/types/UsersInformationMonitoring";
 import { Button, ButtonType } from "./Button";
+import { CrownPremium } from "@components/commons/CrownPremium";
 
-
-const NavbarBeta: FunctionComponent = () => {
+const NavbarBeta: FunctionComponent = () => 
+{
     const userApi = useApi().user;
 
     let [isSideMenuOpen, setSideMenuStatus] = useState(false);
@@ -70,6 +71,7 @@ const NavbarBeta: FunctionComponent = () => {
             <Link href="/beta/premium">
                 <Button type={ButtonType.PRIMARY} classNameTweak={styles.option}>
                     Premium
+                    {CrownPremium(user) || ""}
                 </Button>
             </Link>
         )

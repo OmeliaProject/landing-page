@@ -1,8 +1,5 @@
 import React, { ReactChildren, ReactChild, FunctionComponent, RefObject } from 'react';
-
 import CSS from 'csstype';
-
-
 
 interface ScrollToButtonProps {
     target : RefObject<HTMLDivElement>;
@@ -11,7 +8,8 @@ interface ScrollToButtonProps {
     style ?: CSS.Properties
 }
 
-const ScrollToButton: FunctionComponent<ScrollToButtonProps> = ({target, children, style, styleClass}) => {
+const ScrollToButton: FunctionComponent<ScrollToButtonProps> = ({target, children, style, styleClass}) => 
+{
 
     const goTo = () => {
         if (!target || !target.current)

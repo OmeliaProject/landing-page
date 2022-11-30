@@ -13,7 +13,6 @@ interface AllFeedbacksBody
   items: IFeedback[]
 }
 
-
 class Feedback {
   private axiosInstance: AxiosInstance;
   

@@ -6,7 +6,6 @@ import useApi from "@hooks/useTransportLayer";
 import useModal from "@hooks/useModal";
 import { promiseToast } from "@components/commons/promiseToast";
 
-
 interface ModalChangePremiumStatusProps {
     user : UsersInformationMonitoring,
     updateUser : (user : UsersInformationMonitoring) => void

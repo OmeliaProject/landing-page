@@ -1,5 +1,4 @@
 import { RefObject, FunctionComponent, useRef} from "react";
-
 import { LinkContact } from "@components/pages/home/LinkContact";
 import emailjs from '@emailjs/browser';
 import styles from "@styles/modules/contact.module.css"
@@ -10,9 +9,8 @@ interface ContactProps {
     contactRef : RefObject<HTMLDivElement>
 }
 
-
-const Contact: FunctionComponent<ContactProps> = ({ contactRef }) => {
-    
+const Contact: FunctionComponent<ContactProps> = ({ contactRef }) => 
+{
     const form = useRef<HTMLFormElement>(null);
 
     const sendEmail = (e : React.FormEvent<HTMLFormElement>) => {
@@ -38,7 +36,6 @@ const Contact: FunctionComponent<ContactProps> = ({ contactRef }) => {
                 <h1 className={styles.cta_head}>Envie d’en savoir plus ?</h1>
                 <p className={styles.cta_subhead}>envoyez-nous un message !</p>
             </div>
-
 
             <form className={styles.forms} ref={form} onSubmit={sendEmail}>
                 <input data-decoration required placeholder="email: jean@hotmail.com" className={styles.email_input} type="email" name="from_name" /> 

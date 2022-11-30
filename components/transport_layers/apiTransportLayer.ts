@@ -1,5 +1,4 @@
 import axios, { AxiosInstance } from 'axios';
-
 import User from '@components/api/User';
 import {Feedback} from '@components/api/Feedback';
 import CurrentUserStore from '@stores/currentUser';

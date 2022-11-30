@@ -9,7 +9,8 @@ interface DownloadButtonsProps {
     theme : 'light' | 'dark';
 }
 
-const AppleStoreButton : FC<DownloadButtonsProps> = ({theme}) => {
+const AppleStoreButton : FC<DownloadButtonsProps> = ({theme}) => 
+{
     const { handleModal } = useModal();
     const api = useApi();
 
@@ -27,8 +28,8 @@ const AppleStoreButton : FC<DownloadButtonsProps> = ({theme}) => {
     )
 }
 
-
-const AndroidStoreButton : FC<DownloadButtonsProps> = ({theme}) => {
+const AndroidStoreButton : FC<DownloadButtonsProps> = ({theme}) => 
+{
     return (
         <a data-theme={theme} className={styles.button}  href="https://apk-bucket.s3.eu-west-3.amazonaws.com/app-release.apk" >
             <img alt='play-store-logo' src={`/play-store-logo-${theme}.svg `} />
@@ -39,8 +40,6 @@ const AndroidStoreButton : FC<DownloadButtonsProps> = ({theme}) => {
         </a>
     )
 }
-
-
 
 export {
     AppleStoreButton,

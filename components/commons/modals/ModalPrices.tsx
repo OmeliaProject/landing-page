@@ -7,15 +7,14 @@ interface ModalPricesProps {
     scrollToContact : () => void;
 }
 
-const ModalPrices : FC<ModalPricesProps> = ({scrollToContact})=> {
-
+const ModalPrices : FC<ModalPricesProps> = ({scrollToContact})=> 
+{
     const { handleModal } = useModal();
 
     const scrollAndClose = () => {
         scrollToContact();
         handleModal();
     }
-
 
     return (
         <>

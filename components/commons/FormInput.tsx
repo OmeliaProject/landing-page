@@ -1,13 +1,11 @@
 import { FunctionComponent, useState } from "react";
 import styles from "@styles/modules/form-input.module.css";
 
-
 interface FormInputProps {
     label: string;
     placeholder: string;
     setValue: (value: string) => void;
     value: string;
-    
     icon ?: string;
     isConfidential ?: boolean;
     classNameTweak ?: string;
@@ -16,9 +14,8 @@ interface FormInputProps {
 const FormInput: FunctionComponent<FormInputProps> = ({label, placeholder, icon, isConfidential, value, setValue, classNameTweak}) => 
 {
     const [isTextVisible, setTextVisibility] = useState(!isConfidential);
-
     const eyeToShow = isTextVisible ? "/eye.svg" : "/eye-close.svg";
-    // onInput change set value to state
+
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value);
     }

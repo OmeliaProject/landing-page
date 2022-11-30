@@ -4,7 +4,8 @@ import {ApiTransportLayer} from '@components/transport_layers/apiTransportLayer'
 
 const ApiContext = createContext<ApiTransportLayer>(null!)
 
-export const TransportLayerProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
+export const TransportLayerProvider: FC<PropsWithChildren<{}>> = ({ children }) => 
+{
   const transportLayer = useMemo(() => new ApiTransportLayer(), [])
 
   return (

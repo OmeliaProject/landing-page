@@ -8,7 +8,8 @@ import useModal from '@hooks/useModal';
 import { ModalChangePremiumStatus } from '@components/commons/modals/ModalChangePremiumStatus';
 import { ModalSendEmailTestFlight } from '@components/commons/modals/ModalSendEmailTestFlight';
 
-const UsersTable: FC = () => {
+const UsersTable: FC = () => 
+{
     const api = useApi();
     const [users, setUsers] = useState<UsersInformationMonitoring[] | undefined>(undefined);
     const { handleModal } = useModal();

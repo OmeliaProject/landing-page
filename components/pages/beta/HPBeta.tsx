@@ -1,19 +1,16 @@
 import styles from "@styles/modules/hpbeta.module.css";
-
 import Link from "next/link";
-import { FunctionComponent, useEffect } from "react";
+import { FunctionComponent } from "react";
 import { useViewportScroll, motion, useTransform } from "framer-motion";
 import { Button, ButtonType } from "@components/commons/Button";
 import useApi from "@hooks/useTransportLayer";
 
 interface HPBetaProps {
-    
 }
  
-const HPBeta: FunctionComponent<HPBetaProps> = () => {
-
+const HPBeta: FunctionComponent<HPBetaProps> = () => 
+{
     const isUserSignedIn : boolean = useApi().user.isSignedIn();
-
     const { scrollY } = useViewportScroll();
     let y1 = useTransform(scrollY, [0, 700], [0, 350]);
     let y2 = useTransform(scrollY, [0, 700], [0, -350]);

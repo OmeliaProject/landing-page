@@ -36,7 +36,6 @@
     align-items: center;
 }
 
-
 .forms *::placeholder {
     color: var(--dark-color);
     opacity: 0.5;
@@ -83,8 +82,6 @@
     text-decoration: underline;
     text-underline-offset: 5px;
 }
-
-
 
 .link_container {
 
@@ -139,19 +136,16 @@
     height: 10vh;
 }
 
-
 .join_beta p {
     width: 15ch;
     padding-top: 10%;
 
     margin-bottom: 15%;
 
-
     font-size: 1.25rem;
     font-weight: bold;
     font-family: Caveat;
 }
-
 
 @media screen and (min-width : 1024px) {
     .contact {
@@ -177,7 +171,6 @@
         justify-content: space-between;
         font-size: calc(1rem - 0.4vw);
     }
-
 
     .email_input {
         composes: input from '../modules/components.module.css';    
@@ -235,7 +228,6 @@
         margin-right: 5%;
         height: auto;
     }
-
 
     .join_beta  {
         right: 10%;

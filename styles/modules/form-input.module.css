@@ -20,7 +20,6 @@
     border-bottom: 2px solid var(--primary-color);
 }
 
-
 .icon {
     height: 1rem;
 }
@@ -29,7 +28,6 @@
     height: 1rem;
     cursor: pointer;
 }
-
 
 .input {
     font-family: roboto;

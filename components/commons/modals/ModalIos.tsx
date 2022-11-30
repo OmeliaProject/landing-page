@@ -4,8 +4,8 @@ import { Button, ButtonType } from "@components/commons/Button";
 import useApi from '@hooks/useTransportLayer';
 import { promiseToast } from '@components/commons/promiseToast';
 
-
-export const ModalIOS : FC= ({}) => {
+export const ModalIOS : FC= ({}) => 
+{
     const api = useApi();
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {

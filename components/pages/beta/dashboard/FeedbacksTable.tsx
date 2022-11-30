@@ -7,8 +7,8 @@ import { timestampToDate, transformTypeToString } from '@components/commons/usef
 import { promiseToast } from '@components/commons/promiseToast';
 import { toast } from 'react-toastify';
 
-
-const FeedbacksTable: FC= () => {
+const FeedbacksTable: FC= () => 
+{
     const api = useApi();
     const [feedbacks, setFeedbacks] = useState<IFeedback[] | undefined>(undefined);
     

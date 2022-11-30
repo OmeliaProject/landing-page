@@ -49,7 +49,6 @@
     height: 100%;
 }
 
-
 .menu_container {
     transition: right 400ms ease-out; 
 
@@ -84,7 +83,6 @@
         font-weight: bold;
     font-family: var(--primary-font-family);
 }
-
 
 .option {
     composes : button from "./components.module.css";

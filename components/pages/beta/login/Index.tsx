@@ -13,12 +13,12 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { promiseToast } from "@components/commons/promiseToast";
 
-
 interface LoginProps {
 
 }
 
-const Login: FunctionComponent<LoginProps> = () => {
+const Login: FunctionComponent<LoginProps> = () => 
+{
     const api = useApi();
     const router = useRouter();
     const [email, setEmail] = useState("");

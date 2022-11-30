@@ -4,7 +4,8 @@ import styles from "@styles/modules/explanation.module.css"
 interface ExplanationProps {
 }
  
-const Explanation: FunctionComponent<ExplanationProps> = () => {
+const Explanation: FunctionComponent<ExplanationProps> = () => 
+{
     return (
         <div className={styles.container}>
             <div className={styles.illustration}>

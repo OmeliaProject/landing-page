@@ -80,7 +80,6 @@
     font-family: var(--primary-font-family);
 }
 
-
 .option {
     composes : button from "./components.module.css";
     margin-bottom: 2rem;

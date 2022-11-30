@@ -1,11 +1,11 @@
 import {FunctionComponent} from "react";
 import { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-
 import styles from "@styles/modules/carousel.module.css";
 
-const swipeConfidenceThreshold = 10000;
-const swipePower = (offset: number, velocity: number) => {
+const SWIPE_CONFIDENCE_THRESHOLD = 10000;
+const swipePower = (offset: number, velocity: number) => 
+{
   return Math.abs(offset) * velocity;
 };
 
@@ -16,7 +16,8 @@ interface CarouselProps {
     wrap ?: boolean;
 }
 
-const Carousel : FunctionComponent<CarouselProps> = ({classNameCarousel, children, wrap, width} : CarouselProps) => {
+const Carousel : FunctionComponent<CarouselProps> = ({classNameCarousel, children, wrap, width} : CarouselProps) => 
+{
     const [[page, direction], setPage] = useState([0, 0]);
 
     const variants : Variants  = {
@@ -77,9 +78,9 @@ const Carousel : FunctionComponent<CarouselProps> = ({classNameCarousel, childre
             onDragEnd={(_, { offset, velocity }) => {
                 const swipe = swipePower(offset.x, velocity.x);
 
-                if (swipe < -swipeConfidenceThreshold) {
+                if (swipe < -SWIPE_CONFIDENCE_THRESHOLD) {
                 paginate(1);
-                } else if (swipe > swipeConfidenceThreshold) {
+                } else if (swipe > SWIPE_CONFIDENCE_THRESHOLD) {
                 paginate(-1);
                 }
             }}

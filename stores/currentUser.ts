@@ -58,7 +58,6 @@ class CurrentUserStore {
     localStorage.removeItem('currentUserTokens')
   }
 
-
   @action public retrieveCurrentUserTokens() {
     try {
       const tokens = localStorage.getItem('currentUserTokens')

@@ -5,7 +5,6 @@
     background-size: cover;
 }
 
-
 .welcome_container {
     height: 100%;
     width: 100%;
@@ -14,7 +13,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 
     color: var(--color-dark);
 }
@@ -45,7 +43,6 @@
 
     font-size: 1rem;
 }
-
 
 .button_cta {
     padding : 0.75rem 0.75rem;

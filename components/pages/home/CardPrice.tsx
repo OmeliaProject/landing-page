@@ -1,5 +1,4 @@
 import styles from "@styles/modules/prices.module.css"
-
 import { FunctionComponent, RefObject } from "react";
 import { Option } from "@components/pages/home/Option"
 import { ModalPrices } from "@components/commons/modals/ModalPrices";
@@ -20,7 +19,8 @@ interface CardPriceProps {
 }
 
  
-const CardPrice: FunctionComponent<CardPriceProps> = ({title, price, emphasized, options, contactRef}) => {
+const CardPrice: FunctionComponent<CardPriceProps> = ({title, price, emphasized, options, contactRef}) => 
+{
     const { handleModal } = useModal();
 
     const scrollToContact = () => {
@@ -51,9 +51,8 @@ const CardPrice: FunctionComponent<CardPriceProps> = ({title, price, emphasized,
         </div>
     );
 }
- 
-export  type {
-    PrincingOptions
-};
 
-export { CardPrice };
+export { 
+    CardPrice,
+    type PrincingOptions
+};

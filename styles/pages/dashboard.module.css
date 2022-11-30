@@ -35,12 +35,10 @@
     font-family: var( --primary-font-family);
 }
 
-
 .table_container {
     margin-top: 10vh;
     padding: 0 10%;
 }
-
 
 /* --------------Modal-------------- */
 .modal {

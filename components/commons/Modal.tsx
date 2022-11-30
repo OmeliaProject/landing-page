@@ -3,13 +3,12 @@ import ReactDOM from "react-dom";
 import styles from "@styles/modules/modal.module.css";
 import useModal from "@hooks/useModal";
 
-
-const Modal = () => {
+const Modal = () => 
+{
     let { modalContent, handleModal, modal } = useModal();
     let [root, setRoot] = React.useState<Element | null>(null);
 
     useEffect(() => {
-        // get element with data-reactroot
         setRoot(document.querySelector("[data-reactroot]"));
     }, [root]);
     

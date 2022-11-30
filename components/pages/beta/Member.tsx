@@ -1,5 +1,4 @@
 import styles from "@styles/modules/team.module.css";
-
 import { FunctionComponent } from "react";
 
 interface MemberProps {
@@ -8,7 +7,8 @@ interface MemberProps {
     avatar: string;
 }
  
-const Member: FunctionComponent<MemberProps> = ({name, role, avatar}) => {
+const Member: FunctionComponent<MemberProps> = ({name, role, avatar}) => 
+{
     return (
         <div className={styles.member_card}>
             <img className={styles.avatar} src={avatar} alt={name} />

@@ -3,12 +3,12 @@ import { FC, useState } from "react";
 import { Button, ButtonType } from "@components/commons/Button";
 import { FormInput } from "@components/commons/FormInput";
 
-
 interface ModalChangePasswordProps {
     changePassword : (currentPassword : string, newPassword: string) => void;
 }
 
-export const ModalChangePassword : FC<ModalChangePasswordProps> = ({changePassword}) => {
+export const ModalChangePassword : FC<ModalChangePasswordProps> = ({changePassword}) => 
+{
     const [currentPassword, setCurrentPassword] = useState("");
     const [newPassword , setNewPassword] = useState("");
 

@@ -1,12 +1,12 @@
 import styles from "@styles/modules/team.module.css";
-
 import { FunctionComponent } from "react";
 import { Member } from "@components/pages/beta/Member";
 
 interface TeamProps {
 }
  
-const Team: FunctionComponent<TeamProps> = () => {
+const Team: FunctionComponent<TeamProps> = () => 
+{
     return (
         <div className={styles.team}>
             <h1>Notre équipe</h1>

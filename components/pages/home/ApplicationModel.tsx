@@ -1,14 +1,12 @@
 import styles from "@styles/modules/application.module.css"
-
 import { FunctionComponent } from "react";
 import { TemplateExplanationModel } from "@components/pages/home/TemplateExplanationModel";
 
 interface ApplicationModelProps {
 }
  
-const ApplicationModel: FunctionComponent<ApplicationModelProps> = () => {
-
-    
+const ApplicationModel: FunctionComponent<ApplicationModelProps> = () => 
+{
     return (  
         <div className={styles.application}>
             <TemplateExplanationModel reverse={false} picture="/camera.png">

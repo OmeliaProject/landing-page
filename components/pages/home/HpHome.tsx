@@ -1,5 +1,4 @@
 import styles from "@styles/modules/hphome.module.css"
-
 import { ScrollToButton } from "@components/commons/ScrollToButton";
 import { RefObject, FunctionComponent } from "react";
 import { Button, ButtonType } from "@components/commons/Button";
@@ -9,8 +8,8 @@ interface HpHomeProps {
     aboutRef : RefObject<HTMLDivElement>
 }
  
-const HpHome: FunctionComponent<HpHomeProps> = ({ hpHomeRef, aboutRef }) => {
-
+const HpHome: FunctionComponent<HpHomeProps> = ({ hpHomeRef, aboutRef }) => 
+{
     return (
         <div className={styles.hp_home} ref={hpHomeRef}>
 

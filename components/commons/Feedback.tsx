@@ -1,5 +1,4 @@
 import styles from "@styles/modules/feedbacks.module.css";
-
 import { FunctionComponent, useState } from "react";
 import { IFeedback } from "@components/api/types/IFeedback";
 import useApi from "@hooks/useTransportLayer";
@@ -8,7 +7,8 @@ interface IProps {
     data : IFeedback
 }
 
-const Feedback: FunctionComponent<IProps> = ({data}) => {
+const Feedback: FunctionComponent<IProps> = ({data}) => 
+{
 
     const api = useApi();
     let  {id, timestamp, title, body} = data;
@@ -34,7 +34,6 @@ const Feedback: FunctionComponent<IProps> = ({data}) => {
         
         setHasLike(!hasLiked);
     }
-
 
     return (
         <div className={styles.container}>

@@ -42,7 +42,6 @@
     margin-left: auto; 
     margin-right: auto; 
 
-
     width:  max(500px, 50vmax);
 }
 
@@ -60,7 +59,6 @@
     }
     
 }
-
 
 @media screen and (min-width: 1024px) {
 

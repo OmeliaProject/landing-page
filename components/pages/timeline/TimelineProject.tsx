@@ -1,12 +1,12 @@
 import { FunctionComponent } from "react";
-
 import styles from "@styles/modules/timeline_project.module.css";
 import { CardTimeline, LineType } from "@components/pages/timeline/CardTimeline";
 
 interface TimelineProjectProps {
 }
  
-const TimelineProject: FunctionComponent<TimelineProjectProps> = () => {
+const TimelineProject: FunctionComponent<TimelineProjectProps> = () => 
+{
     return (
         <div className={styles.timeline_project}>
                 <CardTimeline 

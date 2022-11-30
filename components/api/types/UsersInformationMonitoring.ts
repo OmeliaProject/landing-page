@@ -7,14 +7,12 @@ enum RequestState {
 
 type RequestStateType = "APPROVED" | "DENIED" | "NOT_REQUESTED" | "PENDING";
 
-
 interface Avatar {
     face: number,
     mouth: number,
     hair: number,
     accessory: number
 }
-
 
 interface UserConfig {
     avatar: Avatar,

@@ -8,9 +8,8 @@ interface PriceProps {
     contactRef : RefObject<HTMLDivElement>
 }
  
-const Price: FunctionComponent<PriceProps> = ({ priceRef, contactRef }) => {
-
-
+const Price: FunctionComponent<PriceProps> = ({ priceRef, contactRef }) => 
+{
     return (
         <div className={styles.price} ref={priceRef}>
         <CardPrice 

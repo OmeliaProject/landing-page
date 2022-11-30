@@ -1,5 +1,4 @@
 import styles from "@styles/modules/howtohelp.module.css";
-
 import { useEffect, useState } from "react";
 import { FunctionComponent } from "react";
 import { Step } from "@components/pages/beta/Step";
@@ -8,8 +7,8 @@ import { Carousel } from "@components/commons/Carousel";
 interface HowToHelpProps {
 }
  
-const HowToHelp: FunctionComponent<HowToHelpProps> = () => {
-
+const HowToHelp: FunctionComponent<HowToHelpProps> = () => 
+{
     const [widthScreen, setWidthScreen] = useState(0);
 
     const steps : Array<JSX.Element> = [
@@ -30,7 +29,6 @@ const HowToHelp: FunctionComponent<HowToHelpProps> = () => {
             window.removeEventListener("resize", updateWidthScreenData);
         };
     },[]);
-
 
     const isMobile = widthScreen < 1024;
 

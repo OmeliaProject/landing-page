@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-
 import CSS from 'csstype';
 
 interface HamburgerProps {
@@ -8,7 +7,8 @@ interface HamburgerProps {
     style ?: CSS.Properties;
 }
  
-const Hamburger: FunctionComponent<HamburgerProps> = ({onClick, styleClass, style}) => {
+const Hamburger: FunctionComponent<HamburgerProps> = ({onClick, styleClass, style}) => 
+{
     return (
         <div className={styleClass} onClick={onClick}>
             <span></span>

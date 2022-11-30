@@ -10,7 +10,6 @@
 
 }
 
-
 .howtohelp h1 {
     font-weight: bold;
     margin-bottom : 8%;
@@ -57,7 +56,6 @@
     font-size: 0.75rem;
     width : 26ch;
 }
-
 
 @media screen and (min-width: 1024px) {
     .step_container {

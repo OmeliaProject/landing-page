@@ -1,9 +1,7 @@
 import { NextPage, NextPageContext } from "next";
 import Head from "next/head";
 import { GeistProvider, CssBaseline, Tabs, } from '@geist-ui/core'
-
 import styles from "@styles/pages/dashboard.module.css";
-
 import { FeedbacksTable } from "./FeedbacksTable";
 import { useState } from "react";
 import Link from "next/link";
@@ -18,9 +16,8 @@ interface DashboardProps {
     initialTable : TableType
 } 
 
-const Dashboard : NextPage<DashboardProps> = ({initialTable}) => {
-
-
+const Dashboard : NextPage<DashboardProps> = ({initialTable}) => 
+{
     const tables : Map<TableType, JSX.Element> = new Map([
         [TableType.Feedbacks, <FeedbacksTable key={0} />],
         [TableType.Users, <UsersTable key={1} />]
@@ -57,8 +54,6 @@ const Dashboard : NextPage<DashboardProps> = ({initialTable}) => {
         </>
     );
 
-
-
 }
 
 Dashboard.getInitialProps = async (ctx : NextPageContext) => {
@@ -72,7 +67,6 @@ Dashboard.getInitialProps = async (ctx : NextPageContext) => {
     
     return {initialTable};
 }
-
 
 export {
     Dashboard

@@ -12,13 +12,12 @@ interface CodeConfirmationRegisterProps {
     
 }
  
-const CodeConfirmationRegister : NextPage<CodeConfirmationRegisterProps> = () => {
-
+const CodeConfirmationRegister : NextPage<CodeConfirmationRegisterProps> = () => 
+{
     const api = useApi();
     const router = useRouter();
     const [code, setCode] = useState("");
     const [email, setEmail] = useState("");
-
 
     const sendEmailCodeConfirmationRegister = async () => {
         try {

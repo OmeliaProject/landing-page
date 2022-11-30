@@ -1,5 +1,4 @@
 import { FunctionComponent, ReactChild, ReactChildren } from "react";
-
 import styles from "@styles/modules/contact.module.css"
 
 interface LinkContactProps {
@@ -9,8 +8,8 @@ interface LinkContactProps {
     children: ReactChild | ReactChildren;
 }
  
-const LinkContact: FunctionComponent<LinkContactProps> = ({className, link, image, children}) => {
-
+const LinkContact: FunctionComponent<LinkContactProps> = ({className, link, image, children}) => 
+{
     return (
         <div className={`${styles.link} ${className}`}>
             <img className={styles.link_image} src={image} alt="link-image" /> 

@@ -28,7 +28,6 @@
     background-color: var(--light-color);
 }
 
-
 .close {
     cursor: pointer;
     position: absolute;
@@ -46,7 +45,6 @@
 .close:hover {
     color: rgba(var(--dark-color-rgb), 1);
 }
-
 
 @media screen and (max-width : 769px) {
     .modal {
