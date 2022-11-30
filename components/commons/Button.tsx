@@ -18,7 +18,6 @@ interface ButtonProps {
  
 const Button: FunctionComponent<ButtonProps> = ({type, children, classNameTweak = "", fullwidth, onClick, settings} : ButtonProps) => 
 {
-
     const fullwidthStyles = fullwidth ? styles.fullwidth : "";
 
     return (

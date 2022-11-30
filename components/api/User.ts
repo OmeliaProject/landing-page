@@ -1,7 +1,7 @@
 import CurrentUserStore, { CurrentUserInfos } from '@stores/currentUser';
 import { AxiosInstance, AxiosResponse } from 'axios';
 import currentUser, { CurrentUserTokens } from '@stores/currentUser';
-import { RequestState, RequestStateType, UsersInformationMonitoring } from './types/UsersInformationMonitoring';
+import { RequestStateType, UsersInformationMonitoring } from './types/UsersInformationMonitoring';
 
 export interface SignInBody {
   email: string,
