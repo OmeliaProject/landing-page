@@ -19,7 +19,7 @@ export const ModalIosNotConnected : FC= ({}) =>
             <div data-centered className={styles.modal_header}>
                 <h2 className={styles.modal_title}>Rejoindre la Bêta IOS </h2>
                 <p className={styles.modal_text}>
-                    Pour rejoindre la bêta IOS, veuillez vous connectez ou créer un compte Omelia 
+                    Pour rejoindre la bêta IOS, veuillez vous connecter ou créer un compte Omelia 
                 </p>
             </div>
             <Button onClick={goToPageLogin} classNameTweak={styles.full_width} type={ButtonType.PRIMARY} >Aller à la page de connexion</Button>

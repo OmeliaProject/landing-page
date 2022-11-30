@@ -27,9 +27,9 @@ const ChangePassword : NextPage<ChangePasswordProps> = () =>
             newPassword : password
         }),
         {
-            pending: "Changement de mots de passe...",
+            pending: "Changement de mot de passe...",
             success: "Mot de passe changé!",
-            error: "Echec du changement de mot de passe"
+            error: "Échec du changement de mot de passe"
         }
         ).then(() => {
             router.push("/beta/login");
@@ -39,12 +39,12 @@ const ChangePassword : NextPage<ChangePasswordProps> = () =>
     return (
         <>
             <Head>
-                <title>Omelia - changer de mots de passe</title>
+                <title>Omelia - changez votre mot de passe</title>
             </Head>
             <NavbarBeta />
             <div className={styles.forget_password}>
                 <div className={styles.card}>
-                    <div className={styles.header}>Changer de mots de passe</div>
+                    <div className={styles.header}>Changez votre mot de passe</div>
                     <div className={styles.body}>{"Nous venons d'envoyer un code de confirmation sur votre adresse e-mail ."}</div>
                     <FormInput classNameTweak={styles.input}
                                 label={"Votre email"}

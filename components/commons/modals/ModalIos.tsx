@@ -26,7 +26,7 @@ export const ModalIOS : FC= ({}) =>
             <div className={styles.modal_header}>
                 <h2 className={styles.modal_title}>Rejoindre la Bêta IOS </h2>
                 <p className={styles.modal_body}>
-                Pour rejoindre la bêta IOS, cliquez sur le button ci-dessous.
+                Pour rejoindre la bêta IOS, cliquez sur le button ci-dessus.
                 Nous vous enverrons par la suite un e-mail vous confirmant votre admission à la bêta, cela peut prendre quelques jours.
                 </p>
             </div>

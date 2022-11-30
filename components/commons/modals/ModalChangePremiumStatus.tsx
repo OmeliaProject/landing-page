@@ -47,8 +47,8 @@ export const ModalChangePremiumStatus : FC<ModalChangePremiumStatusProps> = ({us
                 <label>Commentaire admin:</label>
                 
                 <div className={styles.status_container}>
-                    <label>Status:</label>
-                    <Select onChange={(value) => setCurrentState(value as RequestStateType)} placeholder="Status">
+                    <label>Statut:</label>
+                    <Select onChange={(value) => setCurrentState(value as RequestStateType)} placeholder="Statut">
                         {
                             Object.values(RequestState).map((state, index) => {
                                 return <Select.Option key={index} disabled={state == user.premiumState ? true : false} value={state}>{state}</Select.Option>
@@ -60,10 +60,10 @@ export const ModalChangePremiumStatus : FC<ModalChangePremiumStatusProps> = ({us
             <Textarea
                 value={adminComment}
                 onChange={(e : ChangeEvent<HTMLTextAreaElement>) => setAdminComment(e.target.value)}
-                placeholder="Commentaire du changement de status (Obligatoire dans le cas d'un refus)"
+                placeholder="Commentaire du changement de statut (Obligatoire dans le cas d'un refus)"
                 height={10}
                 width="100%" />
-            <Button onClick={changeRequestState} className={styles.modal_button} width="100%"  type="secondary">Changer le status</Button>
+            <Button onClick={changeRequestState} className={styles.modal_button} width="100%"  type="secondary">Changer le statut</Button>
         </div>
         </>
     );

@@ -34,8 +34,8 @@ const Register: FunctionComponent<RegisterProps> = () =>
                 }),
             {
                 pending: "Inscription...",
-                success: "Inscription réussie, allez dans vos mails pour confirmer votre compte.",
-                error: "Echec de l'inscription"
+                success: "Inscription réussie, allez dans vos emails pour confirmer votre compte.",
+                error: "Échec de l'inscription"
             }
         ).then(() => {
             router.push("/beta/register/code-confirmation");
@@ -80,8 +80,8 @@ const Register: FunctionComponent<RegisterProps> = () =>
                                 />
                     </div>        
 
-                    <FormInput  label={"Mots de passe"}
-                                placeholder={"votre mots de passe"}
+                    <FormInput  label={"Mot de passe"}
+                                placeholder={"votre mot de passe"}
                                 icon={"/mail.svg"}
                                 isConfidential={true}
                                 setValue={setPassword}

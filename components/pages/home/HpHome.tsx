@@ -15,7 +15,7 @@ const HpHome: FunctionComponent<HpHomeProps> = ({ hpHomeRef, aboutRef }) =>
 
             <div className={styles.container_cta}>
                 <div className={styles.text_cta}>
-                    <p>Ammenez votre<br/><span className="emphasized-primary">élocution</span> au niveau<br/>supérieur !</p>
+                    <p>Amenez votre<br/><span className="emphasized-primary">élocution</span> au niveau<br/>supérieur !</p>
                 </div>
                 <ScrollToButton style={{display:"flex"}} target={aboutRef}>
                     <Button classNameTweak={styles.button_cta} type={ButtonType.PRIMARY}>En savoir plus</Button>

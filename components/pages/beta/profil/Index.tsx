@@ -89,14 +89,14 @@ const Profil : NextPage<ProfilProps> = () =>
                         feedbacks.map((feedback, idx) =>
                             <FeedbackProfile key={idx} deleteFeedback={deleteFeedback} feedback={feedback} />
                         ) :
-                         <p className={styles.feedback_empty}>{"Vous n'avez pas fais de retours...."}</p>
+                         <p className={styles.feedback_empty}>{"Vous n'avez pas fait de retour..."}</p>
                      }
                 </div>
 
                 <div className={styles.data_container}>
                     
                     <div className={styles.general_info}>
-                        <p className={styles.section_title}>Information générale</p>
+                        <p className={styles.section_title}>Informations générales</p>
 
                         <div className={styles.info_container}>
                             <div className={styles.info}>
@@ -115,7 +115,7 @@ const Profil : NextPage<ProfilProps> = () =>
                             </div>
                             <Button classNameTweak={styles.password_button}
                                     onClick={() => handleModal(<ModalChangePassword  changePassword={ChangePassword}/>)}
-                                    type={ButtonType.PRIMARY}>Changer de mots de passe</Button>
+                                    type={ButtonType.PRIMARY}>Changez votre mot de passe</Button>
                         </div>
                     </div>
 
@@ -123,7 +123,7 @@ const Profil : NextPage<ProfilProps> = () =>
 
                 <div className={styles.actions}>
                     <Button onClick={disconnect} type={ButtonType.SECONDARY}>Se déconnecter</Button>
-                    <Button classNameTweak={styles.delete} onClick={deleteAccount} type={ButtonType.TERTIARY}>supprimer son compte</Button>
+                    <Button classNameTweak={styles.delete} onClick={deleteAccount} type={ButtonType.TERTIARY}>Supprimer son compte</Button>
                 </div>
 
             </div>

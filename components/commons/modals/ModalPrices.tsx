@@ -18,10 +18,10 @@ const ModalPrices : FC<ModalPricesProps> = ({scrollToContact})=>
 
     return (
         <>
-            <h1 className={styles.title}>Intéressé par notre application ?</h1>
+            <h1 className={styles.title}>Intéressé.e par notre application ?</h1>
                 <p className={styles.body}>
-                    Nous venons tout juste de <span className="emphasized-primary">finir notre bêta</span> ! Si vous avez été séduit et souhaitez soutenir notre projet, contactez nous via <u className={components.button} onClick={scrollAndClose}>e-mail </u>
-                    ou rejoignez notre <u className={components.button} onClick={scrollAndClose}>discord</u> et/ou devenez <span className="emphasized-primary">bêta-testeur</span> !
+                    Nous venons tout juste de <span className="emphasized-primary">finir notre bêta</span> ! Si vous avez été séduit.e et souhaitez soutenir notre projet, contactez nous via <u className={components.button} onClick={scrollAndClose}>email </u>
+                    ou rejoignez notre <u className={components.button} onClick={scrollAndClose}>discord</u> et/ou devenez <span className="emphasized-primary">bêta-testeur.se</span> !
                     <br/>
                     <br/>
                     L’équipe d’Omelia vous remercie !

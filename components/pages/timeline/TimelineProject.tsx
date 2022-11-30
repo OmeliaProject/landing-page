@@ -11,13 +11,13 @@ const TimelineProject: FunctionComponent<TimelineProjectProps> = () =>
         <div className={styles.timeline_project}>
                 <CardTimeline 
                         title={"Amélioration de la Bêta"}
-                        body={"L'application Omelia est en Bêta. Nous prenons en compte les avis reçu sur l'application afin de l'améliorer."} 
+                        body={"L'application Omelia est en Bêta. Nous prenons en compte les avis reçus sur l'application afin de l'améliorer."} 
                         time={"12/2022"}
                         line={LineType.DOTTED}
                 />
                 <CardTimeline 
                     title={"Bêta et utilisateurs"}
-                    body={"L'application Omelia entre dans une phase de test. Les retours sont consultables sur le site d'Omelia et nous prenons en compte les avis afin d'améliorer l'application et de corriger les éventuels bugs."} 
+                    body={"L'application Omelia entre dans une phase de tests. Les retours sont consultables sur le site d'Omelia et nous prenons en compte les avis afin d'améliorer l'application et de corriger les éventuels bugs."} 
                     version={"1.0.0"}
                     time={"06/2022"}
                     line={LineType.SOLID}
@@ -45,14 +45,14 @@ const TimelineProject: FunctionComponent<TimelineProjectProps> = () =>
                 />
                 <CardTimeline 
                     title={"Initialisation du projet"}
-                    body={"Nous avons commencé par diviser l'équipe Omelia en plusieurs équipes de travail, chacune responsable de différentes partie techniques. Nous avons aussi réaliser un business plan de l'application."} 
+                    body={"Nous avons commencé par diviser l'équipe Omelia en plusieurs équipes de travail, chacune responsable de différentes partie techniques. Nous avons aussi réalisé un business plan de l'application."} 
                     version={"0.0.0"}
                     time={"06/2021"}
                     line={LineType.SOLID}
                 /> 
                 <CardTimeline 
                     title={"Création du projet Omelia"}
-                    body={"Nous avons cherché une problématique qui nous correspondait. De la est venue l'idée de créer notre application. Des professionnels ont validés notre idée."} 
+                    body={"Nous avons cherché une problématique qui nous correspondait. De là est venue l'idée de créer notre application. Des professionnels ont validé notre idée."} 
                     version={"0.0.0"}
                     time={"03/2021"}
                     line={LineType.NONE}

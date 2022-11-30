@@ -59,7 +59,7 @@ export const Premium: NextPage<PremiumProps> = () =>
                     <h1 className={styles.title}>Bonjour à vous!</h1>
                     <p className={styles.explanation}>
                     {
-                    "Si vous êtes sur cette page, c'est que vous aimeriez bénéficier du mode premium. Nous n'avons actuellement aucun système de paiement. C'est pourquoi nous avons mis en place une liste d'attente dans laquelle vous serez inscrit. Pas d'inquiétude, renter dans cette liste ne t'engage à rien, nous t'enverrons simplement par mail les différentes étapes à suivre pour finaliser ton passage en premium."
+                    "Si vous êtes sur cette page, c'est que vous aimeriez bénéficier du mode premium. Nous n'avons actuellement aucun système de paiement. C'est pourquoi nous avons mis en place une liste d'attente dans laquelle vous serez inscrit.e. Pas d'inquiétude, rentrer dans cette liste ne vous engage à rien, nous vous enverrons simplement par email les différentes étapes à suivre pour finaliser votre passage en premium."
                     }
                     </p>
                     <div className={styles.check_box_container}>

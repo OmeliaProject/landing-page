@@ -20,8 +20,8 @@ export const ModalChangePassword : FC<ModalChangePasswordProps> = ({changePasswo
     return (
         <>
             <div className={styles.header}>
-                <h2>Changer de mots de passe:</h2>
-                <p>Pour mieux protéger votre mot de passe, suivez ces rêgles:</p>
+                <h2>Changez votre mot de passe:</h2>
+                <p>Pour mieux protéger votre mot de passe, suivez ces règles:</p>
                 <ul>
                     <li>Votre mot de passe doit contenir des chiffres.</li>
                     <li>Votre mot de passe doit contenir des lettres majuscules.</li>
@@ -32,22 +32,22 @@ export const ModalChangePassword : FC<ModalChangePasswordProps> = ({changePasswo
 
             <form className={styles.form_modal_change_password} onSubmit={onSubmit}>
                 <FormInput
-                        label={"Ancien mots de passe"}
-                        placeholder={"votre ancien mots de passe"}
+                        label={"Ancien mot de passe"}
+                        placeholder={"votre ancien mot de passe"}
                         icon={"/lock.svg"}
                         isConfidential
                         setValue={setCurrentPassword}
                         value={currentPassword}
                         />
                 <FormInput
-                        label={"Nouveau mots de passe"}
-                        placeholder={"votre nouveau mots de passe"}
+                        label={"Nouveau mot de passe"}
+                        placeholder={"votre nouveau mot de passe"}
                         icon={"/lock.svg"}
                         isConfidential
                         setValue={setNewPassword}
                         value={newPassword}
                         />
-                <Button settings={{type:"submit"}} classNameTweak={styles.password_button} type={ButtonType.PRIMARY} >Changer de mots de passe</Button>
+                <Button settings={{type:"submit"}} classNameTweak={styles.password_button} type={ButtonType.PRIMARY} >Changer de mot de passe</Button>
             
             </form>
         </>

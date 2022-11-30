@@ -24,7 +24,7 @@ const Contact: FunctionComponent<ContactProps> = ({ contactRef }) =>
             {
                 pending: "Envoi du message...",
                 success: "Message envoyé.",
-                error: "Echec de l'envoi du message"
+                error: "Échec de l'envoi du message"
             }
         ).catch();
         form.current.reset()
@@ -62,7 +62,7 @@ const Contact: FunctionComponent<ContactProps> = ({ contactRef }) =>
                     <>
                         <p>www.discord.gg/rtNHeDtnzq</p>
                         <div className={styles.join_beta}>
-                            <p>Aidez-nous en devenant bêta-testeur</p>
+                            <p>Aidez-nous en devenant bêta-testeur.se</p>
                             <img src="/arrow.svg" alt="arow" />
                         </div>
                     </>
