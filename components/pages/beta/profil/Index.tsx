@@ -13,7 +13,7 @@ import { Button, ButtonType } from "@components/commons/Button";
 import { promiseToast } from "@components/commons/promiseToast";
 import { ModalChangePassword } from "@components/commons/modals/ModalChangePassword";
 import useModal from "@hooks/useModal";
-import { CrownPremium } from "@components/commons/CrownPremium";
+import { CrownPremium, isUserPremium } from "@components/commons/CrownPremium";
 
 interface ProfilProps {
 }
@@ -79,7 +79,7 @@ const Profil : NextPage<ProfilProps> = () =>
             <div className={styles.profil}>
                 <div className={styles.title}>
                     Votre profil
-                    {CrownPremium(user)}    
+                    {isUserPremium(user) &&  <CrownPremium/>}    
                 </div>
                 
                 <div className={styles.feedback_container}>

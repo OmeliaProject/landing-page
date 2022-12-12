@@ -71,7 +71,7 @@ const NavbarBeta: FunctionComponent = () =>
             <Link href="/beta/premium">
                 <Button type={ButtonType.PRIMARY} classNameTweak={styles.option}>
                     Premium
-                    {CrownPremium(user) || ""}
+                    <CrownPremium/>
                 </Button>
             </Link>
         )

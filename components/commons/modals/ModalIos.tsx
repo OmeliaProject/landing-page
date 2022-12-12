@@ -14,9 +14,9 @@ export const ModalIOS : FC= ({}) =>
         promiseToast(
             api.user.inviteToIosBeta(),
             {
-                pending: "Sending invite...",
-                success: "Invite sent!",
-                error: "Failed to send invite"
+                pending: "Envoie de l'invation...",
+                success: "Invitation envoyée!",
+                error: "Erreur lors de l'envoie de l'invitation."
             }
         )
     }

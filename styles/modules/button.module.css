@@ -1,5 +1,5 @@
 .button {
-    composes: button from '../modules/components.module.css';    
+    composes: button from './components.module.css';    
 
     text-align: center;
     cursor: pointer;
@@ -32,16 +32,17 @@
     color: var(--dark-color);
     text-decoration: underline;
     opacity: 0.5;
+
 }
 
 .button:hover[data-type="primary"],
 .button:hover[data-type="secondary"] {
-    box-shadow: 5px 5px 0px 0 rgba(var(--primary-color-rgb), 0.2);
+    box-shadow: 5px 5px 0px 0 rgba(var(--primary-color-rgb), 0.4);
 }
 
 .button:active[data-type="primary"],
 .button:active[data-type="secondary"] {
-    box-shadow: 3px 3px 0px 0 rgba(var(--primary-color-rgb), 0.2);
+    box-shadow: 3px 3px 0px 0 rgba(var(--primary-color-rgb), 0.4);
 }
 
 .button:hover[data-type="tertiary"]{

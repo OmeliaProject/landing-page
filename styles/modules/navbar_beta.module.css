@@ -88,6 +88,8 @@
     composes : button from "./components.module.css";
     font-size: 1.5rem;
     display: block;
+    position: relative;
+    width: fit-content;
 }
 
 .option_container {
@@ -97,12 +99,24 @@
     justify-content: space-around;
 }
 
-.option:hover {
-    text-decoration: underline;
+.option::after {
+  content: '';
+  width: 0px;
+  height: 2px;
+  background: var(--dark-color);
+  transition: 300ms;
+  position: absolute;
+  bottom: -3px;
+  left: 0px;
 }
 
-.option:hover:last-child {
-    text-decoration: none;
+.option:hover::after {
+  width: 100%;
+}
+
+
+.option:last-child::after {
+    display: none;
 }
 
 .hamburger {

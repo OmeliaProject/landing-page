@@ -46,7 +46,7 @@ function Feedbacks() {
                     </div>
                     <Link passHref href={"/beta/feedbacks/add"} >
                         <Button classNameTweak={styles.button} type={ButtonType.PRIMARY}>
-                            Ajouter votre avis !
+                            Ajoutez votre avis !
                         </Button>
                     </Link>
 

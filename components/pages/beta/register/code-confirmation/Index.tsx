@@ -7,6 +7,7 @@ import { useState } from "react";
 import { FormInput } from "@components/commons/FormInput";
 import { Button, ButtonType } from "@components/commons/Button";
 import { useRouter } from "next/router";
+import { promiseToast } from "@components/commons/promiseToast";
 
 interface CodeConfirmationRegisterProps {
     
@@ -19,17 +20,23 @@ const CodeConfirmationRegister : NextPage<CodeConfirmationRegisterProps> = () =>
     const [code, setCode] = useState("");
     const [email, setEmail] = useState("");
 
-    const sendEmailCodeConfirmationRegister = async () => {
-        try {
-            await api.user.confirmPasswordCreation({
+    const sendEmailCodeConfirmationRegister = () => {
+
+        promiseToast(
+            api.user.confirmPasswordCreation({
                 email: email,
                 code: code,
             })
-            
+            , 
+            {
+                pending: "Confirmation de votre mots de passe...",
+                error: "Une erreur est survenue !",
+                success: "Erreur lors de le confirmation de votre mots de passe."
+            }
+        ).then( () => {
             router.push("/beta/login");
-        } catch (error) {
-            console.log(error);
-        }
+            }
+        )
     }
 
     return (
