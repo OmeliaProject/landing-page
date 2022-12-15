@@ -46,9 +46,19 @@ const Profil : NextPage<ProfilProps> = () =>
         api.user.signOut();
         router.push("/beta");
     }
-    const deleteAccount = async () => {
-        await api.user.deleteAccount();
-        router.push("/beta");
+
+    const deleteAccount = () => {
+        promiseToast(
+            api.user.deleteAccount()
+        ,
+        {
+            success : "Votre profil a bien été supprimé.",
+            error : "Erreur lors de la demande de supression.",
+            pending : "Envoie de la demande de supression."
+            
+        }).then(() => {
+            router.push("/beta");
+        })
     }
     
     const deleteFeedback = (id: number) => {
@@ -62,7 +72,6 @@ const Profil : NextPage<ProfilProps> = () =>
             ).then(() => {
                 setFeedbacks(feedbacks.filter(feedback => feedback.id !== id));
             })
-
     }
 
     useEffect(() => {
