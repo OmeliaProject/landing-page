@@ -115,7 +115,7 @@
 }
 
 
-.option:last-child::after {
+.option[data-premium="true"]:after {
     display: none;
 }
 

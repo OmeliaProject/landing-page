@@ -69,7 +69,7 @@ const NavbarBeta: FunctionComponent = () =>
 
         return (
             <Link href="/beta/premium">
-                <Button type={ButtonType.PRIMARY} classNameTweak={styles.option}>
+                <Button settings={{"data-premium":"true"}} type={ButtonType.PRIMARY} classNameTweak={styles.option}>
                     Premium
                     <CrownPremium/>
                 </Button>

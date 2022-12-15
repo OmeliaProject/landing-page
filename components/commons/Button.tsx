@@ -23,7 +23,7 @@ const Button: FunctionComponent<ButtonProps> = ({type, children, classNameTweak 
     return (
         <button 
             onClick={onClick} 
-            className={` ${classNameTweak} ${styles.button} ${fullwidthStyles}`}
+            className={`${classNameTweak} ${styles.button} ${fullwidthStyles}`}
             data-type={type}
             {... settings}
         >
